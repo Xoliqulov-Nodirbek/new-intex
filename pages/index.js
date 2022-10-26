@@ -3,9 +3,11 @@ import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero'
 import Popular from '../components/Popular/Popular'
 import SiteLogo from "../public/Assets/Images/i-logo.svg"
-
+import { useSelector } from 'react-redux'
 
 export default function Home() {
+  const categories = useSelector((state) => state.data)
+  console.log(categories)
   return (
     <div >
       <Head>
