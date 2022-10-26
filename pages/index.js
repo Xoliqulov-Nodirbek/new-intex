@@ -4,6 +4,7 @@ import Hero from '../components/Hero/Hero'
 import Popular from '../components/Popular/Popular'
 import SiteLogo from "../public/Assets/Images/i-logo.svg"
 
+
 export default function Home() {
   return (
     <div >
@@ -15,6 +16,21 @@ export default function Home() {
       <Header/> {/* Nurillo Headerni oldi  */}
       <Hero/> {/*Nurillo Hero oldi*/}
       <Popular/> {/*Nozimjon Популярные товары oldi*/}
+
+       <h1 className="text-green-transparent  text-5xl font-bold text-black-black_dark w-426 ">
+        Бассейны от intex в Ташкенте
+      </h1>
+      {categories.length &&
+        categories.map((category) => {
+          return (
+            <div key={category.id}>
+              <ul>
+                <li className={category.status === "Хит продаж" ? "p-2 w-36 text-white bg-red-xit" : ""} >{category.status} 
+                </li>
+              </ul>
+            </div>
+          )
+        })}
     </div>
   )
 }
