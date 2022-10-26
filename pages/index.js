@@ -26,6 +26,7 @@ export default function Home() {
             <div key={category.id}>
               <ul>
                 <li className={category.status === "Хит продаж" ? "p-2 w-36 text-white bg-red-xit" : ""} >{category.status} 
+                
                 </li>
               </ul>
             </div>
