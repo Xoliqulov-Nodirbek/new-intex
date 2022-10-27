@@ -41,7 +41,7 @@ function Header() {
 			<div className='w-container mx-auto px-5'>
 				<div>
 					<div>
-						
+						{/* bOSHLASH */}
 					</div>
 				</div>
 			</div>
