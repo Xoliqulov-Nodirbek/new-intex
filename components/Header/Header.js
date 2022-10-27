@@ -13,6 +13,7 @@ function Header() {
 						<p className='text-sm text-gray-text font-medium hover:scale-105 duration-150'>
 							10:00 - 22:00 Без выходных
 						</p>
+						
 						<a
 							className='text-base font-bold hover:scale-105 duration-150 text-blue-accent'
 							href='tel:+998901288182'>
