@@ -15,13 +15,7 @@ body {
   list-style: none;
   text-decoration: none;
 }
-.categoryItem{
-  padding-right: 15px;
-  background-image: url("../public/Assets/Images/drop.svg");
-  background-repeat: no-repeat;
-  background-position-x: right;
-  background-position-y: 9px;
-}
+
 
 .categoryItem:hover .drop-down-list{
   transform: translateY(0);
@@ -30,10 +24,4 @@ body {
 #language:hover #langDrop {
   transform: translateY(55px);
   opacity: 1;
-}
-.searching-input{
-  background-image:url("../public/Assets/Images/search.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10px;
-  background-position-y:center;
 }
