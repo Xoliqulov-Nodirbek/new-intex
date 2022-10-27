@@ -35,6 +35,19 @@ module.exports = {
         },
       },
       width: {
+
+        container: '1220px',
+        heroContent:'447px',
+        cardWidth: '280px',
+        inputWidth:'260px',
+        mobileInputWidth:'219px',
+        resCardWidth:"220px",
+        orderBtn:"248px",
+        resOrderBtn:"196px",
+        '410': '410px',
+        '426': '426px',
+        '219': '219px',
+
         cardWidth: '280px',
         resCardWidth: '220px',
         orderBtn: '248px',
@@ -52,8 +65,9 @@ module.exports = {
       maxHeight: {
         '153': '154px',
         '430': '430px',
+
       },
-      height: {
+      height:{
         cardHeight: '220px',
         resCardHeight: '347px',
         orderBtn: '48px',

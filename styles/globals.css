@@ -42,8 +42,42 @@ body {
   list-style: none;
   text-decoration: none;
 }
-
 img{
   width: auto;
   height: auto;
+}
+.category{
+  background-image: url("../public/Assets/Images/drop-img.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: 10px;
+}
+#input-searching{
+  background-image: url("../public/Assets/Images/searching.svg");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position:calc(50% - 107px) ;
+}
+.hero-bg{
+  width: 571px;
+  height: 319px;
+}
+.category:hover .category-list{
+  transform: translateY(12px);
+  opacity: 1;
+}
+.language-wrap:hover .language-list{
+  transform: translateY(64px);
+  opacity: 1;
+}
+
+@media only screen and (max-width:640px){
+  #input-searching{
+    background-position:calc(50% - 95px) ;
+  }
+}
+@media only screen and (max-width:444px){
+  .mobileFull{
+    width: 100%;
+  }
 }
