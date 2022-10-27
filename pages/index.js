@@ -1,8 +1,7 @@
 
+import Main from '../components/Main/Main';
 import Head from 'next/head';
 import Header from '../components/Header/Header';
-// import Hero from '../components/Hero/Hero'
-// import Popular from '../components/Popular/Popular'
 
 export default function Home() {
 	return (
@@ -13,8 +12,8 @@ export default function Home() {
 				<link rel='icon' href={''} />
 			</Head>
 			<Header /> {/*Nurillo Headerni oldi*/}
-			{/* <Hero/> Nurillo Hero oldi */}
-			{/* <Popular/> Nozimjon Популярные товары oldi */}
+			<Main/>  {/* Main componentaga otilar shu yerga bolib qoyganman */}
+
 		</>
 	);
 
