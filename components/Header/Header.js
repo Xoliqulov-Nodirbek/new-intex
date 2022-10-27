@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/dist/client/image';
+import Image from 'next/image';
 import { useState } from 'react';
+import SiteLogo from '../../public/Assets/Images/SiteLogo/SiteLogo';
 
 function Header() {
 	const [lang, setLang] = useState('Ru');
@@ -25,12 +26,16 @@ function Header() {
 								</Link>
 							</div>
 							<div className='hover:scale-105 duration-150'>
-								<Link className='text-sm font-medium text-gray-text ml-6' href={'/'}>
+								<Link
+									className='text-sm font-medium text-gray-text ml-6'
+									href={'/'}>
 									Почему мы?
 								</Link>
 							</div>
 							<div className='hover:scale-105 duration-150'>
-								<Link className='text-sm font-medium text-gray-text ml-6 ' href={'/'}>
+								<Link
+									className='text-sm font-medium text-gray-text ml-6 '
+									href={'/'}>
 									Контакты
 								</Link>
 							</div>
@@ -41,7 +46,12 @@ function Header() {
 			<div className='w-container mx-auto px-5'>
 				<div>
 					<div>
-						{/* {/* bOSHLASH  */}
+						<Link href={'/'}>
+							<SiteLogo/>
+						</Link>
+						<div>
+							{/* <Link></Link> */}
+						</div>
 					</div>
 				</div>
 			</div>
