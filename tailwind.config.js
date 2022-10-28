@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'tablet': '850px',
+      },
       colors: {
         black: {
           black_dark: '#24283A',
@@ -65,7 +68,7 @@ module.exports = {
       maxHeight: {
         '153': '154px',
         '430': '430px',
-
+        '237':'237px'
       },
       height:{
         cardHeight: '220px',
@@ -77,7 +80,11 @@ module.exports = {
         '520': '520px',
         '577': '577px',
         '237': '237px',
+        '207': '207px',
+        '153':'153px',
+        '135':'135px',
         '93': '93px',
+        '83': '83px'
       },
       boxShadow: {
         order_btn:

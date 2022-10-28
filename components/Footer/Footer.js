@@ -13,8 +13,8 @@ import Clock from '../../public/Assets/Images/FooterSvg/Clock.svg'
 const Footer = () => {
   return (
     <footer className="w-full bg-gray-bg_main ">
-      <div className="max-w-container w-full mx-auto pt-14">
-        <div className="flex justify-between ">
+      <div className="max-w-container w-full mx-auto pt-14  ">
+        <div className="px-6 xl:px-0 sm:grid sm:grid-cols-2 sm:gap-y-10 tablet:flex tablet:justify-between pb-4 ">
           <div className="max-w-281 w-full">
             <div>
               <Image
@@ -31,63 +31,87 @@ const Footer = () => {
               отдыха всей семьи
             </p>
             <div className=" max-w-237 px-1 mt-7 flex justify-between ">
-              <Image
-                src={facebook}
-                className="w-9 h-9"
-                width={36}
-                height={36}
-                alt="facebook"
-              />
+              <a href='https://www.facebook.com/' target="blank" >
+                <Image
+                  src={facebook}
+                  className="w-9 h-9 hover:scale-105 transition-all"
+                  width={36}
+                  height={36}
+                  alt="facebook"
+                />
+              </a>
+              <a href='https://www.linkedin.com/in/ibrokhim-ismoilov-876280221/' target="blank" >
               <Image
                 src={Linkedin}
-                className="w-9 h-9"
+                className="w-9 h-9 hover:scale-105 transition-all"
                 width={36}
                 height={36}
                 alt="linkedin"
               />
+              </a>
+              <a href='https://www.instagram.com/' target="blank" >
               <Image
                 src={Instagram}
-                className="w-9 h-9"
+                className="w-9 h-9 hover:scale-105 transition-all"
                 width={36}
                 height={36}
                 alt="instagram"
               />
+              </a>
+              <a href='https://twitter.com/' target="blank" >
               <Image
                 src={Twitter}
-                className="w-9 h-9"
+                className="w-9 h-9 hover:scale-105 transition-all"
                 width={36}
                 height={36}
                 alt="twitter"
               />
+              </a>
             </div>
           </div>
-          <div>
+
+          <div className=' mt-6 sm:mt-0' >
             <p className="text-black-black_dark font-bold text-lg">
               Полезные ссылки
             </p>
-            <ul className="text-sm text-gray-foot mt-6 h-237 flex flex-col justify-between">
-              <li className='cursor-pointer hover:text-black-black_dark ' >О Продукт</li>
-              <li className='cursor-pointer hover:text-black-black_dark ' >Почему мы?</li>
-              <li className='cursor-pointer hover:text-black-black_dark ' >Контакты</li>
-              <li className='cursor-pointer hover:text-black-black_dark ' >Категории</li>
-              <li className='cursor-pointer hover:text-black-black_dark ' >Популярное</li>
-              <li className='cursor-pointer hover:text-black-black_dark ' >Новинки</li>
-              <li className='cursor-pointer hover:text-black-black_dark ' >На скидке</li>
+            <ul className="text-sm text-gray-foot mt-4 tablet:mt-6 h-207 tablet:h-237 flex flex-col justify-between">
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                О Продукт
+              </li>
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                Почему мы?
+              </li>
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                Контакты
+              </li>
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                Категории
+              </li>
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                Популярное
+              </li>
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                Новинки
+              </li>
+              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+                На скидке
+              </li>
             </ul>
           </div>
-          <div>
+          <div className="max-w-237 mt-6 sm:mt-0">
             <p className="text-black-black_dark font-bold text-lg">
               Центр помощи
             </p>
-            <ul className="text-sm text-gray-foot mt-6 h-93 flex flex-col justify-between">
+            <ul className=" text-sm text-gray-foot mt-4 tablet:mt-6 h-83 tablet:h-93 flex flex-col justify-between">
               <li>Доставка и оплата</li>
               <li>Часто задаваемые вопросы</li>
               <li>Политика конфиденциальности</li>
             </ul>
           </div>
-          <div>
+
+          <div className=' mt-6 sm:mt-0'>
             <p className="text-black-black_dark font-bold text-lg">Адрес</p>
-            <div className="max-h-153 h-full mt-6 flex flex-col justify-between ">
+            <div className=" h-135 tablet:h-153 mt-4 tablet:mt-6 flex flex-col justify-between ">
               <div className=" flex max-w-290">
                 <Image
                   src={Location}
@@ -137,10 +161,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-4">
+        <div className="px-6 xl:px-0">
           <hr className="w-full bg-gray-200 h-0.5" />
-          <p className='text-gray-foot py-7' >
-            INTEX-MARKET © 2022, Разработано в Support Solutions Все права защищены.
+          <p className="text-gray-foot pt-4 pb-10 sm:py-7">
+            INTEX-MARKET © 2022, Разработано в Support Solutions Все права
+            защищены.
           </p>
         </div>
       </div>
