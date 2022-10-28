@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Popular() {
+function SaleProducts() {
   return (
     <div>
         {/* Nozimjon yozmoqda */}
@@ -8,4 +8,4 @@ function Popular() {
   )
 }
 
-export default Popular
+export default SaleProducts

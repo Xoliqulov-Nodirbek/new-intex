@@ -104,7 +104,7 @@ function Header() {
 								placeholder='Поиск'
 								aria-label='Enter your searching'
 							/>
-							<button className='bg-white hidden sm:flex ml-8 w-11 h-11 hover:scale-110 duration-150 hover:shadow-lg flex items-center justify-center cursor-pointer rounded-xl'>
+							<button className='bg-white hidden sm:flex ml-8 w-11 h-11 hover:scale-110 duration-150 hover:shadow-lg  items-center justify-center cursor-pointer rounded-xl'>
 								<Image
 									className='w-6 h-6'
 									src={BlogImg}
@@ -124,7 +124,7 @@ function Header() {
 								/>
 							</a>
 
-							<div className='bg-white language-wrap cursor-pointer relative sm:flex ml-8 w-20 flex items-center justify-between py-3 pl-1 pr-2 rounded-md'>
+							<div className='bg-white language-wrap hidden cursor-pointer relative sm:flex ml-8 w-20  items-center justify-between py-3 pl-1 pr-2 rounded-md'>
 								<Image
 									className='w-7 h-5'
 									src={russiaFlag}
@@ -155,7 +155,7 @@ function Header() {
 					</div>
 				</div>
 			</div>
-			<div className=' flex py-3.5 px-5 items-center justify-between md:hidden'>
+			<div className=' flex py-3.5 px-5 items-center justify-between sm:hidden'>
 				<Image
 					className='w-7 h-7'
 					src={hamburgerMenu}
