@@ -13,8 +13,8 @@ export default function Home() {
 				<link rel='icon' href={''} />
 			</Head>
 
-			<Header /> {/*Nurillo Headerni oldi*/}
-			<Main/>  {/* Main componentaga otilar shu yerga bolib qoyganman */}
+			{/* <Header /> Nurillo Headerni oldi */}
+			{/* <Main/>  Main componentaga otilar shu yerga bolib qoyganman */}
 
 			{/* <Header /> Nurillo Headerni oldi */}
 			{/* <Hero/> Nurillo Hero oldi */}
