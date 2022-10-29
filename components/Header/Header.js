@@ -242,24 +242,19 @@ function Header() {
 			<div className='flex py-3.5 px-5 items-center justify-between md:hidden'>
 				<Image
 					className='w-7 h-7 cursor-pointer'
-
-			<div className='flex py-3.5 px-5 items-center justify-between sm:hidden'>
-				<Image
-					className='w-6 h-6'
-
 					src={hamburgerMenu}
-					width={22}
-					height={20}
+					width={26}
+					height={19}
 					alt='Hamburger Manu'
 				/>
 				<input
 					id='input-searching'
-					className='w-mobileInputWidth sm:w-inputWidth py-2 rounded-xl pl-6 sm:pl-9 outline-none'
+					className='w-mobileInputWidth sm:w-inputWidth py-3 rounded-xl pl-6 sm:pl-9 outline-none'
 					type='text'
 					placeholder=''
 					aria-label='Enter your searching'
 				/>
-				<button className='bg-white w-10 h-10  flex items-center justify-center cursor-pointer rounded-xl'>
+				<button className='bg-white w-11 h-11  flex items-center justify-center cursor-pointer rounded-xl'>
 					<Image
 						className='w-6 h-6'
 						src={BlogImg}
