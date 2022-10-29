@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         'tablet': '850px',
+        'mini_tablet': '790px',
       },
       colors: {
         black: {
@@ -38,6 +39,7 @@ module.exports = {
         },
       },
       width: {
+        tashkentPoolsImg: '478px',
         heroImg:'571px',
         heroImgMobile:'320px',
         container: '1220px',
@@ -96,6 +98,7 @@ module.exports = {
       borderRadius: {
         labelRadius: '0px 8px 8px 0px',
         btn_radius: '12px',
+        sectionRadius: "20px",
       },
     },
   },
