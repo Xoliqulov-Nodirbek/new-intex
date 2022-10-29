@@ -38,7 +38,8 @@ module.exports = {
         },
       },
       width: {
-
+        heroImg:'571px',
+        heroImgMobile:'320px',
         container: '1220px',
         heroContent:'447px',
         cardWidth: '280px',
@@ -71,6 +72,8 @@ module.exports = {
         '237':'237px'
       },
       height:{
+        heroimgHeight:'319px',
+        heriImgMobile:'160px',
         cardHeight: '220px',
         resCardHeight: '347px',
         orderBtn: '48px',

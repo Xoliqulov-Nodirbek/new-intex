@@ -1,5 +1,5 @@
 import React from 'react';
-import CallBtn from '../CallBtn/CallBtn';
+import CallBtn from '../ComponetntModuls/CallBtn/CallBtn';
 import HeroBg from '../../public/Assets/Images/hero-bg.png';
 import Image from 'next/image';
 function Hero() {
@@ -20,13 +20,24 @@ function Hero() {
 							<CallBtn />
 						</div>
 					</div>
-					<Image
-						id='hero-bg'
-						src={HeroBg}
-						width={571}
-						height={319}
-						alt='Hero Bg'
-					/>
+					<div className='flex justify-end'>
+						<Image
+							className='w-heroImg h-heroimgHeight hidden sm:inline-block'
+							id='hero-bg'
+							src={HeroBg}
+							width={571}
+							height={319}
+							alt='Hero Bg'
+						/>
+						<Image
+							className='w-heroImgMobile h-heriImgMobile sm:hidden '
+							id='hero-bg'
+							src={'/Assets/Images/heroMobile.png'}
+							width={320}
+							height={160}
+							alt='Hero Bg'
+						/>
+					</div>
 					<div className='sm:hidden mt-7 pr-4'>
 						<CallBtn />
 					</div>

@@ -13,7 +13,7 @@ import Clock from '../../public/Assets/Images/FooterSvg/Clock.svg'
 const Footer = () => {
   return (
     <footer className="w-full bg-gray-bg_main ">
-      <div className="max-w-container w-full mx-auto pt-14  ">
+      <div className="max-w-container w-full mx-auto pt-14 px-5 ">
         <div className="px-6 xl:px-0 sm:grid sm:grid-cols-2 sm:gap-y-10 tablet:flex tablet:justify-between pb-4 ">
           <div className="max-w-281 w-full">
             <div>
@@ -75,25 +75,25 @@ const Footer = () => {
               Полезные ссылки
             </p>
             <ul className="text-sm text-gray-foot mt-4 tablet:mt-6 h-207 tablet:h-237 flex flex-col justify-between">
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointer ">
                 О Продукт
               </li>
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointer ">
                 Почему мы?
               </li>
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointe ">
                 Контакты
               </li>
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointe ">
                 Категории
               </li>
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointe ">
                 Популярное
               </li>
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointe ">
                 Новинки
               </li>
-              <li className="cursor-pointer hover:text-gray-500 hover:font-semibold ">
+              <li className="cursor-pointe ">
                 На скидке
               </li>
             </ul>
@@ -132,9 +132,9 @@ const Footer = () => {
                   height={19}
                   alt="Phone"
                 />
-                <p className="text-sm pl-1 text-gray-foot">
+                <a href="tel:+998901288182" className="text-sm pl-1 text-gray-foot">
                   +998 (90) 128 81 82
-                </p>
+                </a>
               </div>
               <div className="flex">
                 <Image
@@ -144,7 +144,7 @@ const Footer = () => {
                   height={19}
                   alt="Message"
                 />
-                <p className="text-sm pl-1 text-gray-foot">Intex@gmail.com</p>
+                <a href="mailto:Intex@gmail.com" className="text-sm pl-1 text-gray-foot">Intex@gmail.com</a>
               </div>
               <di className="flex">
                 <Image
