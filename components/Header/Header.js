@@ -4,20 +4,35 @@ import Image from 'next/image';
 import { useState } from 'react';
 import SiteLogo from '../../public/Assets/Images/HeaderAndHeroImg/siteLogo.svg';
 import BlogImg from '../../public/Assets/Images/HeaderAndHeroImg/block-img.svg';
-import russiaFlag from '../../public/Assets/Images/HeaderAndHeroImg/russia-flag.svg';
 import hamburgerMenu from '../../public/Assets/Images/HeaderAndHeroImg/hamburger.svg';
 import phoneImg from '../../public/Assets/Images/HeaderAndHeroImg/phone-img.svg';
 import logoMobile from '../../public/Assets/Images/HeaderAndHeroImg/logoMobile.svg';
-import UZBflag from '../../public/Assets/Images/HeaderAndHeroImg/uzb-flag.svg';
-import USAflag from '../../public/Assets/Images/HeaderAndHeroImg/usa-flag.svg';
+
 
 function Header() {
 	const [open, setOpen] = useState(false);
 	const [openLang, setOpenLang] = useState(false);
+
+	const [flagImg , setFlagImg ] = useState("/Assets/Images/HeaderAndHeroImg/russia-flag.svg")
+	const [flagName, setFlagName] = useState("Ru")
+	function handleClickedFlag(evt) {
+		setFlagName(evt.target.textContent)
+		if(evt.target.textContent == "Uz"){
+			setFlagImg("/Assets/Images/HeaderAndHeroImg/uzb-flag.svg")
+		}
+		if(evt.target.textContent == "Us"){
+			setFlagImg("/Assets/Images/HeaderAndHeroImg/usa-flag.svg")
+		}
+		if(evt.target.textContent == "Ru"){
+			setFlagImg("/Assets/Images/HeaderAndHeroImg/russia-flag.svg")
+		}
+	}
+
+
 	return (
-		<header id='header' className='bg-gray-bg_nav fixed w-full top-0 shadow-sm'>
+		<header id='header' className='bg-gray-bg_nav fixed z-50 w-full top-0 shadow-sm'>
 			<div className='hidden md:block py-3 border-b-2'>
-				<div className='max-w-[1220px] mx-auto px-5'>
+				<div className='w-full max-w-container mx-auto px-5'>
 					<div className='flex items-center justify-between'>
 						<p className='text-sm text-gray-text font-medium'>
 							10:00 - 22:00 Без выходных
@@ -52,7 +67,7 @@ function Header() {
 				</div>
 			</div>
 			<div className='border-b-2 md:border-none'>
-				<div className='max-w-[1220px] mx-auto px-5 py-3.5 sm:py-4'>
+				<div className='w-full max-w-container mx-auto px-5 py-3.5 sm:py-4'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center'>
 							<Link href={'/'}>
@@ -152,7 +167,7 @@ function Header() {
 								placeholder='Поиск'
 								aria-label='Enter your searching'
 							/>
-							<button className='bg-white z-50 hidden sm:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl'>
+							<button className='bg-white z-50 hidden md:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl'>
 								<Image
 									className='w-6 h-6'
 									src={BlogImg}
@@ -178,12 +193,12 @@ function Header() {
 									className='bg-white relative language-wrap hidden cursor-pointer sm:flex ml-8 w-20  items-center justify-between py-3 z-40 pl-1 pr-2 rounded-md'>
 									<Image
 										className='w-7 h-5'
-										src={russiaFlag}
+										src={flagImg}
 										width={28}
 										height={20}
 										alt='Flag Russia'
 									/>
-									<span>Ru</span>
+									<span>{flagName}</span>
 									<Image
 										className={`${
 											openLang
@@ -202,35 +217,36 @@ function Header() {
 											? 'translate-y-0.5 opacity-1'
 											: '-translate-y-16 opacity-0'
 									} duration-300 absolute cursor-pointer shadow-lg rounded-md right-0 w-20 bg-white flex flex-col`}>
-									<li className='flex pt-3 pl-3 pr-4 pb-1.5 items-center justify-between'>
-										<Image
-											className='w-7 h-5'
-											src={UZBflag}
-											width={28}
-											height={20}
-											alt='Uzbek language'
-										/>
+									<li onClick={handleClickedFlag} className='items-lang flex  pt-3 pl-3 pr-4 pb-1.5 items-center justify-end'>
+
 										Uz
 									</li>
-									<li className='flex pl-3 pt-1.5 pr-4  pb-3 items-center justify-between'>
-										<Image
-											className='w-7 h-5'
-											src={USAflag}
-											width={28}
-											height={20}
-											alt='USA language'
-										/>
+									<li onClick={handleClickedFlag} className='items-lang flex pl-3 pt-1.5 pr-4  pb-3 items-center justify-end'>
+
 										Us
+									</li>
+									<li onClick={handleClickedFlag} className='items-lang flex pl-3 pr-4  pb-3 items-center justify-end'>
+
+										Ru
 									</li>
 								</ul>
 							</div>
+							<button className='hidden cursor-pointer md:inline-block ml-3 xl:hidden'>
+								<Image className='w-8 h-5' src={'/Assets/Images/HeaderAndHeroImg/hamburger.svg'} width={32} height={20} alt="Hamburger Menu"/>
+							</button>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div className='flex py-3.5 px-5 items-center justify-between md:hidden'>
+				<Image
+					className='w-7 h-7 cursor-pointer'
+
 			<div className='flex py-3.5 px-5 items-center justify-between sm:hidden'>
 				<Image
 					className='w-6 h-6'
+
 					src={hamburgerMenu}
 					width={22}
 					height={20}
