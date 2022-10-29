@@ -3,7 +3,7 @@ import React from "react";
 
 function TashkentPools() {
   return (
-    <section className="my-40">
+    <section className="mt-8 mb-10 md:my-40">
       <div className="md:max-w-container w-full bg-gray-bg_main mx-auto px-5">
         <div className="md:bg-gray-bg_main rounded-sectionRadius md:px-8 pt-10">
           <h2 className="font-bold text-lg lg:text-3xl text-black-black_dark">
