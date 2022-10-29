@@ -16,17 +16,6 @@ export default function Home() {
 			<Header /> {/*Nurillo Headerni oldi*/}
 			<Main/>  {/* Main componentaga otilar shu yerga bolib qoyganman */}
 			<Footer /> {/*Ibrohim Footerni bajardi*/}
-
-
-			{/* <Header /> Nurillo Headerni oldi */}
-			{/* <Main/>  Main componentaga otilar shu yerga bolib qoyganman */}
-
-			{/* <Header /> Nurillo Headerni oldi */}
-			{/* <Hero/> Nurillo Hero oldi */}
-			{/* <Popular/> Nozimjon Популярные товары oldi */}
-			<Footer />
-
-
 		</>
 	);
 
