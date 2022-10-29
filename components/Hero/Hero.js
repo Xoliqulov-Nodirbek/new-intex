@@ -1,10 +1,10 @@
 import React from 'react';
 import CallBtn from '../ComponetntModuls/CallBtn/CallBtn';
-import HeroBg from '../../public/Assets/Images/hero-bg.png';
+import HeroBg from '../../public/Assets/Images/HeaderAndHeroImg/hero-bg.png';
 import Image from 'next/image';
 function Hero() {
 	return (
-		<section className='mt-10'>
+		<section className='mt-48'>
 			<div className='max-w-[1220px] mx-auto px-5 '>
 				<div className='bg-gray-bg_main py-6 sm:py-24 pl-4 sm:pl-8 rounded-3xl flex-col lg:flex-row flex lg:items-center justify-between'>
 					<div className='w-full lg:w-heroContent pr-4'>
