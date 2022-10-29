@@ -48,7 +48,7 @@ img{
 }
 
 #input-searching{
-  background-image: url("../public/Assets/Images/searching.svg");
+  background-image: url("../public/Assets/Images/HeaderAndHeroImg/searching.svg");
   background-repeat: no-repeat;
   background-size: 15px;
   background-position:calc(50% - 107px) ;
