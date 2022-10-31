@@ -16,6 +16,7 @@ const BuyAll = () => {
               не менее 20 товаров.
             </p>
             <div className="block md:hidden max-w-362 w-full ">
+              
               <Image
                 src={'/Assets/Images/KarkasHero1.png'}
                 alt="Picture of the Karkas"
