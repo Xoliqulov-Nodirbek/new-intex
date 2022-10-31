@@ -45,6 +45,24 @@ const initialState = [
     capacity: '1662',
     size: '220x240x60см',
   },
+  {
+    id: '6',
+    status: 'Новинки',
+    name: 'Каркасный прямоугольный бассейн ',
+    price: '1 200 000 сум',
+    sale_price: '1 250 000 сум',
+    capacity: '1662',
+    size: '220x240x60см',
+  },
+  {
+    id: '7',
+    status: 'Хит продаж',
+    name: 'Каркасный прямоугольный бассейн ',
+    price: '1 200 000 сум',
+    sale_price: '1 250 000 сум',
+    capacity: '1662',
+    size: '220x240x60см',
+  },
 ]
 const siteProducts = createSlice({
   name: 'products',
