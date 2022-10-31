@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
+
 export default function Home() {
 	return (
 		<>
@@ -14,8 +15,8 @@ export default function Home() {
 			</Head>
 
 			<Header /> {/*Nurillo Headerni oldi*/}
-			<Main/>  {/* Main componentaga otilar shu yerga bolib qoyganman */}
-			<Footer /> {/*Ibrohim Footerni bajardi*/}
+			<Main/>{/* Main componentaga otilar shu yerga bolib qoyganman */}
+			<Footer />{/*Ibrohim Footerni bajardi*/}
 		</>
 	);
 
