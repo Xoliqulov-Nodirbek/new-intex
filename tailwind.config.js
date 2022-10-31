@@ -98,7 +98,7 @@ module.exports = {
       borderRadius: {
         labelRadius: '0px 8px 8px 0px',
         btn_radius: '12px',
-        sectionRadius: "20px",
+        sectionRadius: "20px", 
       },
     },
   },
