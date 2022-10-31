@@ -7,24 +7,45 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
+
+  src: local(""),
+    url("../public/Assets/Fonts/inter-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../public/Assets/Fonts/inter-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+
   src: local(""), url("../public/Assets/Fonts/inter-v12-latin-regular.woff2") format("woff2"),
   url("../public/Assets/Fonts/inter-v12-latin-regular.woff") format("woff");
+
 }
 /* inter-500 - latin */
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
+
+  src: local(""),
+    url("../public/Assets/Fonts/inter-v12-latin-500.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../public/Assets/Fonts/inter-v12-latin-500.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+
   src: local(""), url("../public/Assets/Fonts/inter-v12-latin-500.woff2") format("woff2"),
   url("../public/Assets/Fonts/inter-v12-latin-500.woff") format("woff");
+
 }
 /* inter-700 - latin */
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
+
+  src: local(""),
+    url("../public/Assets/Fonts/inter-v12-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../public/Assets/Fonts/inter-v12-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+
   src: local(""), url("../public/Assets/Fonts/inter-v12-latin-700.woff2") format("woff2"),
   url("../public/Assets/Fonts/inter-v12-latin-700.woff") format("woff");
+
 }
 
 html,
@@ -32,7 +53,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
+
+  overflow: hidden;
+
   scroll-behavior: smooth;
+
 }
 
 * {
@@ -82,6 +107,7 @@ img{
 
 
 
+
 @media only screen and (max-width:640px){
   #input-searching{
     background-position:calc(50% - 95px) ;
@@ -92,3 +118,4 @@ img{
     width: 100%;
   }
 }
+
