@@ -1,4 +1,17 @@
 
+import React from 'react';
+
+const Popular = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+}
+
+export default Popular;
+
+
 import ArrowBtn from "../arrowBtn/arrowBtn";
 import ProductCard from "../ProductCard/ProductCard";
 import { useSelector } from "react-redux";
@@ -91,4 +104,5 @@ function Popular() {
 }
 
 export default Popular
+
 
