@@ -1,7 +1,7 @@
 import AboutUs from '../AboutUs/AboutUs'
 import Hero from '../Hero/Hero'
 import NewProduct from '../NewProduct/NewProduct'
-import BuyAll from '../ComponetntModuls/BuyAll/BuyAll'
+import BuyAll from '../BuyAll/BuyAll'
 import TashkentPools from '../TashkentPools/TashkentPools'
 import Popular from '../Popular/Popular'
 

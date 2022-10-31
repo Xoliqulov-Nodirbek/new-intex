@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import BuyForm from '../Forms/BuyForm'
+import BuyForm from '../ComponetntModuls/Forms/BuyForm'
 
 const BuyAll = () => {
   return (
