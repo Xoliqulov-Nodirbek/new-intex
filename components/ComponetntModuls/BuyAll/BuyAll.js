@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import BuyForm from '../ComponetntModuls/CallBtn/Forms/BuyForm'
+import BuyForm from '../Forms/BuyForm'
 
 const BuyAll = () => {
   return (
@@ -16,7 +16,7 @@ const BuyAll = () => {
               не менее 20 товаров.
             </p>
             <div className="block md:hidden max-w-362 w-full ">
-              
+
               <Image
                 src={'/Assets/Images/KarkasHero1.png'}
                 alt="Picture of the Karkas"
