@@ -47,19 +47,19 @@ function Header() {
 							+998 (90) 128 81 82
 						</a>
 						<div className='flex items-center'>
-							<div className=''>
+							<div>
 								<Link className='text-sm font-medium text-gray-text' href={'/'}>
 									О Продукт
 								</Link>
 							</div>
-							<div className=''>
+							<div>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6'
 									href={'/'}>
 									Почему мы?
 								</Link>
 							</div>
-							<div className=''>
+							<div>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6 '
 									href={'/'}>
@@ -103,10 +103,42 @@ function Header() {
 										src={'/Assets/Images/HeaderAndHeroImg/drop-img.svg'}
 										width={9}
 										height={5}
-										alt='Drop img'
+										alt='Drop_img'
 										priority={true}
 									/>
 									<ul
+
+									className={` duration-100 w-28 h-0 overflow-hidden category-list -translate-y-4 opacity-0  absolute bg-white p-3 rounded-xl shadow-lg `}>
+									<li>
+										<Link
+											className='font-normal text-sm inline-block duration-150 text-black-black_thin mb-2'
+											href={'/naduvniy'}>
+											Надувные бассейны
+										</Link>
+									</li>
+									<li>
+										<Link
+											className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
+											href={'/'}>
+											Каркасные бассейны
+										</Link>
+									</li>
+									<li>
+										<Link
+											className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
+											href={'/'}>
+											Все чистки бассейна
+										</Link>
+									</li>
+									<li>
+										<Link
+											className='font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2'
+											href={'/'}>
+											Аксессуары для бассейна
+										</Link>
+									</li>
+								</ul>
+
 										className={` duration-100 w-28 h-0 overflow-hidden category-list -translate-y-4 opacity-0  absolute bg-white p-3 rounded-xl shadow-lg `}>
 										<li>
 											<Link
@@ -137,6 +169,7 @@ function Header() {
 											</Link>
 										</li>
 									</ul>
+
 								</Link>
 
 								<Link

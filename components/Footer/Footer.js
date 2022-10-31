@@ -1,25 +1,16 @@
 import Image from "next/image";
 import React from "react";
-import facebook from "../../public/Assets/Images/FooterSvg/facebook.svg";
-import FooterLogo from "../../public/Assets/Images/FooterSvg/FooterLogo.svg";
-import Linkedin from "../../public/Assets/Images/FooterSvg/Linkedin.svg";
-import Instagram from "../../public/Assets/Images/FooterSvg/Instagram.svg";
-import Twitter from "../../public/Assets/Images/FooterSvg/Twitter.svg";
-import Location from "../../public/Assets/Images/FooterSvg/Location.svg";
-import Phone from "../../public/Assets/Images/FooterSvg/Phone.svg";
-import Message from "../../public/Assets/Images/FooterSvg/Message.svg";
-import Clock from "../../public/Assets/Images/FooterSvg/Clock.svg";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-bg_main mt-8 sm:mt-20">
+    <footer className="w-full bg-gray-bg_main mt-8 sm:mt-12">
       <div className="max-w-container w-full mx-auto pt-14 px-5 ">
         <div className="sm:grid sm:grid-cols-2 sm:gap-y-10 tablet:flex tablet:justify-between pb-4 ">
           <div className="max-w-281 w-full">
             <Link href={'/'}>
               <Image
-                src={FooterLogo}
+                src={`/Assets/Images/FooterSvg/FooterLogo.svg`}
                 className="w-40 h-4"
                 width={164}
                 height={16}
@@ -34,7 +25,7 @@ const Footer = () => {
             <div className=" max-w-237 px-1 mt-7 flex justify-between ">
               <Link href="https://www.facebook.com/" target="blank">
                 <Image
-                  src={facebook}
+                  src={`/Assets/Images/FooterSvg/facebook.svg`}
                   className="w-9 h-9 hover:scale-105 transition-all"
                   width={36}
                   height={36}
@@ -46,7 +37,7 @@ const Footer = () => {
                 target="blank"
               >
                 <Image
-                  src={Linkedin}
+                  src={`/Assets/Images/FooterSvg/Linkedin.svg`}
                   className="w-9 h-9 hover:scale-105 transition-all"
                   width={36}
                   height={36}
@@ -55,7 +46,7 @@ const Footer = () => {
               </Link>
               <Link href="https://www.instagram.com/" target="blank">
                 <Image
-                  src={Instagram}
+                  src={`/Assets/Images/FooterSvg/Instagram.svg`}
                   className="w-9 h-9 hover:scale-105 transition-all"
                   width={36}
                   height={36}
@@ -64,7 +55,7 @@ const Footer = () => {
               </Link>
               <Link href="https://twitter.com/" target="blank">
                 <Image
-                  src={Twitter}
+                  src={`/Assets/Images/FooterSvg/Twitter.svg`}
                   className="w-9 h-9 hover:scale-105 transition-all"
                   width={36}
                   height={36}
@@ -138,7 +129,7 @@ const Footer = () => {
             <div className=" h-135 tablet:h-153 mt-4 tablet:mt-6 flex flex-col justify-between ">
               <div className=" flex max-w-290">
                 <Image
-                  src={Location}
+                  src={`/Assets/Images/FooterSvg/Location.svg`}
                   className="w-5 h-6"
                   width={18}
                   height={23}
@@ -150,7 +141,7 @@ const Footer = () => {
               </div>
               <div className="flex">
                 <Image
-                  src={Phone}
+                  src={`/Assets/Images/FooterSvg/Phone.svg`}
                   className="w-5 h-5"
                   width={18}
                   height={19}
@@ -165,7 +156,7 @@ const Footer = () => {
               </div>
               <div className="flex">
                 <Image
-                  src={Message}
+                  src={`/Assets/Images/FooterSvg/Message.svg`}
                   className="w-5 h-5"
                   width={18}
                   height={19}
@@ -180,7 +171,7 @@ const Footer = () => {
               </div>
               <di className="flex">
                 <Image
-                  src={Clock}
+                  src={`/Assets/Images/FooterSvg/Clock.svg`}
                   className="w-5 h-5"
                   width={18}
                   height={19}
@@ -193,7 +184,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div >
+        <div>
           <hr className="w-full bg-gray-200 h-0.5" />
           <p className="text-gray-foot pt-4 pb-10 sm:py-7">
             INTEX-MARKET © 2022, Разработано в Support Solutions Все права
