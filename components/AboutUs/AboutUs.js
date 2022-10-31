@@ -12,7 +12,7 @@ function AboutUs() {
 					<li className='mb-6 sm:mb-0'>
 						<Image
 							className='w-full sm:w-96 h-56 mb-4'
-							src={'/Assets/Images/about-man.png'}
+							src={'/Assets/Images/HeaderAndHeroImg/about-man.png'}
 							width={380}
 							height={220}
 							alt='About Man Img'
@@ -25,7 +25,7 @@ function AboutUs() {
 					<li className='ml-1 mb-6 sm:mb-0'>
 						<Image
 							className='w-full sm:w-96 h-56 mb-4'
-							src={'/Assets/Images/about-car.png'}
+							src={'/Assets/Images/HeaderAndHeroImg/about-car.png'}
 							width={380}
 							height={220}
 							alt='About Man Img'
@@ -38,7 +38,7 @@ function AboutUs() {
 					<li className='ml-1 mb-6 sm:mb-0'>
 						<Image
 							className='w-full sm:w-96 h-56 mb-4'
-							src={'/Assets/Images/about-pool.png'}
+							src={'/Assets/Images/HeaderAndHeroImg/about-pool.png'}
 							width={380}
 							height={220}
 							alt='About Man Img'

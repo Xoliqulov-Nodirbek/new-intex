@@ -102,7 +102,15 @@ img{
   background-position-x:11px;
   background-position-y: 2px;
 }
-
+#dropdown:hover  .category-list{
+  transform: translateY(12px);
+  width: 210px;
+  height: auto;
+  opacity: 1;
+}
+#dropdown:hover .drop-img{
+  transform: rotate(-180deg);
+}
 
 
 
