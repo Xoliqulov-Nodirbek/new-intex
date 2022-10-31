@@ -211,8 +211,8 @@ function Header() {
 								<ul
 									className={`${
 										openLang
-											? 'translate-y-0.5 opacity-1'
-											: '-translate-y-16 opacity-0'
+										? 'translate-y-0.5 opacity-1 h-auto'
+										: '-translate-y-16 opacity-0 h-2 overflow-hidden '
 									} duration-300 absolute cursor-pointer shadow-lg rounded-md right-0 w-20 bg-white flex flex-col`}>
 									<li
 										onClick={handleClickedFlag}
@@ -257,12 +257,12 @@ function Header() {
 				/>
 				<input
 					id='input-searching'
-					className='w-mobileInputWidth ml-1 sm:w-inputWidth py-2 sm:py-3 rounded-xl pl-8 sm:pl-9 outline-none'
+					className='w-full mx-2 max-w-inputWidth py-2 sm:py-3 rounded-xl pl-8 sm:pl-9 outline-none'
 					type='text'
 					placeholder='Поиск'
 					aria-label='Enter your searching'
 				/>
-				<button className='bg-white ml-1 w-9 h-9 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl'>
+				<button className='bg-white  w-9 h-9 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl'>
 					<Image
 						priority={true}
 						className='w-5 h-5 sm:w-6 sm:h-6'
