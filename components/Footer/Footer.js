@@ -193,7 +193,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="px-6 xl:px-0">
+        <div >
           <hr className="w-full bg-gray-200 h-0.5" />
           <p className="text-gray-foot pt-4 pb-10 sm:py-7">
             INTEX-MARKET © 2022, Разработано в Support Solutions Все права
