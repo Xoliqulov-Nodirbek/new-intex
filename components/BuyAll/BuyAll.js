@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import BuyForm from '../ComponetntModuls/CallBtn/Forms/BuyForm'
+import BuyForm from '../ComponetntModuls/Forms/BuyForm'
 
 const BuyAll = () => {
   return (
@@ -15,7 +15,12 @@ const BuyAll = () => {
               Если вы хотите купить товары по оптовой цене, вы должны заказать
               не менее 20 товаров.
             </p>
+
+            <div className="block md:hidden max-w-362 w-full ">
+
+
             <div className="flex items-center justify-center md:hidden  ">
+
               <Image
                 className="w-335 h-207"
                 src={'/Assets/Images/KarkasHero1.png'}

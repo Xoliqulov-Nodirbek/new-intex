@@ -62,6 +62,21 @@ module.exports = {
       },
       width: {
         heroImg: '571px',
+
+        modalMenu:'300px',
+        heroContent:'450px',
+        heroImgMobile: '320px',
+        respo: "100%",
+        cardWidth: "280px",
+        resCardWidth: "220px",
+        orderBtn: "248px",
+        resOrderBtn: "196px",
+        menuBarWidth:'150px',
+        410: "410px",
+        426: "426px",
+        219: "219px",
+        111: '111px'
+
         heroContent: '450px',
         heroImgMobile: '320px',
         respo: '100%',
@@ -76,6 +91,7 @@ module.exports = {
         426: '426px',
         219: '219px',
         111: '111px',
+
       },
       height: {
         cardHeight: '220px',
@@ -94,6 +110,8 @@ module.exports = {
         resOrderBtn: '196px',
         heroimgHeight: '319px',
         heriImgMobile: '160px',
+        modalMenuHe:'100vh',
+        menuBarHeight:'14px',
         '410': '410px',
         '426': '426px',
         '219': '219px',
@@ -141,10 +159,18 @@ module.exports = {
       borderRadius: {
         labelRadius: '0px 8px 8px 0px',
         btn_radius: '12px',
+
+
+        sectionRadius: "20px",
+
+        sectionRadius: "20px",
+
+
         labelRadius: '0px 8px 8px 0px',
         btn_radius: '12px',
         sectionRadius: '20px',
         sectionRadius: '20px',
+
       },
       fontSize: {
         '32': '32px',
