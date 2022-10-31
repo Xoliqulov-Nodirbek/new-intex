@@ -1,11 +1,13 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 function TashkentPools() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <section className="mt-8 mb-10 md:my-40">
-      <div className="md:max-w-container w-full bg-gray-bg_main mx-auto px-5">
-        <div className="md:bg-gray-bg_main rounded-sectionRadius md:px-8 pt-10">
+      <div className="max-w-[1180px] w-full bg-gray-bg_main mx-auto px-5 rounded-sectionRadius">
+        <div className="md:px-8 pt-10">
           <h2 className="font-bold text-lg lg:text-3xl text-black-black_dark">
             Бассейны от INTEX в Ташкенте
           </h2>
@@ -75,15 +77,15 @@ function TashkentPools() {
               />
               <p className="text-sm lg:text-base">Стильный дизайн</p>
             </div>
-            <div className="block lg:hidden">
-              <Image
-                className="w-heroImgMobile mt-7"
-                src={"/Assets/Images/TashkentPoolsImg/PoolBassMobile.png"}
-                width={390}
-                height={230}
-                alt="Check-image"
-              />
-            </div>
+          </div>
+          <div className="flex justify-center lg:hidden ">
+            <Image
+              className="w-heroImgMobile mt-7"
+              src={"/Assets/Images/TashkentPoolsImg/PoolBassMobile.png"}
+              width={390}
+              height={230}
+              alt="Check-image"
+            />
           </div>
         </div>
       </div>

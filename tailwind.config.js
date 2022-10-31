@@ -147,11 +147,15 @@ module.exports = {
         btn_radius: "12px",
         labelRadius: '0px 8px 8px 0px',
         btn_radius: '12px',
+
+        sectionRadius: "20px", 
+
         sectionRadius: "20px",
 
       },
       fontSize: {
         '32': '32px',
+
       },
     },
   },
