@@ -126,7 +126,8 @@ img{
   .mobileFull{
     width: 100%;
   }
-  /* #input-searching{
-    max-width: 200px;
-  } */
+  #input-searching{
+    padding-left: 30px;
+    background-position-x: 8px;
+  }
 }

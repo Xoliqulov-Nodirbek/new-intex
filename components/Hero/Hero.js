@@ -3,7 +3,7 @@ import CallBtn from '../ComponetntModuls/CallBtn/CallBtn';
 import Image from 'next/image';
 function Hero() {
 	return (
-		<section className='mt-40 sm:mt-48 md:mt-44'>
+		<section className='mt-40 sm:mt-48 md:mt-48'>
 			<div className='w-full max-w-container mx-auto px-5'>
 				<div className='bg-gray-bg_main py-6 sm:py-24 pl-4 sm:pl-8 rounded-3xl flex-col lg:flex-row flex lg:items-center justify-between'>
 					<div className='w-full max-w-container mx-auto px-5 '>
