@@ -43,19 +43,19 @@ function Header() {
 							+998 (90) 128 81 82
 						</a>
 						<div className='flex items-center'>
-							<div className=''>
+							<div>
 								<Link className='text-sm font-medium text-gray-text' href={'/'}>
 									О Продукт
 								</Link>
 							</div>
-							<div className=''>
+							<div>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6'
 									href={'/'}>
 									Почему мы?
 								</Link>
 							</div>
-							<div className=''>
+							<div>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6 '
 									href={'/'}>
@@ -99,7 +99,7 @@ function Header() {
 										src={'/Assets/Images/HeaderAndHeroImg/drop-img.svg'}
 										width={9}
 										height={5}
-										alt='Drop img'
+										alt='Drop_img'
 										priority={true}
 									/>
 									<ul
@@ -107,7 +107,7 @@ function Header() {
 									<li>
 										<Link
 											className='font-normal text-sm inline-block duration-150 text-black-black_thin mb-2'
-											href={'/'}>
+											href={'/naduvniy'}>
 											Надувные бассейны
 										</Link>
 									</li>
