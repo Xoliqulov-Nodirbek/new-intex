@@ -80,7 +80,7 @@ function TashkentPools() {
           </div>
           <div className="flex justify-center lg:hidden ">
             <Image
-              className="w-heroImgMobile mt-7"
+              className="w-tashkentPoolsImg mt-7"
               src={"/Assets/Images/TashkentPoolsImg/PoolBassMobile.png"}
               width={390}
               height={230}
