@@ -1,3 +1,4 @@
+
 import ArrowBtn from "../arrowBtn/arrowBtn";
 import ProductCard from "../ProductCard/ProductCard";
 import { useSelector } from "react-redux";
@@ -78,3 +79,16 @@ function Popular() {
 }
 
 export default Popular;
+
+import React from 'react'
+
+function Popular() {
+  return (
+    <div>
+        {/* Nozimjon yozmoqda */}
+    </div>
+  )
+}
+
+export default Popular
+
