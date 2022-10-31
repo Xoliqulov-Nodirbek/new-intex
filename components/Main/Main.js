@@ -3,6 +3,7 @@ import Hero from '../Hero/Hero'
 import NewProduct from '../NewProduct/NewProduct'
 import SellCommon from '../BuyAll/BuyAll'
 import TashkentPools from '../TashkentPools/TashkentPools'
+import Popular from '../Popular/Popular'
 
 function Main() {
   return (
@@ -12,7 +13,7 @@ function Main() {
         <NewProduct/> {/*Nozimjon New Product sectionni oldi*/}
         <SellCommon/> {/*Ibrohim sell common sectionni oldi*/}
         <AboutUs/> {/* Nurillo About sectionni oldi */}
-
+        <Popular />
     </main>
   )
 }
