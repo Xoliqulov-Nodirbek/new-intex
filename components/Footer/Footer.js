@@ -13,7 +13,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-bg_main ">
+    <footer className="w-full bg-gray-bg_main mt-8 sm:mt-20">
       <div className="max-w-container w-full mx-auto pt-14 px-5 ">
         <div className="sm:grid sm:grid-cols-2 sm:gap-y-10 tablet:flex tablet:justify-between pb-4 ">
           <div className="max-w-281 w-full">
@@ -193,7 +193,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="px-6 xl:px-0">
+        <div >
           <hr className="w-full bg-gray-200 h-0.5" />
           <p className="text-gray-foot pt-4 pb-10 sm:py-7">
             INTEX-MARKET © 2022, Разработано в Support Solutions Все права
