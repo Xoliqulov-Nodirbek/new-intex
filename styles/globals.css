@@ -119,11 +119,14 @@ img{
 
 @media only screen and (max-width:640px){
   #input-searching{
-    background-position:calc(50% - 95px) ;
+    background-position:calc(50% - 109px) ;
   }
 }
 @media only screen and (max-width:444px){
   .mobileFull{
     width: 100%;
   }
+  /* #input-searching{
+    max-width: 200px;
+  } */
 }

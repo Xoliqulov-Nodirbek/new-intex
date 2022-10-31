@@ -122,6 +122,7 @@ module.exports = {
       maxWidth: {
         container: '1220px',
         cont: '10.5%',
+        inputWidth:'260px',
         '426': '426px',
         '248': '225px',
         '403': '403px',
