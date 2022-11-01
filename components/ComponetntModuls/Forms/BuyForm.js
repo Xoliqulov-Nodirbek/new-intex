@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import { useFormik } from "formik";
-import "react-phone-number-input/style.css";
-import Image from "next/image";
 import React, { useState } from 'react'
 import { FormikConsumer, useFormik } from 'formik'
 import 'react-phone-number-input/style.css'
@@ -9,30 +5,16 @@ import Image from 'next/image'
 import * as Yup from 'yup'
 import { toast, Toaster } from 'react-hot-toast'
 import axios from 'axios'
+
 let token = '5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg'
 let chatId = '636476536'
+
 const initialValues = {
-  name: "",
-  number: "",
-};
+  name: '',
+  number: '',
+}
+
 const onSubmit = (values) => {
-  console.log(values);
-  alert(values);
-};
-const validate = (values) => {
-  let errors = {};
-
-  if (!values.name) {
-    errors.name = "Username is required, at least 3 characters";
-  }
-
-  if (!values.number) {
-    errors.number = "Required phone number";
-  }
-
-  return errors;
-};
-
   console.log(values)
   toast.success('Successfully sent!')
 
@@ -66,15 +48,10 @@ const BuyForm = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
-  });
-  const [value, setValue] = useState();
-
     validationSchema,
   })
   console.log(formik.values)
   const [value, setValue] = useState()
-
   return (
     <div className=" w-full h-264 sm:h-312 rounded-xl p-4 sm:p-7 mt-6 sm:mt-0  bg-white">
       <Toaster position="bottom-right" reverseOrder={false} />
@@ -94,14 +71,11 @@ const BuyForm = () => {
             placeholder="Введите ваше имя"
             className={
               formik.touched.name && formik.errors.name
-                ? "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-3 sm:mb-6"
-                : "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-gray-input_radius mb-3 sm:mb-6"
                 ? '  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-3 sm:mb-6'
                 : '  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-gray-input_radius mb-3 sm:mb-6'
             }
             minLength="3"
             maxLength="25"
-            aria-label="Введите ваше имя"
             {...formik.getFieldProps('name')}
           />
           {formik.touched.name && formik.errors.name ? (
@@ -112,33 +86,6 @@ const BuyForm = () => {
         </label>
         <label className="relative flex flex-col">
           Номер телефона
-          {/* <Image
-                src={'/Assets/Images/BuyAll/Flag.svg'}
-                className="w-40 h-4"
-                width={164}
-                height={16}
-                alt="site_logo"
-              /> */}
-          <input
-            type="tel"
-            name="number"
-            id="number"
-            placeholder="(90) 123 45 67"
-            className={
-              formik.touched.number && formik.errors.number
-                ? "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-4 sm:mb-6"
-                : "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-gray-input_radius mb-4 sm:mb-6"
-            }
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.number}
-            aria-label="number"
-          />
-          {formik.touched.number && formik.errors.number ? (
-            <span className="text-red-600 text-xs absolute bottom-0 sm:bottom-2  left-2">
-              {formik.errors.number}
-            </span>
-          ) : null}
           <div
             className={
               formik.touched.number && formik.errors.number
@@ -177,7 +124,7 @@ const BuyForm = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default BuyForm;
+export default BuyForm
