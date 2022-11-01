@@ -179,7 +179,26 @@ module.exports = {
         335: "335px",
         426: "426px",
         219: "219px",
+
         111: "111px",
+
+        111: '111px',
+        heroContent: '450px',
+        heroImgMobile: '320px',
+        respo: '100%',
+        cardWidth: '280px',
+        resCardWidth: '220px',
+        orderBtn: '248px',
+        resOrderBtn: '196px',
+        tashkentPoolsImg: '460px',
+        600: '600px',
+        410: '410px',
+        335: '335px',
+        426: '426px',
+        219: '219px',
+        111: '111px',
+
+
       },
       height: {
         cardHeight: "220px",

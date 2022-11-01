@@ -4,10 +4,12 @@ import NewProduct from '../NewProduct/NewProduct'
 import BuyAll from '../BuyAll/BuyAll'
 import TashkentPools from '../TashkentPools/TashkentPools'
 import Popular from '../Popular/Popular'
+import BuyForm from '../ComponetntModuls/Forms/BuyForm'
 
 function Main() {
   return (
     <main>
+      
         <Hero/>{/*Nurillo Hero oldi*/}
         <TashkentPools/> {/*Nodirbek tashkent sectionni oldi*/}
         <NewProduct/> {/*Nozimjon New Product sectionni oldi*/}
