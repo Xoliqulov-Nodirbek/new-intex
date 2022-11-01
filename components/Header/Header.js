@@ -34,7 +34,7 @@ function Header() {
     if (e.target.id === "menuBar") setClickMenu(false);
   }
   return (
-    <header id="header" className="fixed w-full -top-1 z-50 shadow-sm">
+    <div id="header" className="fixed w-full -top-1 z-50 shadow-sm">
       <div className="bg-gray-bg_nav hidden md:block py-3 border-b-2">
         <div className="w-full max-w-container mx-auto px-5">
           <div className="flex items-center justify-between">
@@ -47,32 +47,33 @@ function Header() {
             >
               +998 (90) 128 81 82
             </a>
-            <div className="flex items-center">
-              <div>
+            <ul className="flex items-center">
+              <li>
                 <Link className="text-sm font-medium text-gray-text" href={"/"}>
                   О Продукт
                 </Link>
-              </div>
-              <div>
+              </li>
+              <li>
                 <Link
                   className="text-sm font-medium text-gray-text ml-6"
                   href={"/"}
                 >
                   Почему мы?
                 </Link>
-              </div>
-              <div>
+              </li>
+              <li>
                 <Link
                   className="text-sm font-medium text-gray-text ml-6 "
                   href={"/"}
                 >
                   Контакты
                 </Link>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+
       <div className={`bg-gray-bg_nav border-b-2 md:border-none`}>
         <div className="w-full max-w-container mx-auto px-5 py-3.5 sm:py-4">
           <div className="flex items-center justify-between">
@@ -96,10 +97,9 @@ function Header() {
                 />
               </Link>
               <div className="hidden items-center ml-10 xl:flex">
-                <Link
+                <div
                   id="dropdown"
                   className="z-50 pb-4 mt-4 category inline-block relative pr-4 text-base text-black-black_dark font-medium"
-                  href={"/"}
                 >
                   Категории
                   <Image
@@ -182,7 +182,7 @@ function Header() {
                       </Link>
                     </li>
                   </ul>
-                </Link>
+                </div>
 
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
@@ -204,6 +204,7 @@ function Header() {
                 </Link>
               </div>
             </div>
+
             <div className="flex items-center">
               <input
                 id="input-searching"
@@ -304,6 +305,7 @@ function Header() {
           </div>
         </div>
       </div>
+
       <div className="bg-gray-bg_nav flex py-3.5 px-5 items-center justify-between md:hidden">
         <Image
           onClick={() => setClickMenu(true)}
@@ -481,7 +483,7 @@ function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 export default Header;
