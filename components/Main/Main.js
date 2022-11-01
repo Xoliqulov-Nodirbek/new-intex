@@ -9,12 +9,12 @@ import BuyForm from '../ComponetntModuls/Forms/BuyForm'
 function Main() {
   return (
     <main>
-      
-        <Hero/>{/*Nurillo Hero oldi*/}
-        <TashkentPools/> {/*Nodirbek tashkent sectionni oldi*/}
-        <NewProduct/> {/*Nozimjon New Product sectionni oldi*/}
-        <BuyAll/> {/*Ibrohim sell common sectionni oldi*/}
-        <AboutUs/> {/* Nurillo About sectionni oldi */}
+
+        <Hero/>
+        <TashkentPools/>
+        <NewProduct/>
+        <BuyAll/>
+        <AboutUs/>
         <Popular />
     </main>
   )
