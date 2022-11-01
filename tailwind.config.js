@@ -75,8 +75,7 @@ module.exports = {
         410: "410px",
         426: "426px",
         219: "219px",
-        111: '111px'
-
+        111: '111px',
         heroContent: '450px',
         heroImgMobile: '320px',
         respo: '100%',
