@@ -26,7 +26,7 @@ const Naduvniy = () => {
           <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
             Надувные бассейны
           </h2>
-          <ul className="flex flex-wrap justify-between ">
+          <div className="flex flex-wrap justify-between ">
             {products.map((el) => {
               return (
                 <ProductCard
@@ -38,7 +38,7 @@ const Naduvniy = () => {
                 />
               );
             })}
-          </ul>
+          </div>
           <div className="w-fit mx-auto mt-8 bg-blue-btn_bg px-5 py-4 rounded-xl">
             <Link className="text-blue-base" href={``}>
               Показать еще

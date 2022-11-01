@@ -5,7 +5,7 @@ import ProductCard from "../components/ProductCard/ProductCard";
 
 const Karkasniy = () => {
   let products = useSelector((state) => state.data);
-  console.log(products);
+  
   return (
     <section className="mt-40">
       <div className="max-w-container w-full mx-auto px-5">
@@ -26,7 +26,7 @@ const Karkasniy = () => {
           <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
             Каркасные бассейны
           </h2>
-          <ul className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-between">
             {products.map((el) => {
               return (
                 <ProductCard
@@ -38,7 +38,7 @@ const Karkasniy = () => {
                 />
               );
             })}
-          </ul>
+          </div>
           <div className="w-fit mx-auto mt-8 bg-blue-btn_bg px-5 py-4 rounded-xl">
             <Link className="text-blue-base" href={``}>
               Показать еще
