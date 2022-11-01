@@ -34,7 +34,6 @@ function Header() {
     if (e.target.id === "menuBar") setClickMenu(false);
   }
   useEffect(() => {
-    // window is accessible here.
     window.addEventListener("scroll", function (evt) {
       if (window.scrollY > 10) {
         setFixedBar(true);
