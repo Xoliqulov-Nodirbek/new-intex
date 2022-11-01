@@ -13,6 +13,9 @@ module.exports = {
         8: "8px",
         32:'32px'
       },
+      margin:{
+        heroBottom:'120px',
+      },
       screens: {
         tablet: "850px",
         mini_phone: "350px",
@@ -140,7 +143,7 @@ module.exports = {
         83: "83px",
       },
       maxWidth: {
-        container: "1220px",
+        container: "1210px",
         cont: "10.5%",
         inputWidth: "260px",
         426: "426px",
