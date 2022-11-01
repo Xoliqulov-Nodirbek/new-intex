@@ -15,7 +15,7 @@ function Main() {
         <NewProduct/>
         <BuyAll/>
         <AboutUs/>
-        <Popular />
+        {/* <Popular /> */}
     </main>
   )
 }

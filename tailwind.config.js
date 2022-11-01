@@ -7,9 +7,11 @@ module.exports = {
   theme: {
     extend: {
       padding: {
+        21:'150px',
         5.5: "5.5px",
         13: "13px",
         8: "8px",
+        32:'32px'
       },
       screens: {
         tablet: "850px",
@@ -272,6 +274,10 @@ module.exports = {
         btn_radius: "12px",
         sectionRadius: "20px",
         sectionRadius: "20px",
+      },
+      translate:{
+        82:'82px',
+        59:'55px',
       },
       fontSize: {
         32: "32px",
