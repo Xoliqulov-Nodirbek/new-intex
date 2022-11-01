@@ -105,7 +105,7 @@ function Header() {
 								/>
 							</Link>
 							<div className='hidden items-center ml-10 xl:flex'>
-								<Link
+								<div
 									id='dropdown'
 									className='z-50 pb-4 mt-4 category inline-block relative pr-4 text-base text-black-black_dark font-medium'
 									href={'/'}>
@@ -180,7 +180,7 @@ function Header() {
 											</Link>
 										</li>
 									</ul>
-								</Link>
+								</div>
 
 								<Link
 									className='ml-6 text-base text-black-black_dark font-medium'
