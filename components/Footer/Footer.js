@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-container w-full mx-auto pt-14 px-5 ">
         <div className="sm:grid sm:grid-cols-2 sm:gap-y-10 tablet:flex tablet:justify-between pb-4 ">
           <div className="max-w-281 w-full">
-            <Link href={'/'}>
+            <Link href={"/"}>
               <Image
                 src={`/Assets/Images/FooterSvg/FooterLogo.svg`}
                 className="w-40 h-4"

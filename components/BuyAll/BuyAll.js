@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import React from 'react'
-import BuyForm from '../ComponetntModuls/Forms/BuyForm'
+import Image from "next/image";
+import React from "react";
+import BuyForm from "../ComponetntModuls/Forms/BuyForm";
 
 const BuyAll = () => {
   return (
@@ -15,38 +15,35 @@ const BuyAll = () => {
               Если вы хотите купить товары по оптовой цене, вы должны заказать
               не менее 20 товаров.
             </p>
-
             <div className="block md:hidden max-w-362 w-full ">
-
-
-            <div className="flex items-center justify-center md:hidden  ">
-
+              <div className="flex items-center justify-center md:hidden  ">
+                <Image
+                  className="w-335 h-207"
+                  src={"/Assets/Images/KarkasHero1.png"}
+                  alt="Picture of the Karkas"
+                  width={335}
+                  height={202}
+                  priority="true"
+                  layout="responsive"
+                />
+              </div>
+              <BuyForm />
+            </div>
+            <div className="hidden md:block ml-4 lg:ml-0">
               <Image
-                className="w-335 h-207"
-                src={'/Assets/Images/KarkasHero1.png'}
+                className="w-600 max-h-380"
+                src={"/Assets/Images/KarkasHero.png"}
                 alt="Picture of the Karkas"
-                width={335}
-                height={202}
+                width={628}
+                height={380}
                 priority="true"
-                layout="responsive"
               />
             </div>
-            <BuyForm />
-          </div>
-          <div className="hidden md:block ml-4 lg:ml-0">
-            <Image
-              className="w-600 max-h-380"
-              src={'/Assets/Images/KarkasHero.png'}
-              alt="Picture of the Karkas"
-              width={628}
-              height={380}
-              priority="true"
-            />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BuyAll
+export default BuyAll;
