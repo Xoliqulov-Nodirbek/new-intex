@@ -17,13 +17,6 @@ function Main() {
         <AboutUs/>
         {/* <Popular /> */}
 
-      <Hero />
-      <TashkentPools />
-      <NewProduct />
-      <BuyAll />
-      <AboutUs />
-      {/* <Popular /> */}
-
     </main>
   );
 }
