@@ -2,13 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
-
 function Header() {
 	const [openLang, setOpenLang] = useState(false);
 	const [menuLang, setMenuLang] = useState(false);
 	const [clickMenu, setClickMenu] = useState(false);
 	const [menuCatOpen, setMenuCatOpen] = useState(false);
-  const [fixedBar, setFixedBar] = useState(false)
+	const [fixedBar, setFixedBar] = useState(false);
 	const [flagImg, setFlagImg] = useState(
 		'/Assets/Images/HeaderAndHeroImg/russia-flag.svg',
 	);
@@ -34,21 +33,20 @@ function Header() {
 	function handlMenuOpen(e) {
 		if (e.target.id === 'menuBar') setClickMenu(false);
 	}
-  useEffect(() => {
-    // window is accessible here.
-    window.addEventListener("scroll", function(evt) {
-      if(window.scrollY > 10){
-        setFixedBar(true)
-      }
-      else{
-        setFixedBar(false)
-      }
-    })
-  }, [])
-  return (
+	useEffect(() => {
+		// window is accessible here.
+		window.addEventListener('scroll', function (evt) {
+			if (window.scrollY > 10) {
+				setFixedBar(true);
+			} else {
+				setFixedBar(false);
+			}
+		});
+	}, []);
+	return (
 		<header id='header' className=' shadow-sm'>
 			<div className='bg-gray-bg_nav hidden md:block py-3 border-b-2'>
-				<div className='w-full max-w-container mx-auto px-5'>
+				<div className='w-full max-w-container mx-auto px-4'>
 					<div className='flex items-center justify-between'>
 						<p className='text-sm text-gray-text font-medium'>
 							10:00 - 22:00 Без выходных
@@ -82,8 +80,11 @@ function Header() {
 					</div>
 				</div>
 			</div>
-			<div className={`bg-gray-bg_nav z-50 fixed w-full ${fixedBar ? "top-0 transition-all" : "top-15 duration-500"} border-b-2 md:border-none`}>
-				<div className='w-full max-w-container mx-auto px-5 py-3.5 sm:py-4'>
+			<div
+				className={`bg-gray-bg_nav z-50 fixed w-full ${
+					fixedBar ? 'top-0 transition-all' : 'top-15 duration-500'
+				} border-b-2 md:border-none`}>
+				<div className='w-full max-w-container mx-auto px-4 py-3.5 sm:py-4'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center'>
 							<Link href={'/'}>
@@ -331,7 +332,7 @@ function Header() {
 						? 'left-0 bg-black w-auto inset-0 bg-opacity-25 backdrop-blur-sm duration-300'
 						: '-left-80 duration-300 w-0 bg-none backdrop-blur-0'
 				} fixed w-full z-50 top-0 `}>
-				<div className='w-modalMenu h-modalMenuHe bg-white pt-14 px-5'>
+				<div className='w-modalMenu h-modalMenuHe bg-white pt-14 px-4'>
 					<Link className='mb-11 inline-block' href={'/'}>
 						<Image
 							className='w-menuBarWidth h-menuBarHeight'
@@ -418,28 +419,44 @@ function Header() {
 								? 'h-auto border-b-2 opacity-1 duration-200'
 								: 'h-0 opacity-0 duration-200 overflow-hidden'
 						} w-full category-list bg-white  pb-2 pl-3 `}>
-						<li>
+						<li
+							onClick={() => {
+								setMenuCatOpen(false);
+								setClickMenu(false);
+							}}>
 							<Link
 								className='font-normal text-sm inline-block duration-150 text-black-black_thin mb-5'
 								href={'/naduvniy'}>
 								Надувные бассейны
 							</Link>
 						</li>
-						<li>
+						<li
+							onClick={() => {
+								setMenuCatOpen(false);
+								setClickMenu(false);
+							}}>
 							<Link
 								className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
 								href={'/karkasniy'}>
 								Каркасные бассейны
 							</Link>
 						</li>
-						<li>
+						<li
+							onClick={() => {
+								setMenuCatOpen(false);
+								setClickMenu(false);
+							}}>
 							<Link
 								className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
 								href={'/'}>
 								Все чистки бассейна
 							</Link>
 						</li>
-						<li>
+						<li
+							onClick={() => {
+								setMenuCatOpen(false);
+								setClickMenu(false);
+							}}>
 							<Link
 								className='font-normal  inline-block duration-150 text-sm text-black-black_thin'
 								href={'/'}>
@@ -449,12 +466,24 @@ function Header() {
 					</ul>
 
 					<div className='flex flex-col space-y-5 mt-4 font-medium text-base text-black-black_dark '>
-						<Link href={'/'}>Популярное</Link>
-						<Link href={'/'}>Новинки</Link>
-						<Link href={'/'}>На скидке</Link>
-						<Link href={'/'}>О Продукт</Link>
-						<Link href={'/'}>Почему мы?</Link>
-						<Link href={'/'}>Контакты</Link>
+						<Link onClick={() => setClickMenu(false)} href={'/'}>
+							Популярное
+						</Link>
+						<Link onClick={() => setClickMenu(false)} href={'/'}>
+							Новинки
+						</Link>
+						<Link onClick={() => setClickMenu(false)} href={'/'}>
+							На скидке
+						</Link>
+						<Link onClick={() => setClickMenu(false)} href={'/'}>
+							О Продукт
+						</Link>
+						<Link onClick={() => setClickMenu(false)} href={'/'}>
+							Почему мы?
+						</Link>
+						<Link onClick={() => setClickMenu(false)} href={'/'}>
+							Контакты
+						</Link>
 					</div>
 				</div>
 			</div>
