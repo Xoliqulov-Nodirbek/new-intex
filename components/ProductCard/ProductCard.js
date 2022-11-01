@@ -4,7 +4,7 @@ import Baseen from "../../public/Assets/Images/img.png";
 
 function ProductCard({ status, name, price, sale }) {
   return (
-    <div className="card rounded-xl w-cardWidthMobile md:w-cardWidth shadow-card_shadow relative border mt-5">
+    <div className="card rounded-xl w-cardWidthMobile mini_phone:w-cardWidthMobile2 mini_phone2:w-cardWidthMobile3 mini_phone3:w-cardWidthMobile4 md:w-cardWidth shadow-card_shadow relative border mt-5">
       <span
         className={`${
           status === "Новинки"
@@ -21,21 +21,21 @@ function ProductCard({ status, name, price, sale }) {
         {status}
       </span>
       <Image
-        className="product__image mb-4"
+        className="mt-2 mb-1 md:mb-4"
         src={Baseen}
-        alt="baseen product image"
+        alt="baseen_product_image"
         width={280}
         height={220}
       />
-      <div className="product__info p-2 md:p-4">
-        <h3 className="text-lg font-bold leading-5 mb-2">{name}</h3>
-        <span className="spanroduct__size text-base m-0 mb-2 block leading-22 text-black-black_thin">
+      <div className="p-2 md:p-4">
+        <h3 className="text-sm md:text-lg font-bold leading-5 mb-2">{name}</h3>
+        <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
           220х150х60см, 1662л
         </span>
-        <span className="text-sm block">
-          {status === "Pекомендуем" ? "Pекомендуем" : sale}
+        <span className="text-xs md:text-sm block line-through">
+          {sale}
         </span>
-        <span className="block mb-2.5 text-black-black_light">{price}</span>
+        <span className="text-xs md:text-sm block mb-2.5 text-black-black_light">{price}</span>
         <Button>Заказать</Button>
       </div>
     </div>
