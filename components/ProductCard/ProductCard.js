@@ -4,7 +4,7 @@ import Button from "../button/Button";
 
 function ProductCard({ status, name, price }) {
   return (
-    <li className="card rounded-xl w-cardWidth shadow-card_shadow relative border mt-5">
+    <li className="card rounded-xl w-cardWidthMobile md:w-cardWidth shadow-card_shadow relative border mt-5">
       <span
         className={`${
           status === "Новинки"
@@ -27,7 +27,7 @@ function ProductCard({ status, name, price }) {
         width={280}
         height={220}
       />
-      <div className="product__info p-4">
+      <div className="product__info p-2 md:p-4">
         <h3 className="product__heading text-lg font-inter font-bold m-0 mb-2 max-w-248 leading-22 ">
           {name}
         </h3>

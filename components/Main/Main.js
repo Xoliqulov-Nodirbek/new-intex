@@ -15,7 +15,7 @@ function Main() {
         <NewProduct/> {/*Nozimjon New Product sectionni oldi*/}
         <BuyAll/> {/*Ibrohim sell common sectionni oldi*/}
         <AboutUs/> {/* Nurillo About sectionni oldi */}
-        {/* <Popular /> */}
+        <Popular />
     </main>
   )
 }

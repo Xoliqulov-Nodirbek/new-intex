@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard/ProductCard";
 
-const Naduvniy = () => {
+const Karkasniy = () => {
   let products = useSelector((state) => state.data);
-
+  console.log(products);
   return (
     <section className="mt-40">
       <div className="max-w-container w-full mx-auto px-5">
@@ -21,12 +21,12 @@ const Naduvniy = () => {
               height={20}
               alt="Arrow_down"
             />
-            Надувные бассейны
+            Каркасные бассейны
           </p>
           <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
-            Надувные бассейны
+            Каркасные бассейны
           </h2>
-          <ul className="flex flex-wrap justify-between ">
+          <ul className="flex flex-wrap justify-between">
             {products.map((el) => {
               return (
                 <ProductCard
@@ -50,4 +50,4 @@ const Naduvniy = () => {
   );
 };
 
-export default Naduvniy;
+export default Karkasniy;
