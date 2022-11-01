@@ -21,7 +21,7 @@ const validate = (values) => {
 
   if (!values.phone) {
     errors.email = 'Required'
-  } 
+  }
 
   return errors
 }
@@ -32,7 +32,6 @@ const BuyForm = () => {
     onSubmit,
     validate,
   })
-
   const [value, setValue] = useState()
   return (
     <div className=" w-full h-264 sm:h-312 rounded-xl p-4 sm:p-8 mt-6 sm:mt-0  bg-white">
