@@ -11,7 +11,6 @@ const Footer = () => {
             <Link href={"/"}>
               <Image
                 src={`/Assets/Images/FooterSvg/FooterLogo.svg`}
-                className="w-40 h-4"
                 width={164}
                 height={16}
                 alt="site_logo"
@@ -64,7 +63,6 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-
           <div className=" mt-6 sm:mt-0">
             <p className="text-black-black_dark font-bold text-lg">
               Полезные ссылки
@@ -123,7 +121,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
           <div className=" mt-6 sm:mt-0">
             <p className="text-black-black_dark font-bold text-lg">Адрес</p>
             <div className=" h-135 tablet:h-153 mt-4 tablet:mt-6 flex flex-col justify-between ">
@@ -169,7 +166,7 @@ const Footer = () => {
                   Intex@gmail.com
                 </a>
               </div>
-              <di className="flex">
+              <div className="flex">
                 <Image
                   src={`/Assets/Images/FooterSvg/Clock.svg`}
                   className="w-5 h-5"
@@ -180,7 +177,7 @@ const Footer = () => {
                 <p className="text-sm pl-1 text-gray-foot">
                   <time>10:00</time> - <time>22:00</time> Без выходных
                 </p>
-              </di>
+              </div>
             </div>
           </div>
         </div>

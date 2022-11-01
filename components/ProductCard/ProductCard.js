@@ -1,10 +1,10 @@
-import Baseen from "../../public/Assets/Images/img.png";
 import Image from "next/image";
-import Button from "../button/Button";
+import Button from "../ComponetntModuls/button/Button";
+import Baseen from "../../public/Assets/Images/img.png";
 
-function ProductCard({ status, name, price }) {
+function ProductCard({ status, name, price, sale }) {
   return (
-    <li className="card rounded-xl w-cardWidthMobile md:w-cardWidth shadow-card_shadow relative border mt-5">
+    <div className="card rounded-xl w-cardWidthMobile md:w-cardWidth shadow-card_shadow relative border mt-5">
       <span
         className={`${
           status === "Новинки"
@@ -28,19 +28,17 @@ function ProductCard({ status, name, price }) {
         height={220}
       />
       <div className="product__info p-2 md:p-4">
-        <h3 className="product__heading text-lg font-inter font-bold m-0 mb-2 max-w-248 leading-22 ">
-          {name}
-        </h3>
+        <h3 className="text-lg font-bold leading-5 mb-2">{name}</h3>
         <span className="spanroduct__size text-base m-0 mb-2 block leading-22 text-black-black_thin">
           220х150х60см, 1662л
         </span>
         <span className="text-sm block">
-          <del>1 250 000 сум</del>
+          {status === "Pекомендуем" ? "Pекомендуем" : sale}
         </span>
         <span className="block mb-2.5 text-black-black_light">{price}</span>
         <Button>Заказать</Button>
       </div>
-    </li>
+    </div>
   );
 }
 
