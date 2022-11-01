@@ -124,7 +124,7 @@ function Header() {
                     <li>
                       <Link
                         className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/"}
+                        href={"/karkasniy"}
                       >
                         Каркасные бассейны
                       </Link>
@@ -132,7 +132,7 @@ function Header() {
                     <li>
                       <Link
                         className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/"}
+                        href={"/chistki_basseyn"}
                       >
                         Все чистки бассейна
                       </Link>
@@ -140,7 +140,7 @@ function Header() {
                     <li>
                       <Link
                         className="font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/"}
+                        href={"/aksessuar"}
                       >
                         Аксессуары для бассейна
                       </Link>
@@ -168,7 +168,7 @@ function Header() {
                     <li>
                       <Link
                         className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/"}
+                        href={"/chistki_basseyn"}
                       >
                         Все чистки бассейна
                       </Link>
@@ -176,7 +176,7 @@ function Header() {
                     <li>
                       <Link
                         className="font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/"}
+                        href={"/aksessuar"}
                       >
                         Аксессуары для бассейна
                       </Link>
