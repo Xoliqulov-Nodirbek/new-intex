@@ -15,7 +15,7 @@ function AboutUs() {
               src={"/Assets/Images/HeaderAndHeroImg/about-man.png"}
               width={380}
               height={220}
-              alt="About Man Img"
+              alt="About_Man_Img"
             />
             <strong className="text-base sm:text-lg font-bold mb-2.5">
               Опыт

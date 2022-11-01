@@ -5,25 +5,25 @@ import ProductCard from "../components/ProductCard/ProductCard";
 
 const Karkasniy = () => {
   let products = useSelector((state) => state.data);
-  
+
   return (
-    <section className="mt-40">
+    <section className="mt-20 md:mt-32">
       <div className="max-w-container w-full mx-auto px-5">
         <div className="">
           <p className="flex items-center text-base text-black-black_thin">
-            <Link href={`/`} class="text-blue-accent">
+            <Link href={`/`} className="text-blue-accent">
               Главная
             </Link>
             <Image
-              className="w-6 h-6 mx-1"
+              className="mx-1"
               src={"/Assets/Images/NaduvniyImg/down.svg"}
-              width={20}
-              height={20}
+              width={24}
+              height={24}
               alt="Arrow_down"
             />
             Каркасные бассейны
           </p>
-          <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
+          <h2 className="font-bold text-3xl text-black-black_dark mt-6 mb-5">
             Каркасные бассейны
           </h2>
           <div className="flex flex-wrap justify-between">

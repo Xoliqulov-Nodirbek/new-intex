@@ -15,7 +15,9 @@ module.exports = {
       },
       screens: {
         tablet: "850px",
-        mini_tablet: "790px",
+        mini_phone: "350px",
+        mini_phone2: "390px",
+        mini_phone3: "420px",
       },
       colors: {
         black: {
@@ -86,7 +88,10 @@ module.exports = {
         heroImgMobile: "320px",
         respo: "100%",
         cardWidth: "280px",
-        cardWidthMobile: "200px",
+        cardWidthMobile: "150px",
+        cardWidthMobile2: "150px",
+        cardWidthMobile3: "160px",
+        cardWidthMobile4: "185px",
         resCardWidth: "220px",
         orderBtn: "248px",
         resOrderBtn: "196px",
