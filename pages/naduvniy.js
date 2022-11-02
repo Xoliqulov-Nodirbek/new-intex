@@ -7,7 +7,7 @@ const Naduvniy = () => {
   let products = useSelector((state) => state.data);
 
   return (
-    <section className="mt-20 md:mt-32">
+    <section className="mt-6 md:mt-32">
       <div className="max-w-container w-full mx-auto px-5">
         <div className="">
           <p className="flex items-center text-base text-black-black_thin">
@@ -26,7 +26,7 @@ const Naduvniy = () => {
           <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
             Надувные бассейны
           </h2>
-          <div className="flex flex-wrap justify-between ">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
             {products.map((el) => {
               return (
                 <Card
@@ -39,8 +39,8 @@ const Naduvniy = () => {
               );
             })}
           </div>
-          <div className="w-fit mx-auto mt-8 bg-blue-btn_bg px-5 py-4 rounded-xl">
-            <Link className="text-blue-base" href={``}>
+          <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
+            <Link className="font-medium text-base text-blue-base" href={``}>
               Показать еще
             </Link>
           </div>

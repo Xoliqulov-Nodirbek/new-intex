@@ -130,37 +130,6 @@ function Header() {
 										<li>
 											<Link
 												className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
-												href={'/'}>
-												Каркасные бассейны
-											</Link>
-										</li>
-										<li>
-											<Link
-												className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
-												href={'/'}>
-												Все чистки бассейна
-											</Link>
-										</li>
-										<li>
-											<Link
-												className='font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2'
-												href={'/'}>
-												Аксессуары для бассейна
-											</Link>
-										</li>
-									</ul>
-									<ul
-										className={` duration-100 w-28 h-0 overflow-hidden category-list -translate-y-4 opacity-0  absolute bg-white p-3 rounded-xl shadow-lg `}>
-										<li>
-											<Link
-												className='font-normal text-sm inline-block duration-150 text-black-black_thin mb-2'
-												href={'/naduvniy'}>
-												Надувные бассейны
-											</Link>
-										</li>
-										<li>
-											<Link
-												className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
 												href={'/karkasniy'}>
 												Каркасные бассейны
 											</Link>
@@ -168,14 +137,14 @@ function Header() {
 										<li>
 											<Link
 												className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
-												href={'/'}>
+												href={'/chist_bassen'}>
 												Все чистки бассейна
 											</Link>
 										</li>
 										<li>
 											<Link
 												className='font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2'
-												href={'/'}>
+												href={'/aksessuar'}>
 												Аксессуары для бассейна
 											</Link>
 										</li>
@@ -424,7 +393,7 @@ function Header() {
 								setClickMenu(false);
 							}}>
 							<Link
-								className='font-normal text-sm inline-block duration-150 text-black-black_thin mb-5'
+								className='w-full font-normal text-sm inline-block duration-150 text-black-black_thin mb-5'
 								href={'/naduvniy'}>
 								Надувные бассейны
 							</Link>
@@ -435,7 +404,7 @@ function Header() {
 								setClickMenu(false);
 							}}>
 							<Link
-								className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
+								className='w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
 								href={'/karkasniy'}>
 								Каркасные бассейны
 							</Link>
@@ -446,8 +415,8 @@ function Header() {
 								setClickMenu(false);
 							}}>
 							<Link
-								className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
-								href={'/'}>
+								className='w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
+								href={'/chist_bassen'}>
 								Все чистки бассейна
 							</Link>
 						</li>
@@ -457,8 +426,8 @@ function Header() {
 								setClickMenu(false);
 							}}>
 							<Link
-								className='font-normal  inline-block duration-150 text-sm text-black-black_thin'
-								href={'/'}>
+								className='w-full font-normal  inline-block duration-150 text-sm text-black-black_thin'
+								href={'/aksessuar'}>
 								Аксессуары для бассейна
 							</Link>
 						</li>
