@@ -7,11 +7,13 @@ module.exports = {
   theme: {
     extend: {
       padding: {
+        11: "11px",
         21:'150px',
         5.5: "5.5px",
         13: "13px",
         8: "8px",
-        32:'32px'
+        32:'32px',
+        34: "34px",
       },
       margin:{
         heroBottom:'120px',
@@ -95,7 +97,6 @@ module.exports = {
         heroContent: "450px",
         heroImgMobile: "320px",
         respo: "100%",
-        cardWidth: "280px",
         cardWidthMobile: "150px",
         cardWidthMobile2: "150px",
         cardWidthMobile3: "165px",
@@ -187,9 +188,7 @@ module.exports = {
         335: "335px",
         426: "426px",
         219: "219px",
-
         111: "111px",
-
         111: "111px",
         heroContent: "450px",
         heroImgMobile: "320px",
@@ -248,6 +247,7 @@ module.exports = {
         container: "1220px",
         cont: "10.5%",
         inputWidth: "260px",
+        cardWidth: "280px",
         426: "426px",
         248: "225px",
         403: "403px",
