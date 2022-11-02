@@ -4,7 +4,7 @@ import Image from "next/image";
 function Hero() {
 
 	return (
-		<section className='mt-24 sm:mt-32 md:mt-32 mb-heroBottom'>
+		<section className='mt-7 sm:mt-12 md:mt-32 mb-heroBottomMobile md:mb-heroBottom'>
 			<div className='w-full max-w-container mx-auto px-4'>
 				<div className='bg-gray-bg_main  rounded-3xl flex-col lg:flex-row flex lg:items-center justify-between'>
 					<div className='w-full max-w-container mx-auto'>

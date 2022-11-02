@@ -15,7 +15,8 @@ module.exports = {
       },
       margin:{
         heroBottom:'120px',
-        popularBottom:'9px',
+        heroBottomMobile:'69px',
+        popularBottom:'29px',
       },
       screens: {
         tablet: "850px",
