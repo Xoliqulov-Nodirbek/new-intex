@@ -5,7 +5,6 @@ import Card from "../components/Card/Card";
 
 const Chistk_bassen = () => {
   let products = useSelector((state) => state.data);
-
   return (
     <section className="mt-6 md:mt-32">
       <div className="max-w-container w-full mx-auto px-5">
