@@ -80,8 +80,7 @@ function Header() {
 					</div>
 				</div>
 			</div>
-			<div
-				className={`bg-gray-bg_nav z-50 fixed w-full ${
+			<div className={`bg-gray-bg_nav z-50 md:fixed w-full ${
 					fixedBar ? 'top-0 transition-all' : 'top-15 duration-500'
 				} border-b-2 md:border-none`}>
 				<div className='w-full max-w-container mx-auto px-4 py-3.5 sm:py-4'>
@@ -295,7 +294,7 @@ function Header() {
 					</div>
 				</div>
 			</div>
-			<div className='bg-gray-bg_nav z-10 translate-y-59  sm:translate-y-82 flex py-3.5 px-5 items-center justify-between md:hidden'>
+			<div className={`bg-gray-bg_nav z-50  ${fixedBar ? 'fixed -top-1 transition-all w-full' : 'static top-15 duration-500'} md:translate-y-59 flex py-3.5 px-4 items-center justify-between md:hidden`}>
 				<Image
 					onClick={() => setClickMenu(true)}
 					priority={true}
