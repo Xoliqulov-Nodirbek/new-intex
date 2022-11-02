@@ -14,6 +14,7 @@ function Main() {
       <NewProduct />
       <BuyAll />
       <AboutUs />
+      <Popular />
     </main>
   );
 }

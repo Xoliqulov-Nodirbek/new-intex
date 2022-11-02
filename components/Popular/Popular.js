@@ -69,7 +69,7 @@ function Popular() {
                   name={el.name}
                   price={el.price}
                   sale={el.sale_price}
-                ></ProductCard>
+                />
               );
             })}
       </div>
