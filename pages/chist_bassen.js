@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
 
-const Naduvniy = () => {
+const Chistk_bassen = () => {
   let products = useSelector((state) => state.data);
 
   return (
@@ -50,4 +50,4 @@ const Naduvniy = () => {
   );
 };
 
-export default Naduvniy;
+export default Chistk_bassen;

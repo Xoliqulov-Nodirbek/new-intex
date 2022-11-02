@@ -50,5 +50,4 @@ function Aksessuar() {
   );
 };
 
-export default Naduvniy;
-
+export default Aksessuar;
