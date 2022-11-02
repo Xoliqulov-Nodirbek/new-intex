@@ -37,9 +37,9 @@ function Popular() {
 
   return (
     <section className="popular">
-      <div className="max-w-container mx-auto px-5 gap-x-10">
-        <div className="popular__top flex items-center justify-between mb-10">
-          <h2 className="font-inter font-bold text-32 leading-36">
+      <div className="max-w-container mx-auto px-4 gap-x-10">
+        <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
+          <h2 className="font-bold text-lg md:text-32 leading-36">
             Популярные товары
           </h2>
           <div className="popular__top-left flex">
@@ -48,7 +48,7 @@ function Popular() {
           </div>
         </div>
       </div>
-      <div className="products__list flex ml-[11.6%] gap-x-5">
+      <div className="products__list flex ml-[2.5%] md:ml-[10.9%] gap-x-5">
         {makePagination(startNum, limit).length
           ? makePagination().map((el) => {
               return (

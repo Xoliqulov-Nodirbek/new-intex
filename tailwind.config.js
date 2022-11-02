@@ -15,6 +15,7 @@ module.exports = {
       },
       margin:{
         heroBottom:'120px',
+        popularBottom:'9px',
       },
       screens: {
         tablet: "850px",
@@ -159,6 +160,7 @@ module.exports = {
         order_btn:
           "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
         card_shadow: "2px 12px 10px rgba(60, 60, 60, 0.1)",
+        card: "2px 12px 24px rgba(60, 60, 60, 0.1)",
       },
       borderRadius: {
         labelRadius: "0px 8px 8px 0px",
@@ -260,11 +262,6 @@ module.exports = {
         430: "430px",
         237: "237px",
         380: "380px",
-      },
-      boxShadow: {
-        order_btn:
-          "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
-        card: "2px 12px 24px rgba(60, 60, 60, 0.1)",
       },
       borderRadius: {
         labelRadius: "0px 8px 8px 0px",
