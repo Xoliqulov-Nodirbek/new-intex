@@ -3,7 +3,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
-function Popular() {
+function Popular({title}) {
   let products = useSelector((state) => state.data);
   let lastNum = products.length + 1;
   const [startNum, setStartNum] = useState(0);
@@ -40,7 +40,7 @@ function Popular() {
       <div className="max-w-container mx-auto px-4 gap-x-10">
         <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
           <h2 className="font-bold text-lg md:text-32 leading-36">
-            Популярные товары
+            {title}
           </h2>
           <div className="popular__top-left flex">
             <ArrowBtn handleLeftBtnClick={handleLeftBtnClick}></ArrowBtn>
@@ -48,7 +48,7 @@ function Popular() {
           </div>
         </div>
       </div>
-      <div className="products__list flex ml-[2.5%] md:ml-[10.9%] gap-x-5">
+      <div className="products__list flex max-w-container mx-auto px-4 gap-x-5">
         {makePagination(startNum, limit).length
           ? makePagination().map((el) => {
               return (

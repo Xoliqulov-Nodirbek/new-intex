@@ -9,12 +9,13 @@ function Main() {
   return (
     <main>
       <Hero />
-      <Popular />
+      <Popular title={'Популярные товары'}/>
       <TashkentPools />
+      <Popular title={'Новые товары'} />
       <NewProduct />
       <BuyAll />
       <AboutUs />
-      <Popular />
+      <Popular title={'Товары со скидкой'} />
     </main>
   );
 }
