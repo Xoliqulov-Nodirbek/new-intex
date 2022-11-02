@@ -5,7 +5,7 @@ import Baseen from "../../public/Assets/Images/img.png";
 
 function Card({ status, name, price, sale }) {
   const [showModal, setShowModal] = useState(false);
-  
+
   return (
     <div className="card rounded-xl max-w-cardWidth shadow-card_shadow relative border mt-5">
       <span
@@ -35,10 +35,16 @@ function Card({ status, name, price, sale }) {
         <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
           220х150х60см, 1662л
         </span>
-        <span className="text-xs md:text-sm block line-through">
-          {sale}
+        <span
+          className={`text-xs md:text-sm block line-through ${
+            status === "Новинки" ? "h-0" : null
+          } ${status === "Pекомендуем" ? "h-0" : null}`}
+        >
+          {status === "Новинки" || status === "Pекомендуем" ? null : sale}
         </span>
-        <span className="text-xs md:text-sm block mb-2.5 text-black-black_light">{price}</span>
+        <span className="font-bold text-sm md:text-lg text-blue-accent block mb-2.5">
+          {price}
+        </span>
         <Button>Заказать</Button>
       </div>
     </div>
