@@ -7,7 +7,7 @@ function Card({ status, name, price, sale }) {
   const [showModal, setShowModal] = useState(false);
   
   return (
-    <div className="card rounded-xl w-cardWidthMobile mini_phone:w-cardWidthMobile2 mini_phone2:w-cardWidthMobile3 mini_phone3:w-cardWidthMobile4 mini_phone4:w-cardWidthMobile5 mini_phone5:w-cardWidthMobile6 mini_phone6:w-cardWidthMobile7  md:w-cardWidth shadow-card_shadow relative border mt-5">
+    <div className="card rounded-xl max-w-cardWidth shadow-card_shadow relative border mt-5">
       <span
         className={`${
           status === "Новинки"

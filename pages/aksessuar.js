@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import Card from "../components/Card/Card"
+import Card from "../components/Card/Card";
 
-const Karkasniy = () => {
+const Naduvniy = () => {
   let products = useSelector((state) => state.data);
 
   return (
@@ -21,10 +21,10 @@ const Karkasniy = () => {
               height={24}
               alt="Arrow_down"
             />
-            Каркасные бассейны
+            Аксессуары для бассейна
           </p>
-          <h2 className="font-bold text-3xl text-black-black_dark mt-6 mb-5">
-            Каркасные бассейны
+          <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
+            Аксессуары для бассейна
           </h2>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
             {products.map((el) => {
@@ -40,7 +40,7 @@ const Karkasniy = () => {
             })}
           </div>
           <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
-            <Link className="font-medium text-lg text-blue-base" href={``}>
+            <Link className="font-medium text-base text-blue-base" href={``}>
               Показать еще
             </Link>
           </div>
@@ -50,4 +50,4 @@ const Karkasniy = () => {
   );
 };
 
-export default Karkasniy;
+export default Naduvniy;
