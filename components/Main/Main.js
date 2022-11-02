@@ -9,11 +9,11 @@ function Main() {
   return (
     <main>
       <Hero />
+      <Popular />
       <TashkentPools />
       <NewProduct />
       <BuyAll />
       <AboutUs />
-      {/* <Popular /> */}
     </main>
   );
 }
