@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FormikConsumer, useFormik } from 'formik'
 import 'react-phone-number-input/style.css'
 import Image from 'next/image'
@@ -14,11 +14,9 @@ const initialValues = {
   number: '',
 }
 
-const onSubmit = (values) => {
-  console.log(values)
+const onSubmit = (values, { resetForm }) => {
   toast.success('Successfully sent!')
-
-  let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: ${values.number}`
+  let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number}`
 
   axios
     .post(
@@ -29,16 +27,18 @@ const onSubmit = (values) => {
       toast.error('Internal error')
     })
   values.name = ''
+  resetForm({ values: '' })
 }
 
+const phoneRegExp = /^[0-9]{9}$/
 const validationSchema = Yup.object({
   name: Yup.string()
     .required('Username is required, at least 3 characters')
     .min(3, 'Minimal 3 characters')
-    .max(15, 'Maximum 10 characters'),
+    .max(20, 'Maximum 20 characters'),
   number: Yup.string('Must be only number')
-    .matches(/^[0-9]+$/, {
-      message: 'Inccorect format.',
+    .matches(phoneRegExp, {
+      message: 'Phone number is not valid.',
       excludeEmptyString: true,
     })
     .required('Required phone number'),
@@ -50,8 +50,7 @@ const BuyForm = () => {
     onSubmit,
     validationSchema,
   })
-  console.log(formik.values)
-  const [value, setValue] = useState()
+
   return (
     <div className=" w-full h-264 sm:h-312 rounded-xl p-4 sm:p-7 mt-6 sm:mt-0  bg-white">
       <Toaster position="bottom-right" reverseOrder={false} />
@@ -90,7 +89,7 @@ const BuyForm = () => {
             className={
               formik.touched.number && formik.errors.number
                 ? ' flex items-center pl-4 h-48 text-base rounded-lg p-1 outline-none border  border-red-600 mb-4 sm:mb-6'
-                : ' flex items-center pl-4 h-48 text-base rounded-lg  outline-none border  border-gray-input_radius mb-4 sm:mb-6'
+                : ' flex items-center pl-4 h-48 text-base rounded-lg p-1 outline-none border  border-gray-input_radius mb-4 sm:mb-6'
             }
           >
             <Image
@@ -100,7 +99,7 @@ const BuyForm = () => {
               height={15}
               alt="site_logo"
             />
-            <span className='text-base text-black ml-1' >+998</span>
+            <span className="text-base text-black ml-1">+998</span>
             <input
               type="number"
               name="number"
