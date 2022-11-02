@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import ProductCard from "../components/ProductCard/ProductCard";
+import Card from "../components/Card/Card"
 
 const Karkasniy = () => {
   let products = useSelector((state) => state.data);
@@ -29,7 +29,7 @@ const Karkasniy = () => {
           <div className="flex flex-wrap justify-between">
             {products.map((el) => {
               return (
-                <ProductCard
+                <Card
                   key={el.id}
                   status={el.status}
                   name={el.name}
