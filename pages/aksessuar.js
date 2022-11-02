@@ -7,7 +7,7 @@ function Aksessuar() {
   let products = useSelector((state) => state.data);
 
   return (
-    <section className="mt-20 md:mt-32">
+    <section className="mt-6 md:mt-32">
       <div className="max-w-container w-full mx-auto px-5">
         <div className="">
           <p className="flex items-center text-base text-black-black_thin">
@@ -23,7 +23,7 @@ function Aksessuar() {
             />
             Аксессуары для бассейна
           </p>
-          <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
+          <h2 className="font-bold text-xl md:text-3xl text-black-black_dark mt-5 md:mt-6 mb-5">
             Аксессуары для бассейна
           </h2>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
@@ -48,6 +48,6 @@ function Aksessuar() {
       </div>
     </section>
   );
-};
+}
 
 export default Aksessuar;

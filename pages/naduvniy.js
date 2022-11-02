@@ -23,7 +23,7 @@ const Naduvniy = () => {
             />
             Надувные бассейны
           </p>
-          <h2 className=" font-bold text-3xl text-black-black_dark mt-6 mb-5">
+          <h2 className="font-bold text-xl md:text-3xl text-black-black_dark mt-5 md:mt-6 mb-5">
             Надувные бассейны
           </h2>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
