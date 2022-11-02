@@ -11,7 +11,7 @@ function AboutUs() {
         <div className="flex-col flex items-center flex-wrap lg:flex-row lg:justify-between">
           <div className="mb-6 sm:mb-0">
             <Image
-              className="w-full sm:w-96 h-56 mb-4"
+              className="w-full object-cover sm:w-96 h-56 mb-4"
               src={"/Assets/Images/HeaderAndHeroImg/about-man.png"}
               width={380}
               height={220}
@@ -20,13 +20,13 @@ function AboutUs() {
             <strong className="text-base sm:text-lg font-bold mb-2.5">
               Опыт
             </strong>
-            <p className="text-sm sm:text-base text-black-black_thin">
+            <p className="text-sm  sm:text-base text-black-black_thin">
               Профессионализм наших сотрудников
             </p>
           </div>
           <div className="ml-1 mb-6 sm:mb-0">
             <Image
-              className="w-full sm:w-96 h-56 mb-4"
+              className="w-full object-cover sm:w-96 h-56 mb-4"
               src={"/Assets/Images/HeaderAndHeroImg/about-car.png"}
               width={380}
               height={220}
@@ -41,7 +41,7 @@ function AboutUs() {
           </div>
           <div className="ml-1 mb-6 sm:mb-0">
             <Image
-              className="w-full sm:w-96 h-56 mb-4"
+              className="w-full object-cover sm:w-96 h-56 mb-4"
               src={"/Assets/Images/HeaderAndHeroImg/about-pool.png"}
               width={380}
               height={220}
