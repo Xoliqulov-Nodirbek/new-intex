@@ -85,6 +85,9 @@ module.exports = {
         36: "36px",
         22: "22px",
       },
+      gap:{
+        5.5:'22px',
+      },
       fontFamily: {
         inter: "Inter",
       },
@@ -239,6 +242,7 @@ module.exports = {
       },
       maxWidth: {
         container: "1220px",
+        popularContainer:'1210px',
         cont: "10.5%",
         inputWidth: "260px",
         cardWidth: "280px",

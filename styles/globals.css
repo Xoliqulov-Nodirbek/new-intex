@@ -116,7 +116,9 @@ body {
 #dropdown:hover .drop-img {
   transform: rotate(-180deg);
 }
-
+.rightSide:active > .rightSideTurn > path {
+  color: #fff;
+}
 /* ----- Responsive ----- */
 
 @media only screen and (max-width: 640px) {
