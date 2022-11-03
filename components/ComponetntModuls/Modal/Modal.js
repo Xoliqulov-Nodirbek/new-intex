@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Modal = ({ isVisible, onClose, children }) => {
   if (!isVisible) return null;
 
@@ -9,18 +11,9 @@ export const Modal = ({ isVisible, onClose, children }) => {
     <div
       id="wrapper"
       onClick={handleClick}
-      className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-50"
+      className="fixed inset-0 bg-black-black_dark bg-opacity-40 flex justify-center items-center z-50"
     >
-      <div className="w-96 h-[350px] bg-white p-2 rounded-lg">
-        {/* Close btn */}
-        <div className="flex justify-end">
-          <button
-            onClick={() => onClose()}
-            className="text-black text-2xl w-10 bg-amber-400 rounded-md"
-          >
-            X
-          </button>
-        </div>
+      <div className={`bg-white p-4 md:p-6 rounded-lg mx-3 md:mx-4`}>
         {/* Content */}
         {children}
       </div>

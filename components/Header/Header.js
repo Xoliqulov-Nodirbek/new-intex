@@ -458,5 +458,5 @@ function Header() {
 		</header>
 	);
 }
-// fixed w-full -top-1 z-50
+
 export default Header;

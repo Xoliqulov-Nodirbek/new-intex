@@ -7,7 +7,7 @@ const Karkasniy = () => {
   let products = useSelector((state) => state.data);
 
   return (
-    <section className="mt-6 md:mt-32">
+    <section className="mt-7 md:mt-32">
       <div className="max-w-container w-full mx-auto px-5">
         <div className="">
           <p className="flex items-center text-base text-black-black_thin">

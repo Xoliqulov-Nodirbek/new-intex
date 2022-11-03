@@ -38,7 +38,7 @@ function ProductCard({ status, name, price, sale }) {
         <span className="text-xs md:text-sm block line-through">
           {sale}
         </span>
-        <span className="text-xs md:text-sm block mb-2.5 text-black-black_light">{price}</span>
+        <span className="font-bold text-sm md:text-lg block mb-2.5 text-blue-accent">{price}</span>
         <Button>Заказать</Button>
       </div>
     </div>
