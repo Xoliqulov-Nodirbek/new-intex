@@ -4,7 +4,6 @@ import Button from "../ComponetntModuls/button/Button";
 import Baseen from "../../public/Assets/Images/img.png";
 
 function ProductCard({ status, name, price, sale }) {
-  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="card rounded-xl w-resCardWidth md:w-cardWidth shadow-card_shadow relative border">
