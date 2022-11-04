@@ -19,7 +19,6 @@ module.exports = {
         heroBottom: "120px",
         heroBottomMobile: "69px",
         popularBottom: "29px",
-        6: "6px",
       },
       screens: {
         tablet: "850px",

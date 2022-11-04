@@ -56,19 +56,14 @@ body {
   font-family: "Inter", sans-serif;
   background: #fff;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 * {
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  scroll-behavior: smooth;
 }
-
-/* img{
-  width: auto;
-  height: auto;
-} */
 
 #input-searching {
   background-image: url("../public/Assets/Images/HeaderAndHeroImg/searching.svg");
@@ -141,4 +136,24 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #F2F2F2; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

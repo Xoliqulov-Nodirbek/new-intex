@@ -1,10 +1,9 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import Button from "../ComponetntModuls/button/Button";
 import Baseen from "../../public/Assets/Images/img.png";
 
-function ProductCard({ status, name, price, sale }) {
-
+function ProductCard({ status, name, price, sale, onClick }) {
   return (
     <div className="card rounded-xl w-resCardWidth md:w-cardWidth shadow-card_shadow relative border">
       <span
@@ -30,15 +29,17 @@ function ProductCard({ status, name, price, sale }) {
         height={220}
       />
       <div className="p-2 md:p-4">
-        <h3 className="text-sm md:text-lg font-bold leading-5 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">{name}</h3>
+        <h3 className="text-sm md:text-lg font-bold leading-5 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
+          {name}
+        </h3>
         <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
           220х150х60см, 1662л
         </span>
-        <span className="text-xs md:text-sm block line-through">
-          {sale}
+        <span className="text-xs md:text-sm block line-through">{sale}</span>
+        <span className="font-bold text-sm md:text-lg block mb-2.5 text-blue-accent">
+          {price}
         </span>
-        <span className="font-bold text-sm md:text-lg block mb-2.5 text-blue-accent">{price}</span>
-        <Button>Заказать</Button>
+        <Button onClick={onClick}>Заказать</Button>
       </div>
     </div>
   );
