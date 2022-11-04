@@ -16,7 +16,7 @@ const Footer = () => {
                 alt="site_logo"
               />
             </Link>
-            <p className="mt-7 text-base text-gray-foot">
+            <p className="mt-7 text-base text-gray-foot hidden mini_phone:block">
               Бассейны от intex - доступная по цене, качественная, надежная и
               экологически чистая продукция, которая предназначена для приятного
               отдыха всей семьи
@@ -63,7 +63,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className=" mt-6 sm:mt-0">
+          <div className=" mt-6 sm:mt-0 hidden mini_phone:block">
             <p className="text-black-black_dark font-bold text-lg">
               Полезные ссылки
             </p>
@@ -105,11 +105,11 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="max-w-237 mt-6 sm:mt-0">
+          <div className="max-w-237 mt-6 sm:mt-0 hidden mini_phone:block">
             <p className="text-black-black_dark font-bold text-lg">
               Центр помощи
             </p>
-            <ul className=" text-sm text-gray-foot mt-4 tablet:mt-6 h-83 tablet:h-93 flex flex-col justify-between">
+            <ul className="text-sm text-gray-foot mt-4 tablet:mt-6 h-83 tablet:h-93 flex flex-col justify-between">
               <li>
                 <Link href="#">Доставка и оплата</Link>
               </li>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function AboutUs() {
   return (
-    <section className="my-10 lg:my-40">
+    <section id="pochemu" className="my-10 lg:my-40">
       <div className="max-w-[1220px] mx-auto px-4">
         <h2 className="text-black text-lg sm:text-3xl font-bold mb-10">
           Почему нужно выбрать нас?

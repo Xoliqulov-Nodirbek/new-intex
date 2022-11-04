@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import Image from "next/image";
 
-function Popular({ title }) {
+function Popular() {
   let products = useSelector((state) => state.data);
   const [carusel, setCarusel] = useState(0);
   const [disable, setDisable] = useState("");
@@ -100,10 +100,12 @@ function Popular({ title }) {
   };
 
   return (
-    <section className="popular">
+    <section id="populyar" className="popular">
       <div className="max-w-container mx-auto px-4 gap-x-10">
         <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
-          <h2 className="font-bold text-lg md:text-32  leading-36">{title}</h2>
+          <h2 className="font-bold text-lg md:text-32  leading-36">
+            Популярные товары
+          </h2>
           <div className="popular__top-left flex">
             <button
               diasbled="true"
