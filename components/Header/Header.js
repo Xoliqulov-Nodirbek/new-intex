@@ -56,7 +56,7 @@ function Header() {
 							href='tel:+998901288182'>
 							+998 (90) 128 81 82
 						</a>
-						<div className='flex items-center'>
+						<div className='flex items-center space-x-6'>
 							<div>
 								<Link className='text-sm font-medium text-gray-text' href={'/'}>
 									О Продукт
@@ -80,7 +80,8 @@ function Header() {
 					</div>
 				</div>
 			</div>
-			<div className={`bg-gray-bg_nav z-50 md:fixed w-full ${
+			<div
+				className={`bg-gray-bg_nav z-50 md:fixed w-full ${
 					fixedBar ? 'top-0 transition-all' : 'top-15 duration-500'
 				} border-b-2 md:border-none`}>
 				<div className='w-full max-w-container mx-auto px-4 py-3.5 sm:py-4'>
@@ -104,10 +105,10 @@ function Header() {
 									alt='Site Logo Mobile'
 								/>
 							</Link>
-							<div className='hidden items-center ml-10 xl:flex'>
+							<div className='hidden items-center ml-10 xl:flex space-x-6'>
 								<div
 									id='dropdown'
-									className='z-50 pb-4 mt-4 category inline-block relative pr-4 text-base text-black-black_dark font-medium'
+									className='z-50 pb-4 mt-4 category inline-block relative mr-1 pr-4 text-base text-black-black_dark font-medium'
 									href={'/'}>
 									Категории
 									<Image
@@ -263,7 +264,12 @@ function Header() {
 					</div>
 				</div>
 			</div>
-			<div className={`bg-gray-bg_nav z-50  ${fixedBar ? 'fixed -top-1 transition-all w-full' : 'static top-15 duration-500'} md:translate-y-59 flex py-3.5 px-4 items-center justify-between md:hidden`}>
+			<div
+				className={`bg-gray-bg_nav z-50  ${
+					fixedBar
+						? 'fixed -top-1 transition-all w-full'
+						: 'static top-15 duration-500'
+				} md:translate-y-59 flex py-3.5 px-4 items-center justify-between md:hidden`}>
 				<Image
 					onClick={() => setClickMenu(true)}
 					priority={true}
@@ -300,7 +306,7 @@ function Header() {
 						? 'left-0 bg-black w-auto inset-0 bg-opacity-25 backdrop-blur-sm duration-300'
 						: '-left-80 duration-300 w-0 bg-none backdrop-blur-0'
 				} fixed w-full z-50 top-0 `}>
-				<div className='w-modalMenu h-modalMenuHe bg-white pt-14 px-4'>
+				<div className='w-modalMenu h-modalMenuHe h-screen bg-white pt-14 px-4'>
 					<Link className='mb-11 inline-block' href={'/'}>
 						<Image
 							className='w-menuBarWidth h-menuBarHeight'
