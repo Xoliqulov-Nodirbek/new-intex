@@ -64,14 +64,14 @@ function Header() {
 							</div>
 							<div>
 								<Link
-									className='text-sm font-medium text-gray-text ml-6'
+									className='text-sm font-medium text-gray-text'
 									href={'/'}>
 									Почему мы?
 								</Link>
 							</div>
 							<div>
 								<Link
-									className='text-sm font-medium text-gray-text ml-6 '
+									className='text-sm font-medium text-gray-text'
 									href={'/'}>
 									Контакты
 								</Link>

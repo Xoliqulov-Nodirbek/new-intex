@@ -105,10 +105,10 @@ function Popular({ title }) {
         <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
           <h2 className="font-bold text-lg md:text-32  leading-36">{title}</h2>
           <div className="popular__top-left flex">
-            <button
+            <span
               diasbled="true"
               onClick={putLeft}
-              className={`rightSide ${disableLeft} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center`}
+              className={`rightSide ${disableLeft} active:bg-blueActive active:rounded-[50%] w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center`}
             >
               <svg
                 className="rightSideTurn"
@@ -126,8 +126,8 @@ function Popular({ title }) {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
-            <button
+            </span>
+            <span
               onClick={putRight}
               className={`rightSide ${disable} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center ml-4`}
             >
@@ -148,7 +148,7 @@ function Popular({ title }) {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </span>
           </div>
         </div>
       </div>
