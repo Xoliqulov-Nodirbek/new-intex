@@ -8,7 +8,7 @@ function Hero() {
 			<div className='w-full max-w-container mx-auto px-4'>
 				<div className='bg-gray-bg_main  rounded-3xl flex-col lg:flex-row flex lg:items-center justify-between'>
 					<div className='w-full max-w-container mx-auto'>
-						<div className='bg-gray-bg_main py-6 md:py-21 pl-4 sm:pl-32 rounded-sectionRadius flex-col lg:flex-row flex lg:items-center justify-between'>
+						<div className='bg-gray-bg_main py-6 sm:pl-32 md:py-32 lg:py-21 pl-4 rounded-sectionRadius flex-col lg:flex-row flex lg:items-center justify-between'>
 							<div className='w-full lg:w-heroContent pr-4'>
 								<h1 className='font-bold text-2xl sm:text-4xl xl:text-5xl text-black-black_dark mb-4'>
 									Бассейны от intex в Ташкенте
