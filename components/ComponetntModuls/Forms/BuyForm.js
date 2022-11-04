@@ -1,63 +1,63 @@
-import React from 'react'
-import { FormikConsumer, useFormik } from 'formik'
-import 'react-phone-number-input/style.css'
-import Image from 'next/image'
-import * as Yup from 'yup'
-import { toast, Toaster } from 'react-hot-toast'
-import axios from 'axios'
+import React from "react";
+import { FormikConsumer, useFormik } from "formik";
+import "react-phone-number-input/style.css";
+import Image from "next/image";
+import * as Yup from "yup";
+import { toast, Toaster } from "react-hot-toast";
+import axios from "axios";
 
-let token = '5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg'
-let chatId = '636476536'
+let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
+let chatId = "636476536";
 
 const initialValues = {
-  name: '',
-  number: '',
-}
+  name: "",
+  number: "",
+};
 
 const onSubmit = (values, { resetForm }) => {
-  toast.success('Successfully sent!')
-  let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number}`
+  toast.success("Successfully sent!");
+  let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number}`;
 
   axios
     .post(
-      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText},`,
+      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText},`
     )
     .then(function (response) {})
     .catch(function (error) {
-      toast.error('Internal error')
-    })
-  values.name = ''
-  resetForm({ values: '' })
-}
+      toast.error("Internal error");
+    });
+  values.name = "";
+  resetForm({ values: "" });
+};
 
-const phoneRegExp = /^[0-9]{9}$/
+const phoneRegExp = /^[0-9]{9}$/;
 const validationSchema = Yup.object({
   name: Yup.string()
-    .required('Username is required, at least 3 characters')
-    .min(3, 'Minimal 3 characters')
-    .max(20, 'Maximum 20 characters'),
-  number: Yup.string('Must be only number')
+    .required("Username is required, at least 3 characters")
+    .min(3, "Minimal 3 characters")
+    .max(20, "Maximum 20 characters"),
+  number: Yup.string("Must be only number")
     .matches(phoneRegExp, {
-      message: 'Phone number is not valid.',
+      message: "Phone number is not valid.",
       excludeEmptyString: true,
     })
-    .required('Required phone number'),
-})
+    .required("Required phone number"),
+});
 
 const BuyForm = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
-  })
+  });
 
   return (
     <div className=" w-full h-264 sm:h-312 rounded-xl p-4 sm:p-7 mt-6 sm:mt-0  bg-white">
       <Toaster position="bottom-right" reverseOrder={false} />
       <form
         onSubmit={(e) => {
-          formik.handleSubmit(e)
-          formik.values = initialValues
+          formik.handleSubmit(e);
+          formik.values = initialValues;
         }}
         className=" flex flex-col"
       >
@@ -70,12 +70,12 @@ const BuyForm = () => {
             placeholder="Введите ваше имя"
             className={
               formik.touched.name && formik.errors.name
-                ? '  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-3 sm:mb-6'
-                : '  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-gray-input_radius mb-3 sm:mb-6'
+                ? "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-3 sm:mb-6"
+                : "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-gray-input_radius mb-3 sm:mb-6"
             }
             minLength="3"
             maxLength="25"
-            {...formik.getFieldProps('name')}
+            {...formik.getFieldProps("name")}
           />
           {formik.touched.name && formik.errors.name ? (
             <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 left-2">
@@ -88,12 +88,12 @@ const BuyForm = () => {
           <div
             className={
               formik.touched.number && formik.errors.number
-                ? ' flex items-center pl-4 h-48 text-base rounded-lg p-1 outline-none border  border-red-600 mb-4 sm:mb-6'
-                : ' flex items-center pl-4 h-48 text-base rounded-lg p-1 outline-none border  border-gray-input_radius mb-4 sm:mb-6'
+                ? " flex items-center pl-4 h-48 text-base rounded-lg p-1 outline-none border  border-red-600 mb-4 sm:mb-6"
+                : " flex items-center pl-4 h-48 text-base rounded-lg p-1 outline-none border  border-gray-input_radius mb-4 sm:mb-6"
             }
           >
             <Image
-              src={'/Assets/Images/BuyAll/Flag.svg'}
+              src={"/Assets/Images/BuyAll/Flag.svg"}
               className="w-6 h-4"
               width={22}
               height={15}
@@ -106,7 +106,7 @@ const BuyForm = () => {
               id="number"
               placeholder="(90) 123 45 67"
               className=" outline-none w-full sm:ml-4 h-full p-2 "
-              {...formik.getFieldProps('number')}
+              {...formik.getFieldProps("number")}
             />
             {formik.touched.number && formik.errors.number ? (
               <span className="text-red-600 text-xs absolute bottom-0 sm:bottom-2  left-2">
@@ -123,7 +123,7 @@ const BuyForm = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default BuyForm
+export default BuyForm;

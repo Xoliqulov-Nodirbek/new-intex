@@ -5,7 +5,7 @@ import { Modal } from "../ComponetntModuls/Modal/Modal";
 import Baseen from "../../public/Assets/Images/img.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 
 function Card({ status, name, price, sale }) {
@@ -29,9 +29,7 @@ function Card({ status, name, price, sale }) {
       .post(
         `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
       )
-      .then(function (response) {
-        console.log("Submitted");
-      })
+      .then(function (response) {})
       .catch(function (error) {
         toast.error("Internal error");
       });
@@ -64,6 +62,7 @@ function Card({ status, name, price, sale }) {
 
   return (
     <div className="card rounded-xl max-w-cardWidth shadow-card_shadow relative border mt-5">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <span
         className={`${
           status === "Новинки"
@@ -155,7 +154,7 @@ function Card({ status, name, price, sale }) {
                   <h3 className="block font-bold text-sm">
                     Каркасный прямоугольный бассейн 260х160х65см, 2282л
                   </h3>
-                  <p className="block font-medium mt-6 text-sm text-black-black_thin">
+                  <p className="block font-medium mt-1 text-sm text-black-black_thin">
                     260х160х65см, 2282л
                   </p>
                 </div>
@@ -169,7 +168,7 @@ function Card({ status, name, price, sale }) {
                   />
                 </button>
               </div>
-              <div className="flex items-center justify-between mt-6">
+              <div className="flex items-center justify-between mt-2">
                 <div className="flex">
                   <button
                     className="flex items-center justify-center text-2xl w-7 h-7 border-1 rounded-l-[6px] bg-gray-line_color"
@@ -222,6 +221,7 @@ function Card({ status, name, price, sale }) {
                 type="text"
                 name="name"
                 id="name"
+                aria-label="Введите ваше имя"
                 placeholder="Введите ваше имя"
                 className={
                   formik.touched.name && formik.errors.name
@@ -259,6 +259,7 @@ function Card({ status, name, price, sale }) {
                   type="number"
                   name="number"
                   id="number"
+                  aria-label="phone_number"
                   placeholder="(90) 123 45 67"
                   className=" outline-none w-full sm:ml-4 h-full p-2 "
                   {...formik.getFieldProps("number")}
@@ -277,6 +278,7 @@ function Card({ status, name, price, sale }) {
                 type="text"
                 name="address"
                 id="address"
+                aria-label="Введите ваш адрес"
                 placeholder="Введите ваш адрес"
                 className={
                   formik.touched.address && formik.errors.address
@@ -293,10 +295,7 @@ function Card({ status, name, price, sale }) {
                 </span>
               ) : null}
             </label>
-            <div className="mt-1">
-              {formik.errors === false && state === true ? (
-                <div>Tabriklaymiz</div>
-              ) : null}
+            <div className="mt-3">
               <button
                 className="w-full bg-blue-base rounded-xl text-white py-3"
                 type="submit"
