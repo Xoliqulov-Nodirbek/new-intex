@@ -10,7 +10,7 @@ const Consultation = () => {
   }, []);
 
   return (
-    <div id="consultation" className="mt-32 ">
+    <div id="consultation" className="mt-36 ">
       <div className="max-w-[1185px] mx-auto bg-gray-bg_main px-4 pt-4 md:px-12 md:pt-12 md:rounded-sectionRadius">
         <div className="tablet_min:flex tablet_min:items-center tablet_min:justify-between">
           <div data-aos="zoom-in">
