@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import Image from "next/image";
 
-function Popular({ title }) {
+function Popular() {
   let products = useSelector((state) => state.data);
   const [carusel, setCarusel] = useState(0);
   const [disable, setDisable] = useState("");
@@ -100,15 +100,17 @@ function Popular({ title }) {
   };
 
   return (
-    <section className="popular">
+    <section id="populyar" className="popular">
       <div className="max-w-container mx-auto px-4 gap-x-10">
         <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
-          <h2 className="font-bold text-lg md:text-32  leading-36">{title}</h2>
+          <h2 className="font-bold text-lg md:text-32  leading-36">
+            Популярные товары
+          </h2>
           <div className="popular__top-left flex">
-            <button
+            <span
               diasbled="true"
               onClick={putLeft}
-              className={`rightSide ${disableLeft} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center`}
+              className={`rightSide ${disableLeft} active:bg-blueActive active:rounded-[50%] w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center`}
             >
               <svg
                 className="rightSideTurn"
@@ -126,8 +128,8 @@ function Popular({ title }) {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
-            <button
+            </span>
+            <span
               onClick={putRight}
               className={`rightSide ${disable} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center ml-4`}
             >
@@ -148,7 +150,7 @@ function Popular({ title }) {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </span>
           </div>
         </div>
       </div>

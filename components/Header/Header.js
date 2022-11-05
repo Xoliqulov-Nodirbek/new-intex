@@ -8,6 +8,7 @@ function Header() {
 	const [clickMenu, setClickMenu] = useState(false);
 	const [menuCatOpen, setMenuCatOpen] = useState(false);
 	const [fixedBar, setFixedBar] = useState(false);
+	const [flagName, setFlagName] = useState('Ру'); 
 	const [flagImg, setFlagImg] = useState(
 		'/Assets/Images/HeaderAndHeroImg/russia-flag.svg',
 	);
@@ -45,9 +46,9 @@ function Header() {
 			}
 		});
 	}, []);
-	
+
 	return (
-		<header id='header' className=' shadow-sm'>
+		<header id='header' className='shadow-sm'>
 			<div className='bg-gray-bg_nav hidden md:block py-3 border-b-2'>
 				<div className='w-full max-w-container mx-auto px-4'>
 					<div className='flex items-center justify-between'>
@@ -68,14 +69,14 @@ function Header() {
 							<div>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6'
-									href={'/'}>
+									href={'#pochemu'}>
 									Почему мы?
 								</Link>
 							</div>
 							<div>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6 '
-									href={'/'}>
+									href={'#contact'}>
 									Контакты
 								</Link>
 							</div>
@@ -140,13 +141,6 @@ function Header() {
 										</li>
 										<li>
 											<Link
-												className='font-normal inline-block duration-150 text-sm text-black-black_thin mb-2'
-												href={'/chist_bassen'}>
-												Все чистки бассейна
-											</Link>
-										</li>
-										<li>
-											<Link
 												className='font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2'
 												href={'/aksessuar'}>
 												Аксессуары для бассейна
@@ -157,17 +151,17 @@ function Header() {
 
 								<Link
 									className='ml-6 text-base text-black-black_dark font-medium'
-									href={'/'}>
+									href={'#populyar'}>
 									Популярное
 								</Link>
 								<Link
 									className='ml-6 text-base text-black-black_dark font-medium'
-									href={'/'}>
+									href={'#noviy'}>
 									Новинки
 								</Link>
 								<Link
 									className='ml-6 text-base text-black-black_dark font-medium'
-									href={'/'}>
+									href={'#skidka'}>
 									На скидке
 								</Link>
 							</div>
@@ -181,7 +175,7 @@ function Header() {
 								placeholder='Поиск'
 								aria-label='Enter your searching'
 							/>
-							<button className='bg-white z-50 hidden md:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl'>
+							{/* <button className='bg-white z-50 hidden md:flex ml-8 w-11 h-11 items-center justify-center cursor-pointer rounded-xl'>
 								<Image
 									priority={true}
 									className='w-6 h-6'
@@ -190,7 +184,7 @@ function Header() {
 									height={24}
 									alt='Blog Img'
 								/>
-							</button>
+							</button> */}
 
 							<a className='flex sm:hidden z-50' href='tel:+998901288182'>
 								<Image
@@ -284,13 +278,13 @@ function Header() {
 				/>
 				<input
 					id='input-searching'
-					className='w-full mx-2 max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none'
+					className='w-full max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none ml-4'
 					type='text'
 					autoComplete='off'
 					placeholder='Поиск'
 					aria-label='Enter your searching'
 				/>
-				<button className='bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl'>
+				{/* <button className='bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl'>
 					<Image
 						priority={true}
 						className='w-5 h-5 sm:w-6 sm:h-6'
@@ -299,7 +293,7 @@ function Header() {
 						height={24}
 						alt='Blog Img'
 					/>
-				</button>
+				</button> */}
 			</div>
 			<div
 				id='menuBar'
@@ -416,17 +410,6 @@ function Header() {
 								className='w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
 								href={'/karkasniy'}>
 								Каркасные бассейны
-							</Link>
-						</li>
-						<li
-							onClick={() => {
-								setMenuCatOpen(false);
-								setClickMenu(false);
-							}}>
-							<Link
-								className='w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5'
-								href={'/chist_bassen'}>
-								Все чистки бассейна
 							</Link>
 						</li>
 						<li

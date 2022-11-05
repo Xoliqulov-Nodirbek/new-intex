@@ -56,7 +56,7 @@ body {
   font-family: "Inter", sans-serif;
   background: #fff;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 
 * {
@@ -69,7 +69,7 @@ body {
   background-image: url("../public/Assets/Images/HeaderAndHeroImg/searching.svg");
   background-repeat: no-repeat;
   background-size: 15px;
-  background-position: calc(50% - 107px);
+  background-position: 10px 15px;
 }
 
 .hero-bg {
@@ -118,7 +118,7 @@ body {
 
 @media only screen and (max-width: 640px) {
   #input-searching {
-    background-position: calc(50% - 109px);
+    background-position: calc(50% - 130px);
   }
 }
 
