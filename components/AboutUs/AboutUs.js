@@ -1,7 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function AboutUs() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section id="pochemu" className="my-10 lg:my-40">
       <div className="max-w-[1220px] mx-auto px-4">
@@ -9,7 +16,11 @@ function AboutUs() {
           Почему нужно выбрать нас?
         </h2>
         <div className="flex-col flex items-center flex-wrap lg:flex-row lg:justify-between">
-          <div className="mb-6 sm:mb-0">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="800"
+            className="mb-6 sm:mb-0"
+          >
             <Image
               className="w-full object-cover sm:w-96 h-56 mb-4"
               src={"/Assets/Images/HeaderAndHeroImg/about-man.png"}
@@ -24,7 +35,11 @@ function AboutUs() {
               Профессионализм наших сотрудников
             </p>
           </div>
-          <div className="ml-1 mb-6 sm:mb-0">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1300"
+            className="ml-1 mb-6 sm:mb-0"
+          >
             <Image
               className="w-full object-cover sm:w-96 h-56 mb-4"
               src={"/Assets/Images/HeaderAndHeroImg/about-car.png"}
@@ -39,7 +54,11 @@ function AboutUs() {
               Бесплатная доставка по городу
             </p>
           </div>
-          <div className="ml-1 mb-6 sm:mb-0">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1800"
+            className="ml-1 mb-6 sm:mb-0"
+          >
             <Image
               className="w-full object-cover sm:w-96 h-56 mb-4"
               src={"/Assets/Images/HeaderAndHeroImg/about-pool.png"}
