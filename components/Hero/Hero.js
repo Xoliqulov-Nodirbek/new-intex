@@ -19,14 +19,14 @@ function Hero() {
               <div className="w-full lg:w-heroContent pr-4">
                 <h1
                   data-aos="fade-up"
-                  data-aos-duration="1000"
+                  data-aos-duration="800"
                   className="font-bold text-2xl sm:text-4xl xl:text-5xl text-black-black_dark mb-4"
                 >
                   Бассейны от intex в Ташкенте
                 </h1>
                 <p
                   data-aos="fade-up"
-                  data-aos-duration="1000"
+                  data-aos-duration="500"
                   data-aos-delay="400"
                   className="font-normal text-sm lg:text-base text-black-black_thin mb-6 sm:mb-12"
                 >
@@ -36,18 +36,16 @@ function Hero() {
                 </p>
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="600"
+                  data-aos-duration="500"
+                  data-aos-delay="500"
                   className="hidden sm:inline-block"
                 >
                   <CallBtn />
                 </div>
               </div>
               <div
-                data-aos="fade-left"
-                data-aos-anchor="#example-anchor"
-                data-aos-offset="700"
-                data-aos-duration="700"
+                data-aos="fade-up"
+                data-aos-duration="1000"
                 className="flex justify-end"
               >
                 <Image
@@ -70,7 +68,7 @@ function Hero() {
               <div
                 data-aos="fade-up"
 								data-aos-duration="1000"
-								data-aos-delay="800"
+								data-aos-delay="200"
                 className="sm:hidden mt-7 pr-4"
               >
                 <CallBtn />

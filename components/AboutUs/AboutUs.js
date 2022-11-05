@@ -18,7 +18,7 @@ function AboutUs() {
         <div className="flex-col flex items-center flex-wrap lg:flex-row lg:justify-between">
           <div
             data-aos="fade-up"
-            data-aos-duration="800"
+            data-aos-duration="1000"
             className="mb-6 sm:mb-0"
           >
             <Image
@@ -37,7 +37,8 @@ function AboutUs() {
           </div>
           <div
             data-aos="fade-up"
-            data-aos-duration="1300"
+            data-aos-duration="1000"
+            data-aos-delay="100"
             className="ml-1 mb-6 sm:mb-0"
           >
             <Image
@@ -56,7 +57,8 @@ function AboutUs() {
           </div>
           <div
             data-aos="fade-up"
-            data-aos-duration="1800"
+            data-aos-duration="1000"
+            data-aos-delay="200"
             className="ml-1 mb-6 sm:mb-0"
           >
             <Image
