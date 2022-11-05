@@ -12,6 +12,7 @@ function Header() {
 		'/Assets/Images/HeaderAndHeroImg/russia-flag.svg',
 	);
 	const [flagName, setFlagName] = useState('Ру');
+
 	function handleClickedFlag(evt) {
 		setFlagName(evt.target.textContent);
 		if (evt.target.textContent == 'Uz') {
@@ -30,11 +31,12 @@ function Header() {
 			setMenuLang(false);
 		}
 	}
+
 	function handlMenuOpen(e) {
 		if (e.target.id === 'menuBar') setClickMenu(false);
 	}
+
 	useEffect(() => {
-		// window is accessible here.
 		window.addEventListener('scroll', function (evt) {
 			if (window.scrollY > 10) {
 				setFixedBar(true);
@@ -43,6 +45,7 @@ function Header() {
 			}
 		});
 	}, []);
+	
 	return (
 		<header id='header' className=' shadow-sm'>
 			<div className='bg-gray-bg_nav hidden md:block py-3 border-b-2'>
