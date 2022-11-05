@@ -1,5 +1,5 @@
 import React from "react";
-import { FormikConsumer, useFormik } from "formik";
+import { useFormik } from "formik";
 import "react-phone-number-input/style.css";
 import Image from "next/image";
 import * as Yup from "yup";

@@ -60,27 +60,34 @@ function Header() {
 							href='tel:+998901288182'>
 							+998 (90) 128 81 82
 						</a>
-						<div className='flex items-center space-x-6'>
-							<div>
+						<ul className='flex items-center space-x-6'>
+							<li>
 								<Link className='text-sm font-medium text-gray-text' href={'/'}>
 									О Продукт
 								</Link>
-							</div>
-							<div>
+							</li>
+							<li>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6'
 									href={'#pochemu'}>
 									Почему мы?
 								</Link>
-							</div>
-							<div>
+							</li>
+							<li>
+								<Link
+									className='text-sm font-medium text-gray-text ml-6 '
+									href={'#consultation'}>
+									Консултация
+								</Link>
+							</li>
+							<li>
 								<Link
 									className='text-sm font-medium text-gray-text ml-6 '
 									href={'#contact'}>
 									Контакты
 								</Link>
-							</div>
-						</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
