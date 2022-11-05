@@ -154,7 +154,7 @@ function Noviy() {
           </div>
         </div>
       </div>
-      <div className="products__list max-w-popularContainer overflow-hidden mx-auto px-3">
+      <div className="products__list max-w-popularContainer pb-5 overflow-hidden mx-auto px-3">
         <div
           style={{ transform: "translateX(-" + carusel + "px)" }}
           className={`hidden md:flex gap-x-5 w-full duration-300`}
