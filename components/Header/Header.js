@@ -12,7 +12,6 @@ function Header() {
 	const [flagImg, setFlagImg] = useState(
 		'/Assets/Images/HeaderAndHeroImg/russia-flag.svg',
 	);
-	const [flagName, setFlagName] = useState('Ру');
 
 	function handleClickedFlag(evt) {
 		setFlagName(evt.target.textContent);
