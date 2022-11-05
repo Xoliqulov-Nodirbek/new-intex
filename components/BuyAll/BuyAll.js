@@ -40,9 +40,8 @@ const BuyAll = () => {
             <BuyForm />
           </div>
           <div
-            data-aos="fade-left"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos="fade-up"
+            data-aos-duration="700"
             className="hidden md:block ml-4 lg:ml-0"
           >
             <Image

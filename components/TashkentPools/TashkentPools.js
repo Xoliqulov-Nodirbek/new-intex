@@ -91,6 +91,7 @@ function TashkentPools() {
               <div
                 data-aos="fade-right"
                 data-aos-offset="100"
+                data-aos-delay="100"
                 data-aos-easing="ease-in-sine"
                 className="flex items-center bg-white py-2 px-3 rounded-sectionRadius w-fit"
               >
@@ -122,7 +123,7 @@ function TashkentPools() {
               <div
                 data-aos="fade-right"
                 data-aos-offset="100"
-                data-aos-delay="600"
+                data-aos-delay="500"
                 data-aos-easing="ease-in-sine"
                 className="flex items-center bg-white py-2 px-3 rounded-sectionRadius w-fit"
               >
@@ -140,7 +141,7 @@ function TashkentPools() {
               <div
                 data-aos="fade-right"
                 data-aos-offset="100"
-                data-aos-delay="900"
+                data-aos-delay="700"
                 data-aos-easing="ease-in-sine"
                 className="flex items-center bg-white py-2 px-3 mb-3 lg:mb-8 rounded-sectionRadius w-fit"
               >
@@ -165,7 +166,7 @@ function TashkentPools() {
               <div
                 data-aos="fade-right"
                 data-aos-offset="100"
-                data-aos-delay="1200"
+                data-aos-delay="900"
                 data-aos-easing="ease-in-sine"
                 className="flex items-center bg-white py-2 px-3 rounded-sectionRadius w-fit"
               >
