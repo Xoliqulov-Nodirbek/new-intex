@@ -52,7 +52,7 @@ const BuyForm = () => {
   });
 
   return (
-    <div className=" w-full h-264 sm:h-312 rounded-xl p-4 sm:p-7 mt-6 sm:mt-0  bg-white">
+    <div className="w-full h-264 sm:h-312 rounded-xl p-4 sm:p-7 sm:mt-0  bg-white">
       <Toaster position="bottom-right" reverseOrder={false} />
       <form
         onSubmit={(e) => {
