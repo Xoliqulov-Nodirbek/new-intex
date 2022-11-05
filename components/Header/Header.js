@@ -70,8 +70,6 @@ function Header() {
 								<Link
 									className='text-sm font-medium text-gray-text ml-6'
 									href={'#pochemu'}>
-									className='text-sm font-medium text-gray-text'
-									href={'/'}>
 									Почему мы?
 								</Link>
 							</div>
@@ -79,8 +77,6 @@ function Header() {
 								<Link
 									className='text-sm font-medium text-gray-text ml-6 '
 									href={'#contact'}>
-									className='text-sm font-medium text-gray-text'
-									href={'/'}>
 									Контакты
 								</Link>
 							</div>
