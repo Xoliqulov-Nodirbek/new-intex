@@ -102,7 +102,7 @@ function Popular() {
   return (
     <section id="populyar" className="popular">
       <div className="max-w-container mx-auto px-4 gap-x-10">
-        <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
+        <div className="popular__top flex items-center justify-between mb-popularBottom md:mb-10">
           <h2 className="font-bold text-lg md:text-32  leading-36">
             Популярные товары
           </h2>
@@ -110,7 +110,7 @@ function Popular() {
             <span
               diasbled="true"
               onClick={putLeft}
-              className={`rightSide ${disableLeft} active:bg-blueActive active:rounded-[50%] w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center`}
+              className={`rightSide ${disableLeft} active:bg-blueActive active:rounded-[50%] w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center cursor-pointer`}
             >
               <svg
                 className="rightSideTurn"
@@ -131,7 +131,7 @@ function Popular() {
             </span>
             <span
               onClick={putRight}
-              className={`rightSide ${disable} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center ml-4`}
+              className={`rightSide ${disable} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center ml-4 cursor-pointer`}
             >
               <svg
                 className="rotate-180 rightSideTurn"

@@ -71,9 +71,8 @@ function Card({ status, name, price, sale }) {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className="card rounded-xl max-w-cardWidth shadow-card_shadow relative border mt-5"
+        className="card rounded-xl max-w-cardWidth shadow-card_shadow relative mt-5"
       >
-        <Toaster position="bottom-right" reverseOrder={false} />
         <span
           className={`${
             status === "Новинки"
@@ -96,7 +95,7 @@ function Card({ status, name, price, sale }) {
           width={280}
           height={220}
         />
-        <div className="p-2 md:p-4">
+        <div className="p-2 md:p-4 border-t-gray-borderColor border-t-1">
           <h3 className="text-sm md:text-lg font-bold leading-5 mb-2">
             {name}
           </h3>
@@ -104,7 +103,7 @@ function Card({ status, name, price, sale }) {
             220х150х60см, 1662л
           </span>
           <span
-            className={`text-xs md:text-sm block line-through ${
+            className={`text-xs md:text-sm block line-through text-gray-text_color ${
               status === "Новинки" ? "h-5" : null
             } ${status === "Pекомендуем" ? "h-5" : null}`}
           >
@@ -359,6 +358,7 @@ function Card({ status, name, price, sale }) {
           </button>
         </div> */}
       </Modal>
+      <Toaster position="bottom-right" reverseOrder={false} />
     </>
   );
 }

@@ -17,16 +17,11 @@ const BuyAll = () => {
             <h2 className="text-lg sm:text-3xl md:text-32 font-bold leading-9">
               Купить оптом
             </h2>
-            <p className="max-w-403 text-sm md:text-base text-gray-foot leading-5 mt-4 pb-6 sm:pb-8 ">
+            <p className="max-w-403 text-sm md:text-base text-gray-foot leading-5 mt-3 mb-6 sm:mb-8 ">
               Если вы хотите купить товары по оптовой цене, вы должны заказать
               не менее 20 товаров.
             </p>
-            <div
-              data-aos="fade-left"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-              className=" md:hidden w-full flex items-center justify-center layout"
-            >
+            <div className=" md:hidden w-full flex items-center justify-center layout">
               <Image
                 className="w-335 h-207"
                 src={"/Assets/Images/KarkasHero1.png"}
@@ -39,11 +34,7 @@ const BuyAll = () => {
             </div>
             <BuyForm />
           </div>
-          <div
-            data-aos="fade-up"
-            data-aos-duration="700"
-            className="hidden md:block ml-4 lg:ml-0"
-          >
+          <div className="hidden md:block ml-4 lg:ml-0">
             <Image
               className="w-600 max-h-380"
               src={"/Assets/Images/KarkasHero.png"}

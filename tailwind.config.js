@@ -50,6 +50,8 @@ module.exports = {
           input_radius: "#E3E5E5",
           line_color: "#F2F2F2",
           span_bg: "#DEDEDE",
+          borderColor: "F2F6FA",
+          text_color: "#A0A0A0",
         },
         blue: {
           accent: "#109EF4",
@@ -144,7 +146,7 @@ module.exports = {
       boxShadow: {
         order_btn:
           "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
-        card_shadow: "2px 12px 10px rgba(60, 60, 60, 0.1)",
+        card_shadow: "2px 12px 24px rgba(60, 60, 60, 0.1)",
         card: "2px 12px 24px rgba(60, 60, 60, 0.1)",
       },
       borderRadius: {
