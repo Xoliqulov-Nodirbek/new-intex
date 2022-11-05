@@ -277,7 +277,7 @@ function Header() {
 				/>
 				<input
 					id='input-searching'
-					className='w-full max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none ml-4'
+					className='w-full max-w-[400px] py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none ml-4'
 					type='text'
 					autoComplete='off'
 					placeholder='Поиск'

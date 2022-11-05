@@ -15,7 +15,7 @@ function Hero() {
       <div className="w-full max-w-container mx-auto px-4">
         <div className="bg-gray-bg_main  rounded-3xl flex-col lg:flex-row flex lg:items-center justify-between">
           <div className="w-full max-w-container mx-auto">
-            <div className="bg-gray-bg_main py-6 sm:pl-32 md:py-32 lg:py-21 pl-4 rounded-sectionRadius flex-col lg:flex-row flex lg:items-center justify-between">
+            <div className="bg-gray-bg_main py-6 sm:pl-10 md:py-32 lg:py-21 pl-4 rounded-sectionRadius flex-col lg:flex-row flex lg:items-center justify-between">
               <div className="w-full lg:w-heroContent pr-4">
                 <h1
                   data-aos="fade-up"
