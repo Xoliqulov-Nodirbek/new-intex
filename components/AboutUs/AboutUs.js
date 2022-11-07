@@ -10,7 +10,7 @@ function AboutUs() {
   }, []);
 
   return (
-    <section id="pochemu" className="my-10 lg:my-40">
+    <section id="pochemu" className="my-10 lg:my-40 mb-20">
       <div className="max-w-[1220px] mx-auto px-4">
         <h2 className="text-black text-lg sm:text-3xl font-bold mb-10">
           Почему нужно выбрать нас?
@@ -59,7 +59,7 @@ function AboutUs() {
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="200"
-            className="ml-1 mb-6 sm:mb-0"
+            className="ml-1 sm:mb-0"
           >
             <Image
               className="w-full object-cover sm:w-96 h-56 mb-4"

@@ -20,7 +20,7 @@ function TashkentPools() {
             которых можно выделить самые важные:
           </p>
           {/* --- Desctop --- */}
-          <div className="hidden sm:block">
+          <div className="hidden lg:block">
             <div className="lg:flex lg:justify-between lg:items-center mt-4 lg:mt-16 lg:px-28 space-y-3 lg:space-y-0">
               <div className="flex items-center bg-white py-2 px-3 rounded-sectionRadius w-fit">
                 <Image
@@ -86,7 +86,7 @@ function TashkentPools() {
             </div>
           </div>
           {/* --- Mobile --- */}
-          <div className="block sm:hidden">
+          <div className="block lg:hidden">
             <div className="lg:flex lg:justify-between lg:items-center mt-4 lg:mt-16 lg:px-28 space-y-3 lg:space-y-0">
               <div
                 data-aos="fade-right"
