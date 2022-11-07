@@ -10,7 +10,7 @@ const Consultation = () => {
   }, []);
 
   return (
-    <div id="consultation" className="mt-36 ">
+    <div id="consultation" className="mt-10 lg:mt-36">
       <div className="max-w-[1185px] mx-auto bg-gray-bg_main px-4 pt-4 md:px-12 md:pt-12 md:rounded-sectionRadius">
         <div className="tablet_min:flex tablet_min:items-center tablet_min:justify-between">
           <div>
@@ -35,8 +35,8 @@ const Consultation = () => {
               className="lg:ml-20 mx-auto block tablet_min:hidden"
               src={"/Assets/Images/BuyAll/person.png"}
               alt="Picture of the Karkas"
-              width={380}
-              height={466}
+              width={275}
+              height={335}
               priority="true"
             />
             <BuyForm />

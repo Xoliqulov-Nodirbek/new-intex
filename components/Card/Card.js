@@ -41,6 +41,8 @@ function Card({ status, name, price, sale }) {
       });
     values.name = "";
     resetForm({ values: "" });
+    setShowModal(false);
+    setNumberProduct(1);
   };
 
   const phoneRegExp = /^[0-9]{9}$/;
@@ -171,7 +173,7 @@ function Card({ status, name, price, sale }) {
                     260х160х65см, 2282л
                   </p>
                 </div>
-                <button type="button">
+                {/* <button type="button">
                   <Image
                     className="w-6 h-6"
                     src={`/Assets/Images/ModalImg/closeWihite.svg`}
@@ -179,7 +181,7 @@ function Card({ status, name, price, sale }) {
                     height={24}
                     alt="close_image"
                   />
-                </button>
+                </button> */}
               </div>
               <div className="flex items-center justify-between mt-2">
                 <div className="flex">
@@ -227,6 +229,7 @@ function Card({ status, name, price, sale }) {
               formik.values = initialValues;
             }}
             className="flex flex-col mt-5"
+            autoComplete="off"
           >
             <label className="font-medium text-black-black_dark text-base relative flex flex-col">
               Имя
