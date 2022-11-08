@@ -1,6 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -70,34 +71,11 @@ function Popular() {
     onSubmit,
     validationSchema,
   });
-
-  const putRight = () => {
-    setDisableLeft("");
-    setCarusel(carusel + 300);
-    setCaraMobile(carMobile + 242);
-    if (carusel >= 1500) {
-      setCarusel(1500);
-      setDisable("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-    if (carMobile >= 1452) {
-      setCaraMobile(1452);
-      setDisable("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-  };
-
-  const putLeft = () => {
-    setCarusel(carusel - 300);
-    setDisable("");
-    setCaraMobile(carMobile - 242);
-    if (carusel <= 0) {
-      setCarusel(0);
-      setDisableLeft("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-    if (carMobile <= 0) {
-      setCaraMobile(0);
-      setDisableLeft("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-  };
+  const [width, setWidth] = useState(0)
+  const caruselDrag = useRef()
+  useEffect(() => {
+    setWidth(caruselDrag.current.scrollWidth - caruselDrag.current.offsetWidth)
+  },[])
 
   return (
     <section id="populyar" className="popular">
@@ -106,58 +84,15 @@ function Popular() {
           <h2 className="font-bold text-lg md:text-32  leading-36">
             Популярные товары
           </h2>
-          <div className="popular__top-left flex">
-            <span
-              diasbled="true"
-              onClick={putLeft}
-              className={`rightSide ${disableLeft} active:bg-blueActive active:rounded-[50%] w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center cursor-pointer`}
-            >
-              <svg
-                className="rightSideTurn"
-                width="18"
-                height="14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.336 1.545.818 7.064l5.518 5.518M16.273 7.063H.973"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span
-              onClick={putRight}
-              className={`rightSide ${disable} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center ml-4 cursor-pointer`}
-            >
-              <svg
-                className="rotate-180 rightSideTurn"
-                width="18"
-                height="14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="active:fill-white"
-                  d="M6.336 1.545.818 7.064l5.518 5.518M16.273 7.063H.973"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
         </div>
       </div>
       <div className="products__list max-w-popularContainer overflow-hidden pb-5 mx-auto px-3">
-        <div
-          style={{ transform: "translateX(-" + carusel + "px)" }}
-          className={`hidden md:flex gap-x-5 w-full duration-300`}
+        <motion.div
+          className={`flex cursor-grab gap-x-5 w-full duration-300`}
+          ref={caruselDrag}
+          drag="x"
+          dragConstraints={{right:0,left:-width}}
+          whileTap={{cursor:"grabbing"}}
         >
           {products.map((el) => (
             <ProductCard
@@ -169,22 +104,7 @@ function Popular() {
               onClick={handleClick}
             />
           ))}
-        </div>
-        <div
-          style={{ transform: "translateX(-" + carMobile + "px)" }}
-          className={`md:hidden flex gap-x-5.5 w-full duration-300`}
-        >
-          {products.map((el) => (
-            <ProductCard
-              key={el.id}
-              status={el.status}
-              name={el.name}
-              price={el.price}
-              sale={el.sale_price}
-              onClick={handleClick}
-            />
-          ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* ----- Modal ----- */}

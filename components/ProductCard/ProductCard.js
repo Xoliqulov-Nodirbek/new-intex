@@ -22,6 +22,7 @@ function ProductCard({ status, name, price, sale, onClick }) {
         {status}
       </span>
       <Image
+      onDragStart={(e) => e.preventDefault()}
         className="mt-2 mb-1 md:mb-4"
         src={Baseen}
         alt="baseen_product_image"
