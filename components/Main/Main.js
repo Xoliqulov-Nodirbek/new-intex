@@ -3,11 +3,17 @@ import Hero from "../Hero/Hero";
 import BuyAll from "../BuyAll/BuyAll";
 import TashkentPools from "../TashkentPools/TashkentPools";
 import Popular from "../Popular/Popular";
+
 import Loading from "../Loading/Loading";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../redux/siteDataReducer";
+
+import Noviy from "../Noviy/Noviy";
+import Skidka from "../Skidka/Skidka";
+import Consultation from "../Consultation/Consultation";
+
 
 function Main() {
   const productdata = useSelector((state) => state.data);
@@ -28,12 +34,14 @@ function Main() {
     <main>
       <Hero />
 
+
       <Popular title={languages[lang].popular.heading} />
       <TashkentPools />
       <Popular title={languages[lang].newProduct.heading} />
       <BuyAll />
       <AboutUs />
       <Popular title={"Товары со скидкой"} />
+
     </main>
   );
 }

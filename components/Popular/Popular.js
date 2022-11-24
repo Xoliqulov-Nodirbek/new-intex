@@ -1,6 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -8,9 +9,11 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import Image from "next/image";
 
+
 function Popular({ title }) {
 
   let products = useSelector((state) => state.data.initialState);
+
 
   const [carusel, setCarusel] = useState(0);
   const [disable, setDisable] = useState("");
@@ -51,6 +54,8 @@ function Popular({ title }) {
       });
     values.name = "";
     resetForm({ values: "" });
+    setNumberProduct(1);
+    setShowModal(false);
   };
 
   const phoneRegExp = /^[0-9]{9}$/;
@@ -75,88 +80,22 @@ function Popular({ title }) {
     onSubmit,
     validationSchema,
   });
-
-  const putRight = () => {
-    setDisableLeft("");
-    setCarusel(carusel + 300);
-    setCaraMobile(carMobile + 242);
-    if (carusel >= 1500) {
-      setCarusel(1500);
-      setDisable("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-    if (carMobile >= 1452) {
-      setCaraMobile(1452);
-      setDisable("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-  };
-
-  const putLeft = () => {
-    setCarusel(carusel - 300);
-    setDisable("");
-    setCaraMobile(carMobile - 242);
-    if (carusel <= 0) {
-      setCarusel(0);
-      setDisableLeft("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-    if (carMobile <= 0) {
-      setCaraMobile(0);
-      setDisableLeft("cursor-not-allowed opacity-30 active:bg-azure");
-    }
-  };
+  const [width, setWidth] = useState(0)
+  const caruselDrag = useRef()
+  useEffect(() => {
+    setWidth(caruselDrag.current.scrollWidth - caruselDrag.current.offsetWidth)
+  },[])
 
   return (
-    <section className="popular">
+    <section id="populyar" className="popular">
       <div className="max-w-container mx-auto px-4 gap-x-10">
-        <div className="popular__top flex items-center justify-between mb-popularBottom  md:mb-10">
-          <h2 className="font-bold text-lg md:text-32  leading-36">{title}</h2>
-          <div className="popular__top-left flex">
-            <span
-              diasbled="true"
-              onClick={putLeft}
-              className={`rightSide ${disableLeft} active:bg-blueActive active:rounded-[50%] w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center`}
-            >
-              <svg
-                className="rightSideTurn"
-                width="18"
-                height="14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.336 1.545.818 7.064l5.518 5.518M16.273 7.063H.973"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span
-              onClick={putRight}
-              className={`rightSide ${disable} active:bg-blueActive w-9 h-9 rounded-[50%] bg-azure flex items-center justify-center ml-4`}
-            >
-              <svg
-                className="rotate-180 rightSideTurn"
-                width="18"
-                height="14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  className="active:fill-white"
-                  d="M6.336 1.545.818 7.064l5.518 5.518M16.273 7.063H.973"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
+        <div className="popular__top flex items-center justify-between mb-popularBottom md:mb-10">
+          <h2 className="font-bold text-lg md:text-32  leading-36">
+            Популярные товары
+          </h2>
         </div>
       </div>
+
       <div className="products__list max-w-popularContainer overflow-hidden mx-auto px-3">
         <div
           style={{ transform: "translateX(-" + carusel + "px)" }}
@@ -176,6 +115,15 @@ function Popular({ title }) {
         <div
           style={{ transform: "translateX(-" + carMobile + "px)" }}
           className={`md:hidden flex flex-shrink-0 gap-x-5.5 w-full duration-300`}
+
+      <div className="products__list max-w-popularContainer overflow-hidden pb-5 mx-auto px-3">
+        <motion.div
+          className={`flex cursor-grab gap-x-5 w-full duration-300`}
+          ref={caruselDrag}
+          drag="x"
+          dragConstraints={{right:0,left:-width}}
+          whileTap={{cursor:"grabbing"}}
+
         >
           {products.map((el) => (
             <ProductCard
@@ -186,8 +134,13 @@ function Popular({ title }) {
               sale={el.sale_price}
               onClick={handleClick}
             />
+
            ))} 
         </div>
+
+          ))}
+        </motion.div>
+
       </div>
 
       {/* ----- Modal ----- */}
@@ -239,7 +192,7 @@ function Popular({ title }) {
                     260х160х65см, 2282л
                   </p>
                 </div>
-                <button type="button">
+                {/* <button type="button">
                   <Image
                     className="w-6 h-6"
                     src={`/Assets/Images/ModalImg/closeWihite.svg`}
@@ -247,7 +200,7 @@ function Popular({ title }) {
                     height={24}
                     alt="close_image"
                   />
-                </button>
+                </button> */}
               </div>
               <div className="flex items-center justify-between mt-2">
                 <div className="flex">
@@ -295,6 +248,7 @@ function Popular({ title }) {
               formik.values = initialValues;
             }}
             className="flex flex-col mt-5"
+            autoComplete="off"
           >
             <label className="font-medium text-black-black_dark text-base relative flex flex-col">
               Имя

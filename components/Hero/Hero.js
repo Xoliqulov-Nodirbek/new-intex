@@ -1,9 +1,19 @@
 import React from "react";
 import CallBtn from "../ComponetntModuls/CallBtn/CallBtn";
 import Image from "next/image";
+
 import { useSelector } from "react-redux";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
+
 function Hero() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
 
 const lang = useSelector(state=>state.data.lang)
 
@@ -55,6 +65,8 @@ const languages = useSelector(state=>state.data.localization)
 			</div>
 		</section>
 	);
+
+  
 }
 
 export default Hero;
