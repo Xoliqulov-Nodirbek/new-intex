@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { changeLang } from "../../redux/siteDataReducer";
+
 
 function Header() {
   const [openLang, setOpenLang] = useState(false);
@@ -10,6 +12,7 @@ function Header() {
   const [clickMenu, setClickMenu] = useState(false);
   const [menuCatOpen, setMenuCatOpen] = useState(false);
   const [fixedBar, setFixedBar] = useState(false);
+
   const [flagImg, setFlagImg] = useState(
     "/Assets/Images/HeaderAndHeroImg/russia-flag.svg"
   );
@@ -497,6 +500,7 @@ function Header() {
               </Link>
             </li>
           </ul>
+
 
           <div className="flex flex-col space-y-5 mt-4 font-medium text-base text-black-black_dark ">
             <Link onClick={() => setClickMenu(false)} href={"/"}>

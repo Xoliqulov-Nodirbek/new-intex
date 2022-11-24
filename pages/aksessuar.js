@@ -40,7 +40,7 @@ function Aksessuar() {
             })}
           </div>
           <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
-            <Link className="font-medium text-base text-blue-base" href={``}>
+            <Link className="font-medium text-lg text-blue-base" href={``}>
               Показать еще
             </Link>
           </div>

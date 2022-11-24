@@ -1,22 +1,22 @@
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Button from "../ComponetntModuls/button/Button";
+import ProductCard from "../ProductCard/ProductCard";
+import { useSelector } from "react-redux";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
-import Baseen from "../../public/Assets/Images/img.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import axios from "axios";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import Image from "next/image";
 
-function Card({ status, name, price, sale }) {
+function Popular() {
+  let products = useSelector((state) => state.data);
+  const [carusel, setCarusel] = useState(0);
+  const [disable, setDisable] = useState("");
+  const [disableLeft, setDisableLeft] = useState("");
+  const [carMobile, setCaraMobile] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
   let chatId = "636476536";
@@ -27,6 +27,10 @@ function Card({ status, name, price, sale }) {
     address: "",
   };
 
+  const handleClick = () => {
+    setShowModal(true);
+  };
+
   const onSubmit = (values, { resetForm }) => {
     toast.success("Successfully sent!");
     let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number} %0A\u{2705} Address: ${values.address}`;
@@ -35,14 +39,16 @@ function Card({ status, name, price, sale }) {
       .post(
         `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
       )
-      .then(function (response) {})
+      .then(function (response) {
+        console.log("Submitted");
+      })
       .catch(function (error) {
         toast.error("Internal error");
       });
     values.name = "";
     resetForm({ values: "" });
-    setShowModal(false);
     setNumberProduct(1);
+    setShowModal(false);
   };
 
   const phoneRegExp = /^[0-9]{9}$/;
@@ -67,64 +73,43 @@ function Card({ status, name, price, sale }) {
     onSubmit,
     validationSchema,
   });
+  const [width, setWidth] = useState(0)
+  const caruselDrag = useRef()
+  useEffect(() => {
+    setWidth(caruselDrag.current.scrollWidth - caruselDrag.current.offsetWidth)
+  },[])
 
   return (
-    <>
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        className="card rounded-xl max-w-cardWidth shadow-card_shadow relative mt-5"
-      >
-        <span
-          className={`${
-            status === "Новинки"
-              ? "bg-green-new"
-              : status === "-17% скидка"
-              ? "bg-red-sale"
-              : status === "Pекомендуем"
-              ? "bg-blue-recommend"
-              : status === "Популярное"
-              ? "bg-blue-recommend"
-              : "bg-red-xit"
-          } text-sm block z-20 w-111 text-center py-5.5 rounded-r-lg text-white absolute top-4 left-0`}
-        >
-          {status}
-        </span>
-        <Image
-          className="mt-2 mb-3"
-          src={Baseen}
-          alt="baseen_product_image"
-          width={280}
-          height={220}
-        />
-        <div className="p-2 md:p-4 border-t-gray-borderColor border-t-1">
-          <h3 className="text-sm md:text-lg font-bold leading-5 mb-2">
-            {name}
-          </h3>
-          <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
-            220х150х60см, 1662л
-          </span>
-          <span
-            className={`text-xs md:text-sm block line-through text-gray-text_color ${
-              status === "Новинки" ? "h-5" : null
-            } ${status === "Pекомендуем" ? "h-5" : null}`}
-          >
-            {status === "Новинки" || status === "Pекомендуем" ? null : sale}
-          </span>
-          <span className="font-bold text-sm md:text-lg text-blue-accent block mb-2.5">
-            {price}
-          </span>
-          <Button
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
-            Заказать
-          </Button>
+    <section id="populyar" className="popular">
+      <div className="max-w-container mx-auto px-4 gap-x-10">
+        <div className="popular__top flex items-center justify-between mb-popularBottom md:mb-10">
+          <h2 className="font-bold text-lg md:text-32  leading-36">
+            Популярные товары
+          </h2>
         </div>
       </div>
+      <div className="products__list max-w-popularContainer overflow-hidden pb-5 mx-auto px-3">
+        <motion.div
+          className={`flex cursor-grab gap-x-5 w-full duration-300`}
+          ref={caruselDrag}
+          drag="x"
+          dragConstraints={{right:0,left:-width}}
+          whileTap={{cursor:"grabbing"}}
+        >
+          {products.map((el) => (
+            <ProductCard
+              key={el.id}
+              status={el.status}
+              name={el.name}
+              price={el.price}
+              sale={el.sale_price}
+              onClick={handleClick}
+            />
+          ))}
+        </motion.div>
+      </div>
 
-      {/* --- Modal --- */}
+      {/* ----- Modal ----- */}
 
       <Modal
         isVisible={showModal}
@@ -361,9 +346,7 @@ function Card({ status, name, price, sale }) {
           </button>
         </div> */}
       </Modal>
-      <Toaster position="bottom-right" reverseOrder={false} />
-    </>
+    </section>
   );
 }
-
-export default Card;
+export default Popular;

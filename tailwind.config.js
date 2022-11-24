@@ -22,12 +22,8 @@ module.exports = {
       },
       screens: {
         tablet: "850px",
-        mini_phone: "350px",
-        mini_phone2: "390px",
-        mini_phone3: "410px",
-        mini_phone4: "430px",
-        mini_phone5: "470px",
-        mini_phone6: "530px",
+        mini_phone: "470px",
+        tablet_min: "890px",
       },
       colors: {
         black: {
@@ -55,7 +51,12 @@ module.exports = {
           input_radius: "#E3E5E5",
           line_color: "#F2F2F2",
           span_bg: "#DEDEDE",
+
           
+
+          borderColor: "F2F6FA",
+          text_color: "#A0A0A0",
+
         },
         blue: {
           accent: "#109EF4",
@@ -104,6 +105,7 @@ module.exports = {
         resOrderBtn: "196px",
         tashkentPoolsImg: "460px",
         cardWidth: "280px",
+        inputWidth: "342px",
         435: "435px",
         410: "410px",
         426: "426px",
@@ -121,7 +123,6 @@ module.exports = {
         heroImgMobile: "320px",
         container: "1220px",
         heroContent: "447px",
-        inputWidth: "260px",
         mobileInputWidth: "219px",
         resCardWidth: "220px",
         orderBtn: "248px",
@@ -152,7 +153,7 @@ module.exports = {
       boxShadow: {
         order_btn:
           "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
-        card_shadow: "2px 12px 10px rgba(60, 60, 60, 0.1)",
+        card_shadow: "2px 12px 24px rgba(60, 60, 60, 0.1)",
         card: "2px 12px 24px rgba(60, 60, 60, 0.1)",
       },
       borderRadius: {
@@ -190,7 +191,7 @@ module.exports = {
         container: "1220px",
         popularContainer:'1210px',
         cont: "10.5%",
-        inputWidth: "260px",
+        inputWidth: "300px",
         cardWidth: "280px",
         426: "426px",
         248: "225px",
