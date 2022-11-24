@@ -1,7 +1,13 @@
 import React from "react";
 import CallBtn from "../ComponetntModuls/CallBtn/CallBtn";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+
 function Hero() {
+
+const lang = useSelector(state=>state.data.lang)
+
+const languages = useSelector(state=>state.data.localization)
 
 	return (
 		<section className='mt-7 sm:mt-12 md:mt-32 mb-heroBottomMobile md:mb-heroBottom'>
@@ -11,12 +17,11 @@ function Hero() {
 						<div className='bg-gray-bg_main py-6 sm:pl-32 md:py-32 lg:py-21 pl-4 rounded-sectionRadius flex-col lg:flex-row flex lg:items-center justify-between'>
 							<div className='w-full lg:w-heroContent pr-4'>
 								<h1 className='font-bold text-2xl sm:text-4xl xl:text-5xl text-black-black_dark mb-4'>
-									Бассейны от intex в Ташкенте
+									{languages[lang].hero.heading}
 								</h1>
 								<p className='font-normal text-sm lg:text-base text-black-black_thin mb-6 sm:mb-12'>
-									Бассейны от intex - доступная по цене, качественная, надежная
-									и экологически чистая продукция, которая предназначена для
-									приятного отдыха всей семьи.{' '}
+								{languages[lang].hero.text}
+
 								</p>
 								<div className='hidden sm:inline-block'>
 									<CallBtn />
@@ -41,7 +46,8 @@ function Hero() {
 								/>
 							</div>
 							<div className='sm:hidden mt-7 pr-4'>
-								<CallBtn />
+									
+								<CallBtn namejon={languages[lang].hero.button}/>
 							</div>
 						</div>
 					</div>

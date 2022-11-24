@@ -9,13 +9,18 @@ import axios from "axios";
 import Image from "next/image";
 
 function Popular({ title }) {
-  let products = useSelector((state) => state.data);
+
+  let products = useSelector((state) => state.data.initialState);
+
   const [carusel, setCarusel] = useState(0);
   const [disable, setDisable] = useState("");
   const [disableLeft, setDisableLeft] = useState("");
   const [carMobile, setCaraMobile] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
+
+
+ 
 
   let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
   let chatId = "636476536";
@@ -170,7 +175,7 @@ function Popular({ title }) {
         </div>
         <div
           style={{ transform: "translateX(-" + carMobile + "px)" }}
-          className={`md:hidden flex gap-x-5.5 w-full duration-300`}
+          className={`md:hidden flex flex-shrink-0 gap-x-5.5 w-full duration-300`}
         >
           {products.map((el) => (
             <ProductCard
@@ -181,7 +186,7 @@ function Popular({ title }) {
               sale={el.sale_price}
               onClick={handleClick}
             />
-          ))}
+           ))} 
         </div>
       </div>
 
