@@ -4,16 +4,15 @@ import BuyForm from "../ComponetntModuls/Forms/BuyForm";
 
 import { useSelector } from "react-redux";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 const BuyAll = () => {
 
 const lang = useSelector(state => state.data.lang)
 const languages = useSelector(state => state.data.localization)
   
 
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-const BuyAll = () => {
   useEffect(() => {
     AOS.init();
   }, []);
