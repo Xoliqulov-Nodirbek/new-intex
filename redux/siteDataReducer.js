@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import languages from './localization.js'
 const initialState = [
   {
     id: '1',
@@ -84,7 +85,24 @@ const initialState = [
 ]
 const siteProducts = createSlice({
   name: 'products',
-  initialState,
-  reducers: {},
+  initialState: {
+    localization: languages,
+    lang: 'ru',
+    initialState
+  },
+  reducers: {
+    changeLang: (state, action) => {
+      state.lang = action.payload
+    },
+    location: (state, action) => {
+      state.localization = action.payload
+    },
+    products: (state, action) => {
+      state.initialState = action.payload
+    }
+  },
 })
+
+export const {  changeLang, products } = siteProducts.actions
+
 export default siteProducts.reducer

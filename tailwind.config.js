@@ -37,6 +37,7 @@ module.exports = {
           base: "#2B3D90",
           recommend: "#22B0F8",
           textColor: "#109EF4",
+          
         },
         gray: {
           bg_nav: "#FAFAFA",
@@ -50,8 +51,12 @@ module.exports = {
           input_radius: "#E3E5E5",
           line_color: "#F2F2F2",
           span_bg: "#DEDEDE",
+
+          
+
           borderColor: "F2F6FA",
           text_color: "#A0A0A0",
+
         },
         blue: {
           accent: "#109EF4",
@@ -106,6 +111,7 @@ module.exports = {
         426: "426px",
         219: "219px",
         111: "111px",
+        140: '140px',
         600: "600px",
       },
       height: {
@@ -137,6 +143,7 @@ module.exports = {
         207: "207px",
         153: "153px",
         135: "135px",
+        140: '140px',
         93: "93px",
         83: "83px",
         48: "48px",
@@ -174,6 +181,11 @@ module.exports = {
       },
       borderWidth: {
         1: "1px",
+        16: "16px"
+      },
+      borderColor: {
+        blue: "#3498db",
+        gray: "#e3e3e3"
       },
       maxWidth: {
         container: "1220px",

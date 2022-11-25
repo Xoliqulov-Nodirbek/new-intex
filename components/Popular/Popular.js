@@ -9,14 +9,21 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import Image from "next/image";
 
-function Popular() {
-  let products = useSelector((state) => state.data);
+
+function Popular({ title }) {
+
+  let products = useSelector((state) => state.data.initialState);
+
+
   const [carusel, setCarusel] = useState(0);
   const [disable, setDisable] = useState("");
   const [disableLeft, setDisableLeft] = useState("");
   const [carMobile, setCaraMobile] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
+
+
+ 
 
   let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
   let chatId = "636476536";
@@ -88,13 +95,11 @@ function Popular() {
           </h2>
         </div>
       </div>
-      <div className="products__list max-w-popularContainer overflow-hidden pb-5 mx-auto px-3">
-        <motion.div
-          className={`flex cursor-grab gap-x-5 w-full duration-300`}
-          ref={caruselDrag}
-          drag="x"
-          dragConstraints={{right:0,left:-width}}
-          whileTap={{cursor:"grabbing"}}
+
+      <div className="products__list max-w-popularContainer overflow-hidden mx-auto px-3">
+        <div
+          style={{ transform: "translateX(-" + carusel + "px)" }}
+          className={`hidden md:flex gap-x-5 w-full duration-300`}
         >
           {products.map((el) => (
             <ProductCard
@@ -106,7 +111,36 @@ function Popular() {
               onClick={handleClick}
             />
           ))}
+        </div>
+        <div
+          style={{ transform: "translateX(-" + carMobile + "px)" }}
+          className={`md:hidden flex flex-shrink-0 gap-x-5.5 w-full duration-300`}
+
+      <div className="products__list max-w-popularContainer overflow-hidden pb-5 mx-auto px-3">
+        <motion.div
+          className={`flex cursor-grab gap-x-5 w-full duration-300`}
+          ref={caruselDrag}
+          drag="x"
+          dragConstraints={{right:0,left:-width}}
+          whileTap={{cursor:"grabbing"}}
+
+        >
+          {products.map((el) => (
+            <ProductCard
+              key={el.id}
+              status={el.status}
+              name={el.name}
+              price={el.price}
+              sale={el.sale_price}
+              onClick={handleClick}
+            />
+
+           ))} 
+        </div>
+
+          ))}
         </motion.div>
+
       </div>
 
       {/* ----- Modal ----- */}

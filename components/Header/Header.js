@@ -2,16 +2,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+import { useSelector, useDispatch } from "react-redux";
+import { changeLang } from "../../redux/siteDataReducer";
+
+
 function Header() {
   const [openLang, setOpenLang] = useState(false);
   const [menuLang, setMenuLang] = useState(false);
   const [clickMenu, setClickMenu] = useState(false);
   const [menuCatOpen, setMenuCatOpen] = useState(false);
   const [fixedBar, setFixedBar] = useState(false);
-  const [flagName, setFlagName] = useState("Ру");
+
   const [flagImg, setFlagImg] = useState(
     "/Assets/Images/HeaderAndHeroImg/russia-flag.svg"
   );
+  const [flagName, setFlagName] = useState("Ru");
+
+  const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
+
+  const dispatch = useDispatch();
 
   function handleClickedFlag(evt) {
     setFlagName(evt.target.textContent);
@@ -19,24 +29,27 @@ function Header() {
       setFlagImg("/Assets/Images/HeaderAndHeroImg/uzb-flag.svg");
       setOpenLang(false);
       setMenuLang(false);
+      dispatch(changeLang("uz"));
     }
     if (evt.target.textContent == "En") {
       setFlagImg("/Assets/Images/HeaderAndHeroImg/usa-flag.svg");
       setOpenLang(false);
       setMenuLang(false);
+      dispatch(changeLang("en"));
     }
-    if (evt.target.textContent == "Ру") {
+    if (evt.target.textContent == "Ru") {
       setFlagImg("/Assets/Images/HeaderAndHeroImg/russia-flag.svg");
       setOpenLang(false);
       setMenuLang(false);
+      dispatch(changeLang("ru"));
     }
   }
 
   function handlMenuOpen(e) {
     if (e.target.id === "menuBar") setClickMenu(false);
   }
-
   useEffect(() => {
+    // window is accessible here.
     window.addEventListener("scroll", function (evt) {
       if (window.scrollY > 10) {
         setFixedBar(true);
@@ -45,14 +58,13 @@ function Header() {
       }
     });
   }, []);
-
   return (
-    <header id="header" className="shadow-sm">
+    <header id="header" className=" shadow-sm">
       <div className="bg-gray-bg_nav hidden md:block py-3 border-b-2">
         <div className="w-full max-w-container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-text font-medium hidden lg:block">
-              10:00 - 22:00 Без выходных
+            <p className="text-sm text-gray-text font-medium">
+              10:00 - 22:00 {languages[lang].header.workingTime}
             </p>
             <a
               className="text-base font-bold text-blue-accent"
@@ -63,31 +75,17 @@ function Header() {
             <div className="flex items-center space-x-6">
               <div>
                 <Link className="text-sm font-medium text-gray-text" href={"/"}>
-                  О Продукт
+                  {languages[lang].header.navbar.item1}
                 </Link>
               </div>
               <div>
-                <Link
-                  className="text-sm font-medium text-gray-text ml-6"
-                  href={"#pochemu"}
-                >
-                  Почему мы?
+                <Link className="text-sm font-medium text-gray-text" href={"/"}>
+                  {languages[lang].header.navbar.item2}
                 </Link>
               </div>
               <div>
-                <Link
-                  className="text-sm font-medium text-gray-text ml-6"
-                  href={"#consultation"}
-                >
-                  Консултация
-                </Link>
-              </div>
-              <div>
-                <Link
-                  className="text-sm font-medium text-gray-text ml-6 "
-                  href={"#contact"}
-                >
-                  Контакты
+                <Link className="text-sm font-medium text-gray-text" href={"/"}>
+                  {languages[lang].header.navbar.item3}
                 </Link>
               </div>
             </div>
@@ -126,7 +124,8 @@ function Header() {
                   className="z-50 pb-4 mt-4 category inline-block relative mr-1 pr-4 text-base text-black-black_dark font-medium"
                   href={"/"}
                 >
-                  Категории
+                  {languages[lang].header.navCategory.item1}
+
                   <Image
                     className={`drop-img duration-200 absolute w-3 h-2 right-0 top-2.5`}
                     src={"/Assets/Images/HeaderAndHeroImg/drop-img.svg"}
@@ -143,7 +142,11 @@ function Header() {
                         className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2"
                         href={"/naduvniy"}
                       >
-                        Надувные бассейны
+                        {
+                          languages[lang].header.navCategory.itemSubcategory
+                            .item1
+                        }
+                        ;
                       </Link>
                     </li>
                     <li>
@@ -151,7 +154,23 @@ function Header() {
                         className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
                         href={"/karkasniy"}
                       >
-                        Каркасные бассейны
+                        {
+                          languages[lang].header.navCategory.itemSubcategory
+                            .item2
+                        }
+                        ;
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
+                        href={"/chist_bassen"}
+                      >
+                        {
+                          languages[lang].header.navCategory.itemSubcategory
+                            .item3
+                        }
+                        ;
                       </Link>
                     </li>
                     <li>
@@ -159,7 +178,11 @@ function Header() {
                         className="font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2"
                         href={"/aksessuar"}
                       >
-                        Аксессуары для бассейна
+                        {
+                          languages[lang].header.navCategory.itemSubcategory
+                            .item4
+                        }
+                        ;
                       </Link>
                     </li>
                   </ul>
@@ -167,21 +190,21 @@ function Header() {
 
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
-                  href={"#populyar"}
+                  href={"/"}
                 >
-                  Популярное
+                  {languages[lang].header.navCategory.item2}
                 </Link>
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
-                  href={"#noviy"}
+                  href={"/"}
                 >
-                  Новинки
+                  {languages[lang].header.navCategory.item3}
                 </Link>
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
-                  href={"#skidka"}
+                  href={"/"}
                 >
-                  На скидке
+                  {languages[lang].header.navCategory.item4}
                 </Link>
               </div>
             </div>
@@ -191,19 +214,19 @@ function Header() {
                 className="hidden md:inline-block  w-inputWidth py-2.5 rounded-xl pl-9 outline-none"
                 type="text"
                 autoComplete="off"
-                placeholder="Поиск"
+                placeholder={`${languages[lang].header.navCategory.searchInput}`}
                 aria-label="Enter your searching"
               />
-              {/* <button className='bg-white z-50 hidden md:flex ml-8 w-11 h-11 items-center justify-center cursor-pointer rounded-xl'>
-								<Image
-									priority={true}
-									className='w-6 h-6'
-									src={'/Assets/Images/HeaderAndHeroImg/block-img.svg'}
-									width={24}
-									height={24}
-									alt='Blog Img'
-								/>
-							</button> */}
+              <button className="bg-white z-50 hidden md:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl">
+                <Image
+                  priority={true}
+                  className="w-6 h-6"
+                  src={"/Assets/Images/HeaderAndHeroImg/block-img.svg"}
+                  width={24}
+                  height={24}
+                  alt="Blog Img"
+                />
+              </button>
 
               <a className="flex sm:hidden z-50" href="tel:+998901288182">
                 <Image
@@ -266,7 +289,7 @@ function Header() {
                     onClick={handleClickedFlag}
                     className="items-lang flex pl-3 pr-4  pb-3 items-center justify-end"
                   >
-                    Ру
+                    Ru
                   </li>
                 </ul>
               </div>
@@ -303,22 +326,22 @@ function Header() {
         />
         <input
           id="input-searching"
-          className="w-full max-w-[400px] py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none ml-4"
+          className="w-full mx-2 max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none"
           type="text"
           autoComplete="off"
           placeholder="Поиск"
           aria-label="Enter your searching"
         />
-        {/* <button className='bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl'>
-					<Image
-						priority={true}
-						className='w-5 h-5 sm:w-6 sm:h-6'
-						src={'/Assets/Images/HeaderAndHeroImg/block-img.svg'}
-						width={24}
-						height={24}
-						alt='Blog Img'
-					/>
-				</button> */}
+        <button className="bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl">
+          <Image
+            priority={true}
+            className="w-5 h-5 sm:w-6 sm:h-6"
+            src={"/Assets/Images/HeaderAndHeroImg/block-img.svg"}
+            width={24}
+            height={24}
+            alt="Blog Img"
+          />
+        </button>
       </div>
       <div
         id="menuBar"
@@ -457,6 +480,19 @@ function Header() {
               }}
             >
               <Link
+                className="w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5"
+                href={"/chist_bassen"}
+              >
+                Все чистки бассейна
+              </Link>
+            </li>
+            <li
+              onClick={() => {
+                setMenuCatOpen(false);
+                setClickMenu(false);
+              }}
+            >
+              <Link
                 className="w-full font-normal  inline-block duration-150 text-sm text-black-black_thin"
                 href={"/aksessuar"}
               >
@@ -464,6 +500,7 @@ function Header() {
               </Link>
             </li>
           </ul>
+
 
           <div className="flex flex-col space-y-5 mt-4 font-medium text-base text-black-black_dark ">
             <Link onClick={() => setClickMenu(false)} href={"/"}>
