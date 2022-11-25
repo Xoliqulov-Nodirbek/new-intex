@@ -12,14 +12,14 @@ const languages = {
         item1: "Kategoriyalar",
         itemSubcategory: {
           item1: "Puflanadigan basseynlar",
-          item2: 'Ramkali basseynlar',
-          item3: 'Basseynlarni tozalash',
-          item4: 'Basseyn aksessuarlari'
+          item2: "Ramkali basseynlar",
+          item3: "Basseynlarni tozalash",
+          item4: "Basseyn aksessuarlari",
         },
         item2: "Mashhur",
         item3: "Yangi",
         item4: "Chegirmadagilar",
-        searchInput: 'Qidirish'
+        searchInput: "Qidirish",
       },
     },
     hero: {
@@ -49,6 +49,30 @@ const languages = {
       phoneLabel: "Telefon nomer",
       sendButton: "Jo'natish",
     },
+    footer: {
+      text: "Intex-dan suzish havzalari - butun oila uchun yoqimli dam olish uchun mo'ljallangan arzon, yuqori sifatli, ishonchli va ekologik toza mahsulotlar",
+      linkList: {
+        linkListName: "foydali havolalar",
+        linkItem1: "Mahsulot haqida",
+        linkItem2: "Nima uchun biz?",
+        linkItem3: "Kontaktlar",
+        linkItem4: 'Kategoriyalar',
+        linkItem5: "Mashxurlari",
+        linkItem6: "Yangilari",
+        linkItem7: "Chegirmadagilar",
+      },
+      centerHelp: {
+        help: "Yordam markazi",
+        delivery: "Yetkazib berish va to'lash",
+        questions: "Ko'p so'raladigan savollar",
+        secret: "Maxfiylik siyosati",
+      },
+      adress: {
+        addressName: 'Manzil',
+        street: "Toshkent shahri, Yashnobod tumani, Paxlavon Mahmud ko‘chasi",
+        workingTime: "Haftada etti kun",
+      }
+    },
   },
   ru: {
     header: {
@@ -63,14 +87,14 @@ const languages = {
         item1: "Категории",
         itemSubcategory: {
           item1: "Надувные бассейны",
-          item2: 'Каркасные бассейны',
-          item3: 'Все чистки бассейна',
-          item4: 'Аксессуары для бассейна'
+          item2: "Каркасные бассейны",
+          item3: "Все чистки бассейна",
+          item4: "Аксессуары для бассейна",
         },
         item2: "Популярное",
         item3: "Новинки",
         item4: "На скидке",
-        searchInput: 'Поиск'
+        searchInput: "Поиск",
       },
     },
     hero: {
@@ -100,6 +124,30 @@ const languages = {
       phoneLabel: "Номер телефона",
       sendButton: "Отправить",
     },
+    footer: {
+      text: "Бассейны от intex - доступная по цене, качественная, надежная и экологически чистая продукция, которая предназначена для приятного отдыха всей семьи",
+      linkList: {
+        linkListName: "Полезные ссылки",
+        linkItem1: "О Продукт",
+        linkItem2: "Почему мы?",
+        linkItem3: "Контакты",
+        linkItem4: 'Категории',
+        linkItem5: "Популярное",
+        linkItem6: "Yangilari",
+        linkItem7: "Chegirmadagilar",
+      },
+      centerHelp: {
+        help: "Центр помощи",
+        delivery: "Доставка и оплата",
+        questions: "Часто задаваемые вопросы",
+        secret: "Политика конфиденциальности",
+      },
+      adress: {
+        addressName: 'Адрес',
+        street: "Улица Пахлавона Махмуда, Яшнабадский район, город Ташкент",
+        workingTime: " Без выходных",
+      }
+    },
   },
   en: {
     header: {
@@ -114,14 +162,14 @@ const languages = {
         item1: "Categories",
         itemSubcategory: {
           item1: "Inflatable pools",
-          item2: 'Frame pools',
-          item3: 'All pool cleanings',
-          item4: 'Pool accessories'
+          item2: "Frame pools",
+          item3: "All pool cleanings",
+          item4: "Pool accessories",
         },
         item2: "Popular",
         item3: "New",
         item4: "On discount",
-        searchInput: 'Search'
+        searchInput: "Search",
       },
     },
     hero: {
@@ -150,6 +198,29 @@ const languages = {
       nameLabel: "Name",
       phoneLabel: "Phone Number",
       sendButton: "Send",
+    },
+    footer: {
+      text: "Swimming pools from intex - affordable, high-quality, reliable and environmentally friendly products that are designed for a pleasant stay for the whole family",
+      linkList: {
+        linkListName: "Useful links",
+        linkItem1: "About product",
+        linkItem2: "Why we are?",
+        linkItem3: "Contacts",
+        linkItem4: "Popular",
+        linkItem5: "News",
+        linkItem6: "Discounts",
+      },
+      centerHelp: {
+        help: "Assist Center",
+        delivery: "Delivery and payment",
+        questions: "Frequently asked Questions",
+        secret: "Privacy Policy",
+      },
+      adress: {
+        addressName: 'Address',
+        street: "Pakhlavon Mahmud street, Yashnabad district, Tashkent city",
+        workingTime: "7 days a week",
+      }
     },
   },
 };

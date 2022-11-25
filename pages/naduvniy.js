@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
 
 const Naduvniy = () => {
-  let products = useSelector((state) => state.data);
+  const products = useSelector(state => state.data.initialState)
 
   return (
     <section className="mt-7 md:mt-32">
