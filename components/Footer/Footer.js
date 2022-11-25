@@ -1,8 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const lang = useSelector(state => state.data.lang)
+  const languages = useSelector(state => state.data.localization)
   return (
     <footer id="contact" className="w-full bg-gray-bg_main mt-11">
       <div className="max-w-container w-full mx-auto pt-14 px-5 ">
@@ -17,9 +20,7 @@ const Footer = () => {
               />
             </Link>
             <p className="mt-7 text-base text-gray-foot hidden mini_phone:block">
-              Бассейны от intex - доступная по цене, качественная, надежная и
-              экологически чистая продукция, которая предназначена для приятного
-              отдыха всей семьи
+             {languages[lang].footer.text}
             </p>
             <div className=" max-w-237 px-1 mt-7 flex justify-between ">
               <Link href="https://www.facebook.com/" target="blank">
@@ -65,64 +66,65 @@ const Footer = () => {
           </div>
           <div className=" mt-6 sm:mt-0 hidden mini_phone:block">
             <p className="text-black-black_dark font-bold text-lg">
-              Полезные ссылки
+              {languages[lang].footer.linkList.linkListName}
             </p>
             <ul className="text-sm text-gray-foot mt-4 tablet:mt-6 h-207 tablet:h-237 flex flex-col justify-between">
               <li>
                 <Link className="cursor-pointer" href="#">
-                  О Продукт
+                {languages[lang].footer.linkList.linkItem1}
+
                 </Link>
               </li>
               <li>
                 <Link className="cursor-pointer" href="#">
-                  Почему мы?
+                {languages[lang].footer.linkList.linkItem2}
                 </Link>
               </li>
               <li>
                 <Link className="cursor-pointer" href="#">
-                  Контакты
+                {languages[lang].footer.linkList.linkItem3}
                 </Link>
               </li>
               <li>
                 <Link className="cursor-pointer" href="#">
-                  Категории
+                {languages[lang].footer.linkList.linkItem4}
                 </Link>
               </li>
               <li>
                 <Link className="cursor-pointer" href="#">
-                  Популярное
+                {languages[lang].footer.linkList.linkItem5}
                 </Link>
               </li>
               <li>
                 <Link className="cursor-pointer" href="#">
-                  Новинки
+                {languages[lang].footer.linkList.linkItem6}
                 </Link>
               </li>
               <li>
                 <Link className="cursor-pointer" href="#">
-                  На скидке
+                {languages[lang].footer.linkList.linkItem7}
                 </Link>
               </li>
             </ul>
           </div>
           <div className="max-w-237 mt-6 sm:mt-0 hidden mini_phone:block">
             <p className="text-black-black_dark font-bold text-lg">
-              Центр помощи
+            {languages[lang].footer.centerHelp.help}
             </p>
             <ul className="text-sm text-gray-foot mt-4 tablet:mt-6 h-83 tablet:h-93 flex flex-col justify-between">
               <li>
-                <Link href="#">Доставка и оплата</Link>
+                <Link href="#">{languages[lang].footer.centerHelp.delivery}</Link>
               </li>
               <li>
-                <Link href="#">Часто задаваемые вопросы</Link>
+                <Link href="#">{languages[lang].footer.centerHelp.questions}</Link>
               </li>
               <li>
-                <Link href="#">Политика конфиденциальности</Link>
+                <Link href="#">{languages[lang].footer.centerHelp.secret}</Link>
               </li>
             </ul>
           </div>
           <div className=" mt-6 sm:mt-0">
-            <p className="text-black-black_dark font-bold text-lg">Адрес</p>
+            <p className="text-black-black_dark font-bold text-lg">{languages[lang].footer.adress.addressName}</p>
             <div className=" h-135 tablet:h-153 mt-4 tablet:mt-6 flex flex-col justify-between ">
               <div className=" flex max-w-290">
                 <Image
@@ -133,7 +135,7 @@ const Footer = () => {
                   alt="Location"
                 />
                 <address className="pl-1 text-sm  text-gray-foot not-italic">
-                  Улица Пахлавона Махмуда, Яшнабадский район, город Ташкент
+                {languages[lang].footer.adress.street}
                 </address>
               </div>
               <div className="flex">
@@ -175,7 +177,7 @@ const Footer = () => {
                   alt="Clock"
                 />
                 <p className="text-sm pl-1 text-gray-foot">
-                  <time>10:00</time> - <time>22:00</time> Без выходных
+                  <time>10:00</time> - <time>22:00</time> {languages[lang].footer.adress.workingTime}
                 </p>
               </div>
             </div>
