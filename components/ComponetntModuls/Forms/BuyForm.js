@@ -1,13 +1,16 @@
 import React from "react";
-import { FormikConsumer, useFormik } from "formik";
+import { useFormik } from "formik";
 import "react-phone-number-input/style.css";
 import Image from "next/image";
 import * as Yup from "yup";
 import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
 let chatId = "636476536";
+
+const env = process.env.NEXT_PUBLIC_TOKEN;
 
 const initialValues = {
   name: "",
@@ -15,22 +18,29 @@ const initialValues = {
 };
 
 const onSubmit = (values, { resetForm }) => {
-  toast.success("Successfully sent!");
   let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number}`;
 
+  // --- Sent Telegram Bot
+  axios.post(
+    `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText},`
+  );
+
+  // --- Post Consultation
   axios
-    .post(
-      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText},`
-    )
-    .then(function (response) {})
-    .catch(function (error) {
-      toast.error("Internal error");
+    .post(`${env}consultations/create`, {
+      name: values.name,
+      phone: `+998${values.number}`,
+    })
+    .then(() => {
+      toast.success("Успешно отправлено!");
+    })
+    .catch(() => {
+      toast.success("Не удалось отправить!");
     });
+
   values.name = "";
   resetForm({ values: "" });
 };
-
-
 
 const phoneRegExp = /^[0-9]{9}$/;
 const validationSchema = Yup.object({
@@ -53,23 +63,27 @@ const BuyForm = () => {
     validationSchema,
   });
 
+  const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
+
   return (
     <div className="w-full h-264 sm:h-312 rounded-xl p-4 sm:p-7 sm:mt-0  bg-white">
-      <Toaster position="bottom-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
       <form
         onSubmit={(e) => {
           formik.handleSubmit(e);
           formik.values = initialValues;
         }}
         className=" flex flex-col"
+        autoComplete="off"
       >
         <label className="text-base relative flex flex-col">
-          Имя
+          {languages[lang].buyAll.nameLabel}
           <input
             type="text"
             name="name"
             id="name"
-            placeholder="Введите ваше имя"
+            placeholder={languages[lang].buyAll.placeholder}
             className={
               formik.touched.name && formik.errors.name
                 ? "  h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-3 sm:mb-6"
@@ -86,7 +100,7 @@ const BuyForm = () => {
           ) : null}
         </label>
         <label className="relative flex flex-col">
-          Номер телефона
+          {languages[lang].buyAll.phoneLabel}
           <div
             className={
               formik.touched.number && formik.errors.number
@@ -121,7 +135,7 @@ const BuyForm = () => {
           className="w-full h-48 bg-blue-base rounded-xl text-white  "
           type="submit"
         >
-          Отправить
+          {languages[lang].buyAll.sendButton}
         </button>
       </form>
     </div>

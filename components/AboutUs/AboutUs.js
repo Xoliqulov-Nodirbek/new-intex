@@ -3,17 +3,21 @@ import Image from "next/image";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useSelector } from "react-redux";
 
 function AboutUs() {
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
+
   return (
     <section id="pochemu" className="my-10 lg:my-40 mb-20">
       <div className="max-w-[1220px] mx-auto px-4">
         <h2 className="text-black text-lg sm:text-3xl font-bold mb-10">
-          Почему нужно выбрать нас?
+          {languages[lang].choose_us.header}
         </h2>
         <div className="flex-col flex items-center flex-wrap lg:flex-row lg:justify-between">
           <div
@@ -29,10 +33,10 @@ function AboutUs() {
               alt="About_Man_Img"
             />
             <strong className="text-base sm:text-lg font-bold mb-2.5">
-              Опыт
+              {languages[lang].choose_us.head_title1}
             </strong>
             <p className="text-sm  sm:text-base text-black-black_thin">
-              Профессионализм наших сотрудников
+              {languages[lang].choose_us.texts.text1}
             </p>
           </div>
           <div
@@ -49,10 +53,10 @@ function AboutUs() {
               alt="About Man Img"
             />
             <strong className="text-base sm:text-lg font-bold mb-2.5">
-              Доставка
+              {languages[lang].choose_us.head_title2}
             </strong>
             <p className="text-sm sm:text-base text-black-black_thin">
-              Бесплатная доставка по городу
+              {languages[lang].choose_us.texts.text2}
             </p>
           </div>
           <div
@@ -69,10 +73,10 @@ function AboutUs() {
               alt="About Man Img"
             />
             <strong className="text-base sm:text-lg font-bold mb-2.5">
-              Качество
+              {languages[lang].choose_us.head_title3}
             </strong>
             <p className="text-sm sm:text-base text-black-black_thin">
-              Прочные, качественные бассейны
+              {languages[lang].choose_us.texts.text3}
             </p>
           </div>
         </div>

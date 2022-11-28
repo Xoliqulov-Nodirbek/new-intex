@@ -9,8 +9,8 @@ import axios from "axios";
 import Image from "next/image";
 
 function Popular({ title }) {
-
   let products = useSelector((state) => state.data.initialState);
+  console.log(products);
 
   const [carusel, setCarusel] = useState(0);
   const [disable, setDisable] = useState("");
@@ -18,9 +18,6 @@ function Popular({ title }) {
   const [carMobile, setCaraMobile] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
-
-
- 
 
   let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
   let chatId = "636476536";
@@ -43,10 +40,10 @@ function Popular({ title }) {
       .post(
         `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
       )
-      .then(function (response) {
+      .then(function () {
         console.log("Submitted");
       })
-      .catch(function (error) {
+      .catch(function () {
         toast.error("Internal error");
       });
     values.name = "";
@@ -172,21 +169,6 @@ function Popular({ title }) {
               onClick={handleClick}
             />
           ))}
-        </div>
-        <div
-          style={{ transform: "translateX(-" + carMobile + "px)" }}
-          className={`md:hidden flex flex-shrink-0 gap-x-5.5 w-full duration-300`}
-        >
-          {products.map((el) => (
-            <ProductCard
-              key={el.id}
-              status={el.status}
-              name={el.name}
-              price={el.price}
-              sale={el.sale_price}
-              onClick={handleClick}
-            />
-           ))} 
         </div>
       </div>
 

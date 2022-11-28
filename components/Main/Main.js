@@ -3,37 +3,31 @@ import Hero from "../Hero/Hero";
 import BuyAll from "../BuyAll/BuyAll";
 import TashkentPools from "../TashkentPools/TashkentPools";
 import Popular from "../Popular/Popular";
-
-import Loading from "../Loading/Loading";
-import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { products } from "../../redux/siteDataReducer";
-
-import Noviy from "../Noviy/Noviy";
-import Skidka from "../Skidka/Skidka";
+import { useSelector } from "react-redux";
 import Consultation from "../Consultation/Consultation";
-
+import Carousel from "../Carousel/Carousel";
+import { useEffect, useState } from "react";
 
 function Main() {
-  const productdata = useSelector((state) => state.data);
-  const dispatch = useDispatch();
+  const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
 
-  const lang = useSelector(state => state.data.lang)
-  const languages = useSelector(state => state.data.localization)
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://intex-shop-production.up.railway.app/api/products/getAll?page=0&limit=10"
-      )
-      // .then((data) => dispatch(products(data.data.result)));
+    let details = navigator.userAgent;
+    let regexp = /android|iphone|kindle|ipad/i;
+    let isMobileDevice = regexp.test(details);
+    if (isMobileDevice) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
   }, []);
 
   return (
     <main>
       <Hero />
-
 
       <Popular title={languages[lang].popular.heading} />
       <TashkentPools />
@@ -41,7 +35,8 @@ function Main() {
       <BuyAll />
       <AboutUs />
       <Popular title={"Товары со скидкой"} />
-
+      <Consultation />
+      <Carousel mobile={mobile} />
     </main>
   );
 }

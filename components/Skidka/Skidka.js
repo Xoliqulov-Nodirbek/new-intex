@@ -39,10 +39,10 @@ function Popular() {
       .post(
         `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
       )
-      .then(function (response) {
+      .then(function () {
         console.log("Submitted");
       })
-      .catch(function (error) {
+      .catch(function () {
         toast.error("Internal error");
       });
     values.name = "";
