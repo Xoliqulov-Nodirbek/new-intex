@@ -35,8 +35,8 @@ function Card({ status, name, price, sale }) {
       .post(
         `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
       )
-      .then(function (response) {})
-      .catch(function (error) {
+      .then(function () {})
+      .catch(function () {
         toast.error("Internal error");
       });
     values.name = "";
@@ -98,7 +98,7 @@ function Card({ status, name, price, sale }) {
           height={220}
         />
         <div className="p-2 md:p-4 border-t-gray-borderColor border-t-1">
-          <h3 className="text-sm md:text-lg font-bold leading-5 mb-2">
+          <h3 className="text-sm md:text-lg font-bold leading-5 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
             {name}
           </h3>
           <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">

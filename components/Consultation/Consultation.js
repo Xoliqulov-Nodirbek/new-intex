@@ -3,11 +3,15 @@ import React, { useEffect } from "react";
 import BuyForm from "../ComponetntModuls/Forms/BuyForm";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useSelector } from "react-redux";
 
 const Consultation = () => {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
 
   return (
     <div id="consultation" className="mt-10 lg:mt-36">
@@ -25,11 +29,10 @@ const Consultation = () => {
           </div>
           <div className="w-fit pb-4 md:pb-12">
             <h2 className="text-xl sm:text-3xl md:text-32 font-bold leading-9">
-              Получить консултацию
+              {languages[lang].consultation.title}
             </h2>
             <p className="max-w-403 text-sm md:text-base text-gray-foot leading-5 mt-4 mb-6 sm:mb-8">
-              Чтобы получить консультацию, отправьте нам свой номер телефона и
-              имя, и мы свяжемся с вами в ближайшее время.
+              {languages[lang].consultation.text}
             </p>
             <Image
               className="lg:ml-20 mx-auto block tablet_min:hidden"

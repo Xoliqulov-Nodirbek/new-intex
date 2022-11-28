@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeLang } from "../../redux/siteDataReducer";
 
-
 function Header() {
   const [openLang, setOpenLang] = useState(false);
   const [menuLang, setMenuLang] = useState(false);
@@ -20,7 +19,6 @@ function Header() {
 
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
-  
 
   const dispatch = useDispatch();
 
@@ -51,7 +49,7 @@ function Header() {
   }
   useEffect(() => {
     // window is accessible here.
-    window.addEventListener("scroll", function (evt) {
+    window.addEventListener("scroll", function () {
       if (window.scrollY > 10) {
         setFixedBar(true);
       } else {
@@ -147,7 +145,6 @@ function Header() {
                           languages[lang].header.navCategory.itemSubcategory
                             .item1
                         }
-                        ;
                       </Link>
                     </li>
                     <li>
@@ -159,19 +156,6 @@ function Header() {
                           languages[lang].header.navCategory.itemSubcategory
                             .item2
                         }
-                        ;
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/chist_bassen"}
-                      >
-                        {
-                          languages[lang].header.navCategory.itemSubcategory
-                            .item3
-                        }
-                        ;
                       </Link>
                     </li>
                     <li>
@@ -183,7 +167,6 @@ function Header() {
                           languages[lang].header.navCategory.itemSubcategory
                             .item4
                         }
-                        ;
                       </Link>
                     </li>
                   </ul>
@@ -209,7 +192,7 @@ function Header() {
                 </Link>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center pl-3">
               <input
                 id="input-searching"
                 className="hidden md:inline-block  w-inputWidth py-2.5 rounded-xl pl-9 outline-none"
@@ -501,7 +484,6 @@ function Header() {
               </Link>
             </li>
           </ul>
-
 
           <div className="flex flex-col space-y-5 mt-4 font-medium text-base text-black-black_dark ">
             <Link onClick={() => setClickMenu(false)} href={"/"}>

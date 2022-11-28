@@ -22,7 +22,7 @@ function ProductCard({ status, name, price, sale, onClick }) {
         {status}
       </span>
       <Image
-      onDragStart={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
         className="mt-2 mb-1 md:mb-4"
         src={Baseen}
         alt="baseen_product_image"
@@ -36,7 +36,9 @@ function ProductCard({ status, name, price, sale, onClick }) {
         <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
           220х150х60см, 1662л
         </span>
-        <span className="text-xs text-gray-text_color md:text-sm block line-through">{sale}</span>
+        <span className="text-xs text-gray-text_color md:text-sm block line-through">
+          {sale}
+        </span>
         <span className="font-bold text-sm md:text-lg block mb-2.5 text-blue-accent">
           {price}
         </span>
