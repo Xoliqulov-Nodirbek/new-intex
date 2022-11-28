@@ -17,7 +17,7 @@ const Naduvniy = () => {
   const [count, setCount] = useState(0);
   // const [limit, setLimit] = useState(8);
   const increment = () => {
-    if(product)
+    setCount(count + 1);
   };
   console.log(naduvnoy);
 
