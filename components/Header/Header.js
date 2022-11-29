@@ -72,21 +72,24 @@ function Header() {
               +998 (90) 128 81 82
             </a>
             <div className="flex items-center space-x-6">
-              <div>
-                <Link className="text-sm font-medium text-gray-text" href={"/"}>
-                  {languages[lang].header.navbar.item1}
-                </Link>
-              </div>
-              <div>
-                <Link className="text-sm font-medium text-gray-text" href={"/"}>
-                  {languages[lang].header.navbar.item2}
-                </Link>
-              </div>
-              <div>
-                <Link className="text-sm font-medium text-gray-text" href={"/"}>
-                  {languages[lang].header.navbar.item3}
-                </Link>
-              </div>
+              <Link
+                className="text-sm font-medium text-gray-text"
+                href={"#optom"}
+              >
+                {languages[lang].header.navbar.item1}
+              </Link>
+              <Link
+                className="text-sm font-medium text-gray-text"
+                href={"#pochemu"}
+              >
+                {languages[lang].header.navbar.item2}
+              </Link>
+              <Link
+                className="text-sm font-medium text-gray-text"
+                href={"#consultation"}
+              >
+                {languages[lang].header.navbar.item3}
+              </Link>
             </div>
           </div>
         </div>
@@ -174,19 +177,19 @@ function Header() {
 
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
-                  href={"/"}
+                  href={"#populyar"}
                 >
                   {languages[lang].header.navCategory.item2}
                 </Link>
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
-                  href={"/"}
+                  href={"#noviy"}
                 >
                   {languages[lang].header.navCategory.item3}
                 </Link>
                 <Link
                   className="ml-6 text-base text-black-black_dark font-medium"
-                  href={"/"}
+                  href={"#skidka"}
                 >
                   {languages[lang].header.navCategory.item4}
                 </Link>
@@ -201,7 +204,7 @@ function Header() {
                 placeholder={`${languages[lang].header.navCategory.searchInput}`}
                 aria-label="Enter your searching"
               />
-              <button className="bg-white z-50 hidden md:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl">
+              {/* <button className="bg-white z-50 hidden md:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl">
                 <Image
                   priority={true}
                   className="w-6 h-6"
@@ -210,7 +213,7 @@ function Header() {
                   height={24}
                   alt="Blog Img"
                 />
-              </button>
+              </button> */}
 
               <a className="flex sm:hidden z-50" href="tel:+998901288182">
                 <Image
@@ -310,13 +313,13 @@ function Header() {
         />
         <input
           id="input-searching"
-          className="w-full mx-2 max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none"
+          className="w-full ml-2 max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none"
           type="text"
           autoComplete="off"
           placeholder="Поиск"
           aria-label="Enter your searching"
         />
-        <button className="bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl">
+        {/* <button className="bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl">
           <Image
             priority={true}
             className="w-5 h-5 sm:w-6 sm:h-6"
@@ -325,7 +328,7 @@ function Header() {
             height={24}
             alt="Blog Img"
           />
-        </button>
+        </button> */}
       </div>
       <div
         id="menuBar"

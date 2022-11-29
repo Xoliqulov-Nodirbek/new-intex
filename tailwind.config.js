@@ -32,13 +32,6 @@ module.exports = {
           black_light: "#A0A0A0",
           text_color: "#2E363E",
         },
-        blue: {
-          accent: "#109EF4",
-          base: "#2B3D90",
-          recommend: "#22B0F8",
-          textColor: "#109EF4",
-          
-        },
         gray: {
           bg_nav: "#FAFAFA",
           bg_main: "#F7F9FA",
@@ -52,17 +45,15 @@ module.exports = {
           line_color: "#F2F2F2",
           span_bg: "#DEDEDE",
 
-          
-
           borderColor: "F2F6FA",
           text_color: "#A0A0A0",
-
         },
         blue: {
           accent: "#109EF4",
           base: "#2B3D90",
           recommend: "#22B0F8",
           btn_bg: "#E0E7FF",
+          textColor: "#109EF4",
         },
         red: {
           xit: "#FF3A3A",
@@ -85,8 +76,8 @@ module.exports = {
         36: "36px",
         22: "22px",
       },
-      gap:{
-        5.5:'22px',
+      gap: {
+        5.5: "22px",
       },
       fontFamily: {
         inter: "Inter",
@@ -111,7 +102,7 @@ module.exports = {
         426: "426px",
         219: "219px",
         111: "111px",
-        140: '140px',
+        140: "140px",
         600: "600px",
       },
       height: {
@@ -143,7 +134,7 @@ module.exports = {
         207: "207px",
         153: "153px",
         135: "135px",
-        140: '140px',
+        140: "140px",
         93: "93px",
         83: "83px",
         48: "48px",
@@ -181,15 +172,16 @@ module.exports = {
       },
       borderWidth: {
         1: "1px",
-        16: "16px"
+        16: "16px",
       },
       borderColor: {
         blue: "#3498db",
-        gray: "#e3e3e3"
+        gray: "#e3e3e3",
+        lineColor: "#F2F6FA",
       },
       maxWidth: {
         container: "1220px",
-        popularContainer:'1210px',
+        popularContainer: "1210px",
         cont: "10.5%",
         inputWidth: "300px",
         cardWidth: "280px",

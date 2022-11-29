@@ -1,25 +1,20 @@
-import Image from "next/image";
-import React, { useEffect } from "react";
-import BuyForm from "../ComponetntModuls/Forms/BuyForm";
-
-import { useSelector } from "react-redux";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import BuyForm from "../ComponetntModuls/Forms/BuyForm";
+
 const BuyAll = () => {
-
-const lang = useSelector(state => state.data.lang)
-const languages = useSelector(state => state.data.localization)
-  
-
+  const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-
   return (
-    <div className="w-full">
+    <div id="optom" className="w-full">
       <div className="max-w-container w-full mx-auto my-auto sm:px-4 ">
         <div className="w-full md:h-520 my-10 md:my-36 flex flex-col md:flex-row items-center justify-between px-5 md:px-0 rounded-sectionRadius bg-gray-bg_main py-10 md:pl-10  ">
           <div className="">
@@ -28,7 +23,7 @@ const languages = useSelector(state => state.data.localization)
             </h2>
 
             <p className="max-w-403 text-sm md:text-base text-gray-foot leading-5 mt-4 pb-6 sm:pb-8 ">
-            {languages[lang].buyAll.text}
+              {languages[lang].buyAll.text}
             </p>
             <div className=" md:hidden w-full flex items-center justify-center layout">
               <Image
