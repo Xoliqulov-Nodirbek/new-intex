@@ -30,6 +30,7 @@ const Sale_nov = ({ mobile }) => {
   const [modalContent, setModalContent] = useState(false);
 
   const lang = useSelector((state) => state.data.lang);
+  const languages = useSelector((state) => state.data.localization);
 
   useEffect(() => {
     axios
@@ -106,18 +107,68 @@ const Sale_nov = ({ mobile }) => {
   const phoneRegExp = /^[0-9]{9}$/;
   const validationSchema = Yup.object({
     name: Yup.string()
-      .required("Username is required, at least 3 characters")
-      .min(3, "Minimal 3 characters")
-      .max(20, "Maximum 20 characters"),
-    number: Yup.string("Must be only number")
+      .required(
+        lang === "ru"
+          ? "Требуется имя пользователя, минимум 3 символа"
+          : lang === "en"
+          ? "Username is required, at least 3 characters"
+          : "Foydalanuvchi nomi talab qilinadi, kamida 3 ta belgi"
+      )
+      .min(
+        3,
+        lang === "ru"
+          ? "Минимум 3 символа"
+          : lang === "en"
+          ? "Minimal 3 characters"
+          : "Minimal 3 ta belgi"
+      )
+      .max(
+        20,
+        lang === "ru"
+          ? "Максимум 20 символов"
+          : lang === "en"
+          ? "Maximum 20 characters"
+          : "Maksimal 20 ta belgi"
+      ),
+    number: Yup.string(
+      lang === "ru"
+        ? "Должен быть только номер"
+        : lang === "en"
+        ? "Must be only number"
+        : "Faqat raqam bo'lishi kerak"
+    )
       .matches(phoneRegExp, {
-        message: "Phone number is not valid.",
+        message:
+          lang === "ru"
+            ? "Номер телефона недействителен"
+            : lang === "en"
+            ? "Phone number is not valid."
+            : "Telefon raqami yaroqsiz.",
         excludeEmptyString: true,
       })
-      .required("Required phone number"),
+      .required(
+        lang === "ru"
+          ? "Необходимый номер телефона"
+          : lang === "en"
+          ? "Required phone number"
+          : "Telefon raqami kiritish majburiy"
+      ),
     address: Yup.string()
-      .required("Address is required")
-      .min(3, "Minimal 3 characters"),
+      .required(
+        lang === "ru"
+          ? "Укажите адрес"
+          : lang === "en"
+          ? "Address is required"
+          : "Manzil kiritish majburiy"
+      )
+      .min(
+        3,
+        lang === "ru"
+          ? "Минимум 3 символа"
+          : lang === "en"
+          ? "Minimal 3 characters"
+          : "Minimal 3 ta belgi"
+      ),
   });
 
   const formik = useFormik({
@@ -217,11 +268,7 @@ const Sale_nov = ({ mobile }) => {
                           : item.name_uz}
                       </h3>
                       <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
-                        {lang === "ru"
-                          ? "220х150х60см, 1662л"
-                          : lang === "en"
-                          ? "220х150х60 sm, 1662l"
-                          : "220х150х60sm, 1662l"}
+                        {find.attributes}
                       </span>
                       <span className="text-xs text-gray-text_color md:text-sm block line-through">
                         {item.discount_price}{" "}
@@ -288,11 +335,18 @@ const Sale_nov = ({ mobile }) => {
             </div>
             <div className="text-center max-w-362">
               <h1 className="font-bold text-2xl text-black-black_thin mt-2">
-                Поздравляем
+                {lang === "ru"
+                  ? "Поздравляем!"
+                  : lang === "en"
+                  ? "Congratulations!"
+                  : "Tabriklaymiz!"}
               </h1>
               <p className="text-sm text-black-black_thin my-2 mx-8">
-                Поздравляем, ваш заказ принят. Мы свяжемся с вами в ближайшее
-                время
+                {lang === "ru"
+                  ? "Поздравляем, ваш заказ принят. Мы свяжемся с вами в ближайшее время"
+                  : lang === "en"
+                  ? "Congratulations, your order has been accepted. We will contact you shortly"
+                  : "Tabriklaymiz, buyurtmangiz qabul qilindi. Tez orada siz bilan bog'lanamiz"}
               </p>
             </div>
             <button
@@ -310,7 +364,11 @@ const Sale_nov = ({ mobile }) => {
               <div className="flex justify-between items-start mb-4">
                 <p></p>
                 <h2 className="font-bold text-2xl text-black-black_thin text-center">
-                  Ваш заказ
+                  {lang === "ru"
+                    ? find.name_ru
+                    : lang === "en"
+                    ? find.name_en
+                    : find.name_uz}
                 </h2>
                 <button
                   onClick={() => setShowModal(false)}
@@ -338,7 +396,13 @@ const Sale_nov = ({ mobile }) => {
               <div className="w-[70%]">
                 <div className="flex items-start justify-between">
                   <div className="w-[100%]">
-                    <h3 className="block font-bold text-sm">{find.name_ru}</h3>
+                    <h3 className="block font-bold text-sm">
+                      {lang === "ru"
+                        ? find.name_ru
+                        : lang === "en"
+                        ? find.name_en
+                        : find.name_uz}
+                    </h3>
                     <p className="block font-medium mt-1 text-sm text-black-black_thin">
                       260х160х65см, 2282л
                     </p>
@@ -378,7 +442,8 @@ const Sale_nov = ({ mobile }) => {
                     </button>
                   </div>
                   <p className="font-bold text-sm text-blue-accent">
-                    {find.price} сум
+                    {find.price}{" "}
+                    {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
                   </p>
                 </div>
               </div>
@@ -386,9 +451,14 @@ const Sale_nov = ({ mobile }) => {
             <span className="block w-full h-0.5 bg-gray-line_color mt-3"></span>
             <div>
               <p className="text-base text-black-text_color mt-3">
-                Общая сумма:
+                {lang === "ru"
+                  ? "Общая сумма:"
+                  : lang === "en"
+                  ? "Total amount:"
+                  : "Umumiy summa:"}
                 <span className="font-bold text-base pl-3">
-                  {numberProduct * find.price} сум
+                  {numberProduct * find.price}{" "}
+                  {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
                 </span>
               </p>
             </div>
@@ -402,7 +472,7 @@ const Sale_nov = ({ mobile }) => {
               autoComplete="off"
             >
               <label className="font-medium text-black-black_dark text-base relative flex flex-col">
-                Имя
+                {languages[lang].buyAll.nameLabel}
                 <input
                   type="text"
                   name="name"
@@ -425,7 +495,7 @@ const Sale_nov = ({ mobile }) => {
                 ) : null}
               </label>
               <label className="font-medium text-black-black_dark relative flex flex-col">
-                Номер телефона
+                {languages[lang].buyAll.phoneLabel}
                 <div
                   className={
                     formik.touched.number && formik.errors.number
@@ -459,7 +529,7 @@ const Sale_nov = ({ mobile }) => {
               </label>
 
               <label className="font-medium text-black-black_dark text-base relative flex flex-col">
-                Адрес
+                {languages[lang].buyAll.address}
                 <input
                   type="text"
                   name="address"
@@ -486,7 +556,11 @@ const Sale_nov = ({ mobile }) => {
                   className="w-full bg-blue-base rounded-xl text-white py-3"
                   type="submit"
                 >
-                  Заказать
+                  {lang === "ru"
+                    ? "Заказать"
+                    : lang === "en"
+                    ? "Order"
+                    : "Buyurtma berish"}
                 </button>
               </div>
             </form>

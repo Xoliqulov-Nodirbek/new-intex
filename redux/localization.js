@@ -46,7 +46,9 @@ const languages = {
       text: "Agar siz mahsulotlarni ulgurji narxda sotib olishni istasangiz, kamida 20 ta mahsulotga buyurtma berishingiz kerak.",
       nameLabel: "Ism",
       placeholder: "Ismingizni kiriting",
+      placeholder1: "Manzilingizni kiriting",
       phoneLabel: "Telefon nomer",
+      address: "Manzilingiz",
       sendButton: "Jo'natish",
     },
     choose_us: {
@@ -146,7 +148,9 @@ const languages = {
       text: "Если вы хотите купить товары по оптовой цене, вы должны заказать не менее 20 товаров.",
       nameLabel: "Имя",
       placeholder: "Введите ваше имя",
+      placeholder1: "Введите свой адрес",
       phoneLabel: "Доставка",
+      address: "Ваш адрес",
       sendButton: "Отправить",
     },
     choose_us: {
@@ -246,7 +250,9 @@ const languages = {
       text: "If you want to buy products at a wholesale price, you must order at least 20 products.",
       nameLabel: "Name",
       placeholder: "Enter your name",
+      placeholder1: "Enter your address",
       phoneLabel: "Phone Number",
+      address: "Address",
       sendButton: "Send",
     },
     choose_us: {

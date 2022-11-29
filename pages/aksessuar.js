@@ -80,6 +80,7 @@ function Aksessuar() {
                     id={el.id}
                     data={aksessuar}
                     image={el.image}
+                    attributes={el.attributes}
                     status_ru={el.status_ru}
                     status_en={el.status_en}
                     status_uz={el.status_uz}
