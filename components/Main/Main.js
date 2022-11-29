@@ -2,11 +2,12 @@ import AboutUs from "../AboutUs/AboutUs";
 import Hero from "../Hero/Hero";
 import BuyAll from "../BuyAll/BuyAll";
 import TashkentPools from "../TashkentPools/TashkentPools";
-import Popular from "../Popular/Popular";
 import { useSelector } from "react-redux";
 import Consultation from "../Consultation/Consultation";
-import Carousel from "../Carousel/Carousel";
 import { useEffect, useState } from "react";
+import Tovar_nov from "../Tovar_noviy/Tovar_noviy";
+import Sale_nov from "../Sale_tovar/Sale_tovar";
+import Populyar_nov from "../Populyar_tovar/Populyar_tovar";
 
 function Main() {
   const lang = useSelector((state) => state.data.lang);
@@ -28,15 +29,13 @@ function Main() {
   return (
     <main>
       <Hero />
-
-      <Popular title={languages[lang].popular.heading} />
+      <Populyar_nov mobile={mobile} />
       <TashkentPools />
-      <Popular title={languages[lang].newProduct.heading} />
+      <Tovar_nov mobile={mobile} />
       <BuyAll />
       <AboutUs />
-      <Popular title={"Товары со скидкой"} />
+      <Sale_nov mobile={mobile} />
       <Consultation />
-      <Carousel mobile={mobile} />
     </main>
   );
 }

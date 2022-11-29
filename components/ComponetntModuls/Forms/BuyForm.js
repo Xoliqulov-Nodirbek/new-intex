@@ -120,7 +120,7 @@ const BuyForm = () => {
               type="number"
               name="number"
               id="number"
-              placeholder="(90) 123 45 67"
+              placeholder="901234567"
               className=" outline-none w-full sm:ml-4 h-full p-2 "
               {...formik.getFieldProps("number")}
             />

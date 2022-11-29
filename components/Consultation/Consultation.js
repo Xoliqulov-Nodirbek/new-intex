@@ -14,7 +14,7 @@ const Consultation = () => {
   const languages = useSelector((state) => state.data.localization);
 
   return (
-    <div id="consultation" className="mt-10 lg:mt-36">
+    <div id="consultation" className="mt-10 lg:mt-28">
       <div className="max-w-[1185px] mx-auto bg-gray-bg_main px-4 pt-4 md:px-12 md:pt-12 md:rounded-sectionRadius">
         <div className="tablet_min:flex tablet_min:items-center tablet_min:justify-between">
           <div>

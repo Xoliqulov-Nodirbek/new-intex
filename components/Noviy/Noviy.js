@@ -39,9 +39,7 @@ function Popular() {
       .post(
         `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
       )
-      .then(function (response) {
-        console.log("Submitted");
-      })
+      .then(function () {})
       .catch(function (error) {
         toast.error("Internal error");
       });
@@ -73,11 +71,11 @@ function Popular() {
     onSubmit,
     validationSchema,
   });
-  const [width, setWidth] = useState(0)
-  const caruselDrag = useRef()
+  const [width, setWidth] = useState(0);
+  const caruselDrag = useRef();
   useEffect(() => {
-    setWidth(caruselDrag.current.scrollWidth - caruselDrag.current.offsetWidth)
-  },[])
+    setWidth(caruselDrag.current.scrollWidth - caruselDrag.current.offsetWidth);
+  }, []);
 
   return (
     <section id="populyar" className="popular">
@@ -93,8 +91,8 @@ function Popular() {
           className={`flex cursor-grab gap-x-5 w-full duration-300`}
           ref={caruselDrag}
           drag="x"
-          dragConstraints={{right:0,left:-width}}
-          whileTap={{cursor:"grabbing"}}
+          dragConstraints={{ right: 0, left: -width }}
+          whileTap={{ cursor: "grabbing" }}
         >
           {products.map((el) => (
             <ProductCard

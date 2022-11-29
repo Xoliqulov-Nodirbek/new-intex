@@ -1,39 +1,44 @@
-import Image from "next/image";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Button from "../ComponetntModuls/button/Button";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
+import Button from "../ComponetntModuls/button/Button";
 import Baseen from "../../public/Assets/Images/img.png";
 import { useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { toast } from "react-hot-toast";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import Image from "next/image";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
-function Card({
-  status_ru,
-  status_en,
-  status_uz,
-  name_ru,
-  name_en,
-  name_uz,
-  price,
-  sale,
-  data,
-  id,
-  images,
-}) {
+const Tovar_nov = ({ mobile }) => {
+  const [tovar, setTovar] = useState([]);
+  const [find, setFind] = useState({});
+  const [loader, setLoader] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
   const [modalContent, setModalContent] = useState(false);
-  const [find, setFind] = useState({});
 
   const lang = useSelector((state) => state.data.lang);
-  console.log(status_en);
+
   useEffect(() => {
-    AOS.init();
+    axios
+      .get(`${env}products/getByStatus?status_id=1&page=0&limit=10`)
+      .then((res) => {
+        setTovar(res?.data?.result);
+        setLoader(false);
+      });
   }, []);
 
   let token = "5463520222:AAFQgcQ7hyUTAYV3ad0YaGTQ_lGIbRZyyxg";
@@ -49,9 +54,16 @@ function Card({
     let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number} %0A\u{2705} Address: ${values.address}`;
 
     // --- Sent Message for Telegram
-    axios.post(
-      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
-    );
+    axios
+      .post(
+        `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
+      )
+      .then(function () {
+        console.log("Submitted");
+      })
+      .catch(function () {
+        toast.error("Internal error");
+      });
 
     // --- Create Order
     axios
@@ -115,78 +127,135 @@ function Card({
     validationSchema,
   });
 
+  const spinner = (
+    <svg
+      className="inline mr-2 w-h-16 h-16 text-gray-200 animate-spin dark:text-gray-300 fill-blue-600"
+      viewBox="0 0 100 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+        fill="currentColor"
+      />
+      <path
+        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+        fill="currentFill"
+      />
+    </svg>
+  );
+
   const ProductOrder = (id) => {
     setShowModal(true);
-    const fintProduct = data.find((e) => e.id === id);
+    const fintProduct = tovar.find((e) => e.id === id);
     setFind(fintProduct);
   };
 
   return (
-    <>
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        className="card rounded-xl max-w-cardWidth shadow-card_shadow relative border border-lineColor mt-5"
-      >
-        <span
-          className={`${status_ru === "Новинки" ? "bg-green-new" : ""} ${
-            status_ru === "Скидка" ? "bg-red-sale" : ""
-          } ${status_ru === "Pекомендуемые" ? "bg-blue-recommend" : ""} ${
-            status_ru === "Обичный" ? "bg-white" : ""
-          } ${
-            status_ru === "Хит продаж" ? "bg-red-xit" : ""
-          } text-sm block z-20 px-[14px] text-center py-5.5 rounded-r-lg text-white absolute top-4 left-0`}
+    <section
+      id="noviy"
+      className="max-w-[1210px] mx-auto bg-white pl-[16px] md:pl-0"
+    >
+      <h2 className="font-bold text-xl md:text-32 leading-36 pl-0 md:pl-3">
+        {lang === "ru"
+          ? "Новые товары"
+          : lang === "en"
+          ? "New goods"
+          : "Yangi tovarlar"}
+      </h2>
+      <div className="mt-10">
+        <Swiper
+          slidesPerView={mobile ? 2 : 4}
+          spaceBetween={mobile ? 150 : 30}
+          slidesPerGroup={mobile ? 1 : 1}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={false}
+          navigation={false}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+          style={{
+            paddingBottom: "30px",
+            paddingLeft: "15px",
+            paddingRight: "20px",
+          }}
         >
-          {status_ru === "Обичный"
-            ? ""
-            : lang === "ru"
-            ? status_ru
-            : lang === "en"
-            ? status_en
-            : status_uz}
-        </span>
-        <div className="md:w-[280px] md:h-[220px] mt-6 md:mt-0">
-          <Image
-            className="mt-2 mb-0 md:mb-3 w-[98%] h-full object-cover"
-            src={Baseen}
-            alt="baseen_product_image"
-            width={280}
-            height={220}
-          />
-        </div>
-        <div className="p-2 md:p-4 border-t-lineColor border-t-1">
-          <h3 className="text-black-text_color text-sm md:text-lg font-bold leading-5 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
-            {lang === "ru" ? name_ru : lang === "en" ? name_en : name_uz}
-          </h3>
-          <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
-            {lang === "ru"
-              ? "220х150х60см, 1662л"
-              : lang === "en"
-              ? "220х150х60 sm, 1662l"
-              : "220х150х60sm, 1662l"}
-          </span>
-          <span
-            className={`text-xs md:text-sm block line-through text-gray-text_color ${
-              status === "Новинки" ? "h-5" : null
-            } ${status === "Pекомендуемые" ? "h-5" : null}`}
-          >
-            {status === "Новинки" || status === "Pекомендуемые" ? null : sale}{" "}
-            {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
-          </span>
-          <span className="font-semibold text-sm md:text-lg text-blue-accent block mb-2.5">
-            {price} {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
-          </span>
-          <Button onClick={() => ProductOrder(id)}>
-            {lang === "ru"
-              ? "Заказать"
-              : lang === "en"
-              ? "Order"
-              : "Buyurtma berish"}
-          </Button>
-        </div>
+          {loader ? (
+            <div className="w-full h-[80px] md:h-[200px] flex items-center justify-center">
+              {spinner}
+            </div>
+          ) : (
+            tovar.map((item) => {
+              return (
+                <SwiperSlide key={item?.id}>
+                  <div className="card rounded-xl w-resCardWidth md:w-cardWidth shadow-card_shadow relative border border-lineColor mx-auto">
+                    <span
+                      className={`${"bg-green-new"} text-sm block z-20  w-111 text-center py-5.5 rounded-r-lg text-white absolute top-4 left-0`}
+                    >
+                      {item.status_ru === "Обичный"
+                        ? ""
+                        : lang === "ru"
+                        ? item.status_ru
+                        : lang === "en"
+                        ? item.status_en
+                        : item.status_uz}
+                    </span>
+                    <Image
+                      onDragStart={(e) => e.preventDefault()}
+                      className="mt-2 mb-1 md:mb-4"
+                      src={Baseen}
+                      alt="baseen_product_image"
+                      width={280}
+                      height={220}
+                    />
+                    <div className="p-2 md:p-4 border-t-lineColor border-t-1">
+                      <h3 className="text-sm md:text-lg font-bold leading-5 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
+                        {lang === "ru"
+                          ? item.name_ru
+                          : lang === "en"
+                          ? item.name_en
+                          : item.name_uz}
+                      </h3>
+                      <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
+                        {lang === "ru"
+                          ? "220х150х60см, 1662л"
+                          : lang === "en"
+                          ? "220х150х60 sm, 1662l"
+                          : "220х150х60sm, 1662l"}
+                      </span>
+                      <span className="text-xs text-gray-text_color md:text-sm block line-through">
+                        {item.discount_price}{" "}
+                        {lang === "ru"
+                          ? " сум"
+                          : lang === "en"
+                          ? "soum"
+                          : "sum"}
+                      </span>
+                      <span className="font-bold text-sm md:text-lg block mb-2.5 text-blue-accent">
+                        {item.price}{" "}
+                        {lang === "ru"
+                          ? " сум"
+                          : lang === "en"
+                          ? "soum"
+                          : "sum"}
+                      </span>
+                      <Button onClick={() => ProductOrder(item.id)}>
+                        {lang === "ru"
+                          ? "Заказать"
+                          : lang === "en"
+                          ? "Order"
+                          : "Buyurtma berish"}
+                      </Button>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })
+          )}
+        </Swiper>
       </div>
 
-      {/* --- Modal --- */}
+      {/* ----- Modal ----- */}
 
       <Modal
         isVisible={showModal}
@@ -309,7 +378,7 @@ function Card({
                     </button>
                   </div>
                   <p className="font-bold text-sm text-blue-accent">
-                    {price} сум
+                    {find.price} сум
                   </p>
                 </div>
               </div>
@@ -319,7 +388,7 @@ function Card({
               <p className="text-base text-black-text_color mt-3">
                 Общая сумма:
                 <span className="font-bold text-base pl-3">
-                  {numberProduct * price} сум
+                  {numberProduct * find.price} сум
                 </span>
               </p>
             </div>
@@ -426,8 +495,8 @@ function Card({
 
         {/* ----- Modal_2 ----- */}
       </Modal>
-    </>
+    </section>
   );
-}
+};
 
-export default Card;
+export default Tovar_nov;
