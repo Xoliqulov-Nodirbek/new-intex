@@ -316,7 +316,7 @@ function Header() {
           className="w-full ml-2 max-w-inputWidth py-2 sm:py-3 rounded-xl pl-9 sm:pl-9 outline-none"
           type="text"
           autoComplete="off"
-          placeholder="Поиск"
+          placeholder={`${languages[lang].header.navCategory.searchInput}`}
           aria-label="Enter your searching"
         />
         {/* <button className="bg-white  w-10 h-10 sm:w-11 sm:h-11  flex items-center justify-center cursor-pointer rounded-xl">
