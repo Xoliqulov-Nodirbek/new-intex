@@ -13,22 +13,23 @@ const Naduvniy = () => {
   const languages = useSelector((state) => state.data.localization);
 
   const [naduvnoy, setNaduvnoy] = useState([]);
-  const [count, setCount] = useState(0);
+  const [limit, setLimit] = useState(4);
   const [loader, setLoader] = useState(false);
 
   const increment = () => {
-    setCount(count + 1);
+    setLimit(limit + 4);
   };
 
+  // --- Get Products
   useEffect(() => {
     setLoader(true);
     axios
-      .get(`${env}products/getByCategory?category_id=1&page=${count}&limit=8`)
+      .get(`${env}products/getByCategory?category_id=1&page=0&limit=${limit}`)
       .then((res) => {
         setNaduvnoy(res?.data?.result);
         setLoader(false);
       });
-  }, [count]);
+  }, [limit]);
 
   const spinner = (
     <svg
@@ -81,6 +82,7 @@ const Naduvniy = () => {
                     id={el.id}
                     data={naduvnoy}
                     image={el.image}
+                    attributes={el.attributes}
                     status_ru={el.status_ru}
                     status_en={el.status_en}
                     status_uz={el.status_uz}

@@ -13,6 +13,7 @@ import "aos/dist/aos.css";
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
 function Card({
+  attributes,
   status_ru,
   status_en,
   status_uz,
@@ -23,7 +24,7 @@ function Card({
   sale,
   data,
   id,
-  images,
+  image,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
@@ -31,7 +32,8 @@ function Card({
   const [find, setFind] = useState({});
 
   const lang = useSelector((state) => state.data.lang);
-  console.log(status_en);
+  const languages = useSelector((state) => state.data.localization);
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -95,18 +97,68 @@ function Card({
   const phoneRegExp = /^[0-9]{9}$/;
   const validationSchema = Yup.object({
     name: Yup.string()
-      .required("Username is required, at least 3 characters")
-      .min(3, "Minimal 3 characters")
-      .max(20, "Maximum 20 characters"),
-    number: Yup.string("Must be only number")
+      .required(
+        lang === "ru"
+          ? "Требуется имя пользователя, минимум 3 символа"
+          : lang === "en"
+          ? "Username is required, at least 3 characters"
+          : "Foydalanuvchi nomi talab qilinadi, kamida 3 ta belgi"
+      )
+      .min(
+        3,
+        lang === "ru"
+          ? "Минимум 3 символа"
+          : lang === "en"
+          ? "Minimal 3 characters"
+          : "Minimal 3 ta belgi"
+      )
+      .max(
+        20,
+        lang === "ru"
+          ? "Максимум 20 символов"
+          : lang === "en"
+          ? "Maximum 20 characters"
+          : "Maksimal 20 ta belgi"
+      ),
+    number: Yup.string(
+      lang === "ru"
+        ? "Должен быть только номер"
+        : lang === "en"
+        ? "Must be only number"
+        : "Faqat raqam bo'lishi kerak"
+    )
       .matches(phoneRegExp, {
-        message: "Phone number is not valid.",
+        message:
+          lang === "ru"
+            ? "Номер телефона недействителен"
+            : lang === "en"
+            ? "Phone number is not valid."
+            : "Telefon raqami yaroqsiz.",
         excludeEmptyString: true,
       })
-      .required("Required phone number"),
+      .required(
+        lang === "ru"
+          ? "Необходимый номер телефона"
+          : lang === "en"
+          ? "Required phone number"
+          : "Telefon raqami kiritish majburiy"
+      ),
     address: Yup.string()
-      .required("Address is required")
-      .min(3, "Minimal 3 characters"),
+      .required(
+        lang === "ru"
+          ? "Укажите адрес"
+          : lang === "en"
+          ? "Address is required"
+          : "Manzil kiritish majburiy"
+      )
+      .min(
+        3,
+        lang === "ru"
+          ? "Минимум 3 символа"
+          : lang === "en"
+          ? "Minimal 3 characters"
+          : "Minimal 3 ta belgi"
+      ),
   });
 
   const formik = useFormik({
@@ -159,18 +211,16 @@ function Card({
             {lang === "ru" ? name_ru : lang === "en" ? name_en : name_uz}
           </h3>
           <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
-            {lang === "ru"
-              ? "220х150х60см, 1662л"
-              : lang === "en"
-              ? "220х150х60 sm, 1662l"
-              : "220х150х60sm, 1662l"}
+            {attributes}
           </span>
           <span
             className={`text-xs md:text-sm block line-through text-gray-text_color ${
-              status === "Новинки" ? "h-5" : null
-            } ${status === "Pекомендуемые" ? "h-5" : null}`}
+              status_ru === "Новинки" ? "h-5" : null
+            } ${status_ru === "Pекомендуемые" ? "h-5" : null}`}
           >
-            {status === "Новинки" || status === "Pекомендуемые" ? null : sale}{" "}
+            {status_ru === "Новинки" || status_ru === "Pекомендуемые"
+              ? null
+              : sale}{" "}
             {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
           </span>
           <span className="font-semibold text-sm md:text-lg text-blue-accent block mb-2.5">
@@ -219,11 +269,18 @@ function Card({
             </div>
             <div className="text-center max-w-362">
               <h1 className="font-bold text-2xl text-black-black_thin mt-2">
-                Поздравляем
+                {lang === "ru"
+                  ? "Поздравляем!"
+                  : lang === "en"
+                  ? "Congratulations!"
+                  : "Tabriklaymiz!"}
               </h1>
               <p className="text-sm text-black-black_thin my-2 mx-8">
-                Поздравляем, ваш заказ принят. Мы свяжемся с вами в ближайшее
-                время
+                {lang === "ru"
+                  ? "Поздравляем, ваш заказ принят. Мы свяжемся с вами в ближайшее время"
+                  : lang === "en"
+                  ? "Congratulations, your order has been accepted. We will contact you shortly"
+                  : "Tabriklaymiz, buyurtmangiz qabul qilindi. Tez orada siz bilan bog'lanamiz"}
               </p>
             </div>
             <button
@@ -241,7 +298,11 @@ function Card({
               <div className="flex justify-between items-start mb-4">
                 <p></p>
                 <h2 className="font-bold text-2xl text-black-black_thin text-center">
-                  Ваш заказ
+                  {lang === "ru"
+                    ? "Ваш заказ"
+                    : lang === "en"
+                    ? "Your order"
+                    : "Sizning buyurtmangiz"}
                 </h2>
                 <button
                   onClick={() => setShowModal(false)}
@@ -269,9 +330,19 @@ function Card({
               <div className="w-[70%]">
                 <div className="flex items-start justify-between">
                   <div className="w-[100%]">
-                    <h3 className="block font-bold text-sm">{find.name_ru}</h3>
+                    <h3 className="block font-bold text-sm">
+                      {lang === "ru"
+                        ? find.name_ru
+                        : lang === "en"
+                        ? find.name_en
+                        : find.name_uz}
+                    </h3>
                     <p className="block font-medium mt-1 text-sm text-black-black_thin">
-                      260х160х65см, 2282л
+                      {lang === "ru"
+                        ? "220х150х60см, 1662л"
+                        : lang === "en"
+                        ? "220х150х60 sm, 1662l"
+                        : "220х150х60sm, 1662l"}
                     </p>
                   </div>
                   {/* <button type="button">
@@ -309,7 +380,8 @@ function Card({
                     </button>
                   </div>
                   <p className="font-bold text-sm text-blue-accent">
-                    {price} сум
+                    {price}{" "}
+                    {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
                   </p>
                 </div>
               </div>
@@ -317,9 +389,14 @@ function Card({
             <span className="block w-full h-0.5 bg-gray-line_color mt-3"></span>
             <div>
               <p className="text-base text-black-text_color mt-3">
-                Общая сумма:
+                {lang === "ru"
+                  ? "Общая сумма:"
+                  : lang === "en"
+                  ? "Total amount:"
+                  : "Umumiy summa:"}
                 <span className="font-bold text-base pl-3">
-                  {numberProduct * price} сум
+                  {numberProduct * price}{" "}
+                  {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
                 </span>
               </p>
             </div>
@@ -333,13 +410,13 @@ function Card({
               autoComplete="off"
             >
               <label className="font-medium text-black-black_dark text-base relative flex flex-col">
-                Имя
+                {languages[lang].buyAll.nameLabel}
                 <input
                   type="text"
                   name="name"
                   id="name"
                   aria-label="Введите ваше имя"
-                  placeholder="Введите ваше имя"
+                  placeholder={languages[lang].buyAll.placeholder}
                   className={
                     formik.touched.name && formik.errors.name
                       ? "h-48 text-base rounded-lg p-2 md:p-4 outline-none border border-red-600 mb-3 md:mb-4 mt-1"
@@ -356,7 +433,7 @@ function Card({
                 ) : null}
               </label>
               <label className="font-medium text-black-black_dark relative flex flex-col">
-                Номер телефона
+                {languages[lang].buyAll.phoneLabel}
                 <div
                   className={
                     formik.touched.number && formik.errors.number
@@ -390,13 +467,13 @@ function Card({
               </label>
 
               <label className="font-medium text-black-black_dark text-base relative flex flex-col">
-                Адрес
+                {languages[lang].buyAll.address}
                 <input
                   type="text"
                   name="address"
                   id="address"
                   aria-label="Введите ваш адрес"
-                  placeholder="Введите ваш адрес"
+                  placeholder={languages[lang].buyAll.placeholder1}
                   className={
                     formik.touched.address && formik.errors.address
                       ? "h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-4 sm:mb-4 mt-1"
@@ -417,7 +494,11 @@ function Card({
                   className="w-full bg-blue-base rounded-xl text-white py-3"
                   type="submit"
                 >
-                  Заказать
+                  {lang === "ru"
+                    ? "Заказать"
+                    : lang === "en"
+                    ? "Order"
+                    : "Buyurtma berish"}
                 </button>
               </div>
             </form>
