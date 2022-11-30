@@ -13,12 +13,8 @@ const Naduvniy = () => {
   const languages = useSelector((state) => state.data.localization);
 
   const [naduvnoy, setNaduvnoy] = useState([]);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(30);
   const [loader, setLoader] = useState(false);
-
-  const increment = () => {
-    setLimit(limit + 4);
-  };
 
   // --- Get Products
   useEffect(() => {
@@ -96,14 +92,14 @@ const Naduvniy = () => {
               })
             )}
           </div>
-          <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
+          {/* <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
             <button
               onClick={increment}
               className="font-medium text-lg text-blue-base"
             >
               {languages[lang].show}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

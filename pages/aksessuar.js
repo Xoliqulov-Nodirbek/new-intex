@@ -12,22 +12,18 @@ function Aksessuar() {
   const languages = useSelector((state) => state.data.localization);
 
   const [aksessuar, setAksessuar] = useState([]);
-  const [count, setCount] = useState(0);
+  const [limit, setLimit] = useState(30);
   const [loader, setLoader] = useState(false);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
 
   useEffect(() => {
     setLoader(true);
     axios
-      .get(`${env}products/getByCategory?category_id=3&page=${count}&limit=8`)
+      .get(`${env}products/getByCategory?category_id=3&page=0&limit=${limit}`)
       .then((res) => {
         setAksessuar(res?.data?.result);
         setLoader(false);
       });
-  }, [count]);
+  }, [limit]);
 
   const spinner = (
     <svg
@@ -94,14 +90,13 @@ function Aksessuar() {
               })
             )}
           </div>
-          <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
+          {/* <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
             <button
               className="font-medium text-lg text-blue-base"
-              onClick={increment}
             >
               {languages[lang].show}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

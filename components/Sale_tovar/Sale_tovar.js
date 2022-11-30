@@ -28,6 +28,7 @@ const Sale_nov = ({ mobile }) => {
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
   const [modalContent, setModalContent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
@@ -52,6 +53,7 @@ const Sale_nov = ({ mobile }) => {
 
   const onSubmit = (values, { resetForm }) => {
     let fullText = `\u{2705} Name: ${values.name}%0A\u{2705} Phone Number: \u{FF0B}998${values.number} %0A\u{2705} Address: ${values.address}`;
+    setLoading(true);
 
     // --- Sent Message for Telegram
     axios
@@ -94,6 +96,7 @@ const Sale_nov = ({ mobile }) => {
       .catch((err) => console.log(err))
       .finally(() => {
         setNumberProduct(1);
+        setLoading(false);
         setTimeout(() => {
           setShowModal(false);
           setModalContent(false);
@@ -201,6 +204,24 @@ const Sale_nov = ({ mobile }) => {
     setFind(fintProduct);
   };
 
+  const loaderButton = (
+    <svg
+      className="inline mr-2 w-5 h-5 text-text-white animate-spin dark:text-white fill-gray-400 dark:fill-gray-400"
+      viewBox="0 0 100 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+        fill="currentColor"
+      />
+      <path
+        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+        fill="currentFill"
+      />
+    </svg>
+  );
+
   return (
     <section
       id="skidka"
@@ -219,7 +240,7 @@ const Sale_nov = ({ mobile }) => {
           slidesPerView={mobile ? 2 : 4}
           spaceBetween={mobile ? 150 : 30}
           slidesPerGroup={mobile ? 1 : 1}
-          loop={true}
+          loop={false}
           loopFillGroupWithBlank={true}
           pagination={false}
           navigation={false}
@@ -268,7 +289,13 @@ const Sale_nov = ({ mobile }) => {
                           : item.name_uz}
                       </h3>
                       <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
-                        {find.attributes}
+                        {find.attributes?.map((item) =>
+                          lang === "ru"
+                            ? item.attribute_ru
+                            : lang === "en"
+                            ? item.attribute_en
+                            : item.attribute_uz
+                        )}
                       </span>
                       <span className="text-xs text-gray-text_color md:text-sm block line-through">
                         {item.discount_price}{" "}
@@ -286,7 +313,10 @@ const Sale_nov = ({ mobile }) => {
                           ? "soum"
                           : "sum"}
                       </span>
-                      <Button onClick={() => ProductOrder(item.id)}>
+                      <Button
+                        className={"text-sm md:text-base"}
+                        onClick={() => ProductOrder(item.id)}
+                      >
                         {lang === "ru"
                           ? "Заказать"
                           : lang === "en"
@@ -404,7 +434,13 @@ const Sale_nov = ({ mobile }) => {
                         : find.name_uz}
                     </h3>
                     <p className="block font-medium mt-1 text-sm text-black-black_thin">
-                      260х160х65см, 2282л
+                      {find.attributes?.map((item) =>
+                        lang === "ru"
+                          ? item.attribute_ru
+                          : lang === "en"
+                          ? item.attribute_en
+                          : item.attribute_uz
+                      )}
                     </p>
                   </div>
                   {/* <button type="button">
@@ -478,7 +514,7 @@ const Sale_nov = ({ mobile }) => {
                   name="name"
                   id="name"
                   aria-label="Введите ваше имя"
-                  placeholder="Введите ваше имя"
+                  placeholder={languages[lang].buyAll.placeholder}
                   className={
                     formik.touched.name && formik.errors.name
                       ? "h-48 text-base rounded-lg p-2 md:p-4 outline-none border border-red-600 mb-3 md:mb-4 mt-1"
@@ -535,7 +571,7 @@ const Sale_nov = ({ mobile }) => {
                   name="address"
                   id="address"
                   aria-label="Введите ваш адрес"
-                  placeholder="Введите ваш адрес"
+                  placeholder={languages[lang].buyAll.placeholder1}
                   className={
                     formik.touched.address && formik.errors.address
                       ? "h-48 text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-4 sm:mb-4 mt-1"
@@ -556,7 +592,9 @@ const Sale_nov = ({ mobile }) => {
                   className="w-full bg-blue-base rounded-xl text-white py-3"
                   type="submit"
                 >
-                  {lang === "ru"
+                  {loading
+                    ? loaderButton
+                    : lang === "ru"
                     ? "Заказать"
                     : lang === "en"
                     ? "Order"
@@ -566,8 +604,6 @@ const Sale_nov = ({ mobile }) => {
             </form>
           </div>
         )}
-
-        {/* ----- Modal_2 ----- */}
       </Modal>
     </section>
   );

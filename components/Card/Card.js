@@ -29,6 +29,7 @@ function Card({
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);
   const [modalContent, setModalContent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [find, setFind] = useState({});
 
   const lang = useSelector((state) => state.data.lang);
@@ -54,6 +55,8 @@ function Card({
     axios.post(
       `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
     );
+
+    setLoading(true);
 
     // --- Create Order
     axios
@@ -84,6 +87,7 @@ function Card({
       .catch((err) => console.log(err))
       .finally(() => {
         setNumberProduct(1);
+        setLoading(false);
         setTimeout(() => {
           setShowModal(false);
           setModalContent(false);
@@ -173,6 +177,24 @@ function Card({
     setFind(fintProduct);
   };
 
+  const loaderButton = (
+    <svg
+      className="inline mr-2 w-5 h-5 text-text-white animate-spin dark:text-white fill-gray-400 dark:fill-gray-400"
+      viewBox="0 0 100 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+        fill="currentColor"
+      />
+      <path
+        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+        fill="currentFill"
+      />
+    </svg>
+  );
+
   return (
     <>
       <div
@@ -210,8 +232,16 @@ function Card({
           <h3 className="text-black-text_color text-sm md:text-lg font-bold leading-5 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
             {lang === "ru" ? name_ru : lang === "en" ? name_en : name_uz}
           </h3>
-          <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
-            {attributes}
+          <span
+            className={`text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin`}
+          >
+            {attributes?.map((item) =>
+              lang === "ru"
+                ? item.attribute_ru
+                : lang === "en"
+                ? item.attribute_en
+                : item.attribute_uz
+            )}
           </span>
           <span
             className={`text-xs md:text-sm block line-through text-gray-text_color ${
@@ -220,13 +250,17 @@ function Card({
           >
             {status_ru === "Новинки" || status_ru === "Pекомендуемые"
               ? null
-              : sale}{" "}
-            {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
+              : sale +
+                " " +
+                (lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum")}
           </span>
           <span className="font-semibold text-sm md:text-lg text-blue-accent block mb-2.5">
             {price} {lang === "ru" ? " сум" : lang === "en" ? "soum" : "sum"}
           </span>
-          <Button onClick={() => ProductOrder(id)}>
+          <Button
+            className={"text-sm md:text-base"}
+            onClick={() => ProductOrder(id)}
+          >
             {lang === "ru"
               ? "Заказать"
               : lang === "en"
@@ -338,11 +372,13 @@ function Card({
                         : find.name_uz}
                     </h3>
                     <p className="block font-medium mt-1 text-sm text-black-black_thin">
-                      {lang === "ru"
-                        ? "220х150х60см, 1662л"
-                        : lang === "en"
-                        ? "220х150х60 sm, 1662l"
-                        : "220х150х60sm, 1662l"}
+                      {find.attributes?.map((item) =>
+                        lang === "ru"
+                          ? item.attribute_ru
+                          : lang === "en"
+                          ? item.attribute_en
+                          : item.attribute_uz
+                      )}
                     </p>
                   </div>
                   {/* <button type="button">
@@ -494,18 +530,20 @@ function Card({
                   className="w-full bg-blue-base rounded-xl text-white py-3"
                   type="submit"
                 >
-                  {lang === "ru"
-                    ? "Заказать"
-                    : lang === "en"
-                    ? "Order"
-                    : "Buyurtma berish"}
+                  {loading ? (
+                    <div>{loaderButton}</div>
+                  ) : lang === "ru" ? (
+                    "Заказать"
+                  ) : lang === "en" ? (
+                    "Order"
+                  ) : (
+                    "Buyurtma berish"
+                  )}
                 </button>
               </div>
             </form>
           </div>
         )}
-
-        {/* ----- Modal_2 ----- */}
       </Modal>
     </>
   );
