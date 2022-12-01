@@ -11,14 +11,11 @@ const env = process.env.NEXT_PUBLIC_TOKEN;
 const Naduvniy = () => {
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
+  const search = useSelector((state) => state.data.search);
 
   const [naduvnoy, setNaduvnoy] = useState([]);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(30);
   const [loader, setLoader] = useState(false);
-
-  const increment = () => {
-    setLimit(limit + 4);
-  };
 
   // --- Get Products
   useEffect(() => {
@@ -49,6 +46,15 @@ const Naduvniy = () => {
     </svg>
   );
 
+  function searchProduct(inputValue, data) {
+    let regex = new RegExp(inputValue, "gi");
+    const filterInput = data.filter((product) =>
+      product[`name_${lang}`].match(regex)
+    );
+
+    return filterInput;
+  }
+
   return (
     <section className="mt-7 md:mt-32">
       <div className="max-w-container w-full mx-auto px-5">
@@ -74,6 +80,26 @@ const Naduvniy = () => {
               <div className="w-[1185px] h-[200px] flex items-center justify-center">
                 {spinner}
               </div>
+            ) : search.length > 0 ? (
+              searchProduct(search, naduvnoy).map((el) => {
+                return (
+                  <Card
+                    key={el.id}
+                    id={el.id}
+                    data={naduvnoy}
+                    image={el.image}
+                    attributes={el.attributes}
+                    status_ru={el.status_ru}
+                    status_en={el.status_en}
+                    status_uz={el.status_uz}
+                    name_ru={el.name_ru}
+                    name_en={el.name_en}
+                    name_uz={el.name_uz}
+                    price={el.price}
+                    sale={el.discount_price}
+                  />
+                );
+              })
             ) : (
               naduvnoy.map((el) => {
                 return (
@@ -96,14 +122,14 @@ const Naduvniy = () => {
               })
             )}
           </div>
-          <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
+          {/* <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
             <button
               onClick={increment}
               className="font-medium text-lg text-blue-base"
             >
               {languages[lang].show}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

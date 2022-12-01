@@ -11,14 +11,11 @@ const env = process.env.NEXT_PUBLIC_TOKEN;
 const Karkasniy = () => {
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
+  const search = useSelector((state) => state.data.search);
 
   const [karkasnoy, setKarkasnoy] = useState([]);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(20);
   const [loader, setLoader] = useState(false);
-
-  const increment = () => {
-    setLimit(limit + 4);
-  };
 
   // --- Get Product
   useEffect(() => {
@@ -30,6 +27,15 @@ const Karkasniy = () => {
         setLoader(false);
       });
   }, [limit]);
+
+  function searchProduct(inputValue, data) {
+    let regex = new RegExp(inputValue, "gi");
+    const filterInput = data.filter((product) =>
+      product[`name_${lang}`].match(regex)
+    );
+
+    return filterInput;
+  }
 
   const spinner = (
     <svg
@@ -74,6 +80,26 @@ const Karkasniy = () => {
               <div className="w-[1185px] h-[200px] flex items-center justify-center">
                 {spinner}
               </div>
+            ) : search.length > 0 ? (
+              searchProduct(search, karkasnoy).map((el) => {
+                return (
+                  <Card
+                    key={el.id}
+                    id={el.id}
+                    data={karkasnoy}
+                    image={el.image}
+                    attributes={el.attributes}
+                    status_ru={el.status_ru}
+                    status_en={el.status_en}
+                    status_uz={el.status_uz}
+                    name_ru={el.name_ru}
+                    name_en={el.name_en}
+                    name_uz={el.name_uz}
+                    price={el.price}
+                    sale={el.discount_price}
+                  />
+                );
+              })
             ) : (
               karkasnoy.map((el) => {
                 return (
@@ -96,14 +122,11 @@ const Karkasniy = () => {
               })
             )}
           </div>
-          <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
-            <button
-              className="font-medium text-lg text-blue-base"
-              onClick={increment}
-            >
+          {/* <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
+            <button className="font-medium text-lg text-blue-base">
               {languages[lang].show}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

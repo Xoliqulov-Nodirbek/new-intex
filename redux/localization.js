@@ -49,7 +49,6 @@ const languages = {
       placeholder1: "Manzilingizni kiriting",
       phoneLabel: "Telefon nomer",
       address: "Manzilingiz",
-      sendButton: "Jo'natish",
     },
     choose_us: {
       header: "Nega bizni tanlaysiz?",
@@ -151,7 +150,6 @@ const languages = {
       placeholder1: "Введите свой адрес",
       phoneLabel: "Доставка",
       address: "Ваш адрес",
-      sendButton: "Отправить",
     },
     choose_us: {
       header: "Почему нужно выбрать нас?",
@@ -253,7 +251,6 @@ const languages = {
       placeholder1: "Enter your address",
       phoneLabel: "Phone Number",
       address: "Address",
-      sendButton: "Send",
     },
     choose_us: {
       header: "Why choose us?",
