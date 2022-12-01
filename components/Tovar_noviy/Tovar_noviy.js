@@ -417,10 +417,10 @@ const Tovar_nov = ({ mobile }) => {
                 <p></p>
                 <h2 className="font-bold text-2xl text-black-black_thin text-center">
                   {lang === "ru"
-                    ? find.name_ru
+                    ? "Ваш заказ"
                     : lang === "en"
-                    ? find.name_en
-                    : find.name_uz}
+                    ? "Your order"
+                    : "Sizning buyurtmangiz"}
                 </h2>
                 <button
                   onClick={() => setShowModal(false)}
