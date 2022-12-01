@@ -15,6 +15,7 @@ export default function Products({ data }) {
   const categoryId = useSelector((state) => state.data.categoryId);
   const dispatch = useDispatch();
   const [heading, setHeading] = useState({});
+  console.log(data);
 
   useEffect(() => {
     axios
