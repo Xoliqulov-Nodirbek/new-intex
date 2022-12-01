@@ -1,9 +1,11 @@
+import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
-import { changeLang } from "../../redux/siteDataReducer";
+import { changeLang, searchProduct } from "../../redux/siteDataReducer";
+
+const env = process.env.NEXT_PUBLIC_TOKEN;
 
 function Header() {
   const [openLang, setOpenLang] = useState(false);
@@ -11,17 +13,24 @@ function Header() {
   const [clickMenu, setClickMenu] = useState(false);
   const [menuCatOpen, setMenuCatOpen] = useState(false);
   const [fixedBar, setFixedBar] = useState(false);
-
+  const [categories, setCategories] = useState([]);
+  const [flagName, setFlagName] = useState("Ru");
   const [flagImg, setFlagImg] = useState(
     "/Assets/Images/HeaderAndHeroImg/russia-flag.svg"
   );
-  const [flagName, setFlagName] = useState("Ru");
 
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
 
   const dispatch = useDispatch();
 
+  // --- Get Categories
+  useEffect(() => {
+    axios
+      .get(`${env}categories/getAll?page=0&limit=10`)
+      .then((res) => setCategories(res?.data?.result));
+  }, []);
+  console.log(categories);
   function handleClickedFlag(evt) {
     setFlagName(evt.target.textContent);
     if (evt.target.textContent == "Uz") {
@@ -47,6 +56,11 @@ function Header() {
   function handlMenuOpen(e) {
     if (e.target.id === "menuBar") setClickMenu(false);
   }
+
+  const handleChange = (evt) => {
+    dispatch(searchProduct(evt.target.value));
+  };
+
   useEffect(() => {
     // window is accessible here.
     window.addEventListener("scroll", function () {
@@ -57,6 +71,7 @@ function Header() {
       }
     });
   }, []);
+
   return (
     <header id="header" className=" shadow-sm">
       <div className="bg-gray-bg_nav hidden md:block py-3 border-b-2">
@@ -137,41 +152,22 @@ function Header() {
                     priority={true}
                   />
                   <ul
-                    className={` duration-100 w-28 h-0 overflow-hidden category-list -translate-y-4 opacity-0  absolute bg-white p-3 rounded-xl shadow-lg `}
+                    className={`duration-100 w-28 h-0 overflow-hidden category-list -translate-y-4 opacity-0  absolute bg-white p-3 rounded-xl shadow-lg `}
                   >
-                    <li>
-                      <Link
-                        className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2"
-                        href={"/naduvniy"}
-                      >
-                        {
-                          languages[lang].header.navCategory.itemSubcategory
-                            .item1
-                        }
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="font-normal inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/karkasniy"}
-                      >
-                        {
-                          languages[lang].header.navCategory.itemSubcategory
-                            .item2
-                        }
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="font-normal  inline-block duration-150 text-sm text-black-black_thin mb-2"
-                        href={"/aksessuar"}
-                      >
-                        {
-                          languages[lang].header.navCategory.itemSubcategory
-                            .item4
-                        }
-                      </Link>
-                    </li>
+                    {categories?.map((item) => (
+                      <li key={item?.id}>
+                        <Link
+                          className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2"
+                          href={"/naduvniy"}
+                        >
+                          {lang === "ru"
+                            ? item?.category_ru
+                            : "en"
+                            ? item?.category_en
+                            : item?.category_uz}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -203,6 +199,7 @@ function Header() {
                 autoComplete="off"
                 placeholder={`${languages[lang].header.navCategory.searchInput}`}
                 aria-label="Enter your searching"
+                onChange={handleChange}
               />
               {/* <button className="bg-white z-50 hidden md:flex ml-8 w-11 h-11   items-center justify-center cursor-pointer rounded-xl">
                 <Image

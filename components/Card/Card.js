@@ -91,7 +91,7 @@ function Card({
         setTimeout(() => {
           setShowModal(false);
           setModalContent(false);
-        }, 4000);
+        }, 2000);
       });
 
     values.name = "";
