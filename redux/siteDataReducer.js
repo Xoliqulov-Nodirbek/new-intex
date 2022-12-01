@@ -90,6 +90,7 @@ const siteProducts = createSlice({
     lang: "ru",
     initialState,
     search: "",
+    categoryId: 0
   },
   reducers: {
     changeLang: (state, action) => {
@@ -104,9 +105,12 @@ const siteProducts = createSlice({
     searchProduct: (state, action) => {
       state.search = action.payload;
     },
+    setCategoryId: (state, action) => {
+      state.categoryId = action.payload
+    }
   },
 });
 
-export const { changeLang, products, searchProduct } = siteProducts.actions;
+export const { changeLang, products, searchProduct, setCategoryId } = siteProducts.actions;
 
 export default siteProducts.reducer;

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeLang, searchProduct } from "../../redux/siteDataReducer";
+import { changeLang, searchProduct, setCategoryId } from "../../redux/siteDataReducer";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
@@ -22,6 +22,9 @@ function Header() {
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
 
+
+ 
+
   const dispatch = useDispatch();
 
   // --- Get Categories
@@ -30,7 +33,7 @@ function Header() {
       .get(`${env}categories/getAll?page=0&limit=10`)
       .then((res) => setCategories(res?.data?.result));
   }, []);
-  console.log(categories);
+ 
   function handleClickedFlag(evt) {
     setFlagName(evt.target.textContent);
     if (evt.target.textContent == "Uz") {
@@ -71,6 +74,8 @@ function Header() {
       }
     });
   }, []);
+
+  
 
   return (
     <header id="header" className=" shadow-sm">
@@ -156,16 +161,18 @@ function Header() {
                   >
                     {categories?.map((item) => (
                       <li key={item?.id}>
-                        <Link
-                          className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2"
-                          href={"/naduvniy"}
+                        <span
+                          className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2 cursor-pointer"
+                          onClick={(e) =>{
+                            dispatch(setCategoryId(item.id))
+                          }}
                         >
                           {lang === "ru"
                             ? item?.category_ru
                             : "en"
                             ? item?.category_en
                             : item?.category_uz}
-                        </Link>
+                        </span>
                       </li>
                     ))}
                   </ul>
