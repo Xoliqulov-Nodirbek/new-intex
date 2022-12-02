@@ -3,7 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeLang, searchProduct, setCategoryId } from "../../redux/siteDataReducer";
+import {
+  changeLang,
+  searchProduct,
+  setCategoryId,
+} from "../../redux/siteDataReducer";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
@@ -22,9 +26,6 @@ function Header() {
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
 
-
- 
-
   const dispatch = useDispatch();
 
   // --- Get Categories
@@ -33,7 +34,7 @@ function Header() {
       .get(`${env}categories/getAll?page=0&limit=10`)
       .then((res) => setCategories(res?.data?.result));
   }, []);
- 
+
   function handleClickedFlag(evt) {
     setFlagName(evt.target.textContent);
     if (evt.target.textContent == "Uz") {
@@ -75,8 +76,6 @@ function Header() {
     });
   }, []);
 
-  
-
   return (
     <header id="header" className=" shadow-sm">
       <div className="bg-gray-bg_nav hidden md:block py-3 border-b-2">
@@ -89,7 +88,7 @@ function Header() {
               className="text-base font-bold text-blue-accent"
               href="tel:+998901288182"
             >
-              +998 (90) 128 81 82
+              +998901288182
             </a>
             <div className="flex items-center space-x-6">
               <Link
@@ -122,7 +121,7 @@ function Header() {
         <div className="w-full max-w-container mx-auto px-4 py-3.5 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <Link href={"/"}>
+              <Link href={"/"} onClick={() => dispatch(setCategoryId(0))}>
                 <Image
                   priority={true}
                   className="w-52 h-5 hidden sm:inline-block"
@@ -163,13 +162,13 @@ function Header() {
                       <li key={item?.id}>
                         <span
                           className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2 cursor-pointer"
-                          onClick={(e) =>{
-                            dispatch(setCategoryId(item.id))
+                          onClick={(e) => {
+                            dispatch(setCategoryId(item.id));
                           }}
                         >
                           {lang === "ru"
                             ? item?.category_ru
-                            : "en"
+                            : lang === "en"
                             ? item?.category_en
                             : item?.category_uz}
                         </span>
@@ -344,7 +343,14 @@ function Header() {
         } fixed w-full z-50 top-0 `}
       >
         <div className="w-modalMenu h-modalMenuHe h-screen bg-white pt-14 px-4">
-          <Link className="mb-11 inline-block" href={"/"}>
+          <Link
+            className="mb-11 inline-block"
+            href={"/"}
+            onClick={() => {
+              dispatch(setCategoryId(0));
+              setClickMenu(false);
+            }}
+          >
             <Image
               className="w-menuBarWidth h-menuBarHeight"
               src={"/Assets/Images/HeaderAndHeroImg/siteLogo.svg"}
@@ -438,78 +444,56 @@ function Header() {
                 : "h-0 opacity-0 duration-200 overflow-hidden"
             } w-full category-list bg-white  pb-2 pl-3 `}
           >
-            <li
-              onClick={() => {
-                setMenuCatOpen(false);
-                setClickMenu(false);
-              }}
-            >
-              <Link
-                className="w-full font-normal text-sm inline-block duration-150 text-black-black_thin mb-5"
-                href={"/naduvniy"}
-              >
-                Надувные бассейны
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setMenuCatOpen(false);
-                setClickMenu(false);
-              }}
-            >
-              <Link
-                className="w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5"
-                href={"/karkasniy"}
-              >
-                Каркасные бассейны
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setMenuCatOpen(false);
-                setClickMenu(false);
-              }}
-            >
-              <Link
-                className="w-full font-normal inline-block duration-150 text-sm text-black-black_thin mb-5"
-                href={"/chist_bassen"}
-              >
-                Все чистки бассейна
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setMenuCatOpen(false);
-                setClickMenu(false);
-              }}
-            >
-              <Link
-                className="w-full font-normal  inline-block duration-150 text-sm text-black-black_thin"
-                href={"/aksessuar"}
-              >
-                Аксессуары для бассейна
-              </Link>
-            </li>
+            {categories?.map((item) => (
+              <li key={item?.id}>
+                <span
+                  className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2 cursor-pointer"
+                  onClick={() => {
+                    dispatch(setCategoryId(item.id));
+                    setMenuCatOpen(false);
+                    setClickMenu(false);
+                  }}
+                >
+                  {lang === "ru"
+                    ? item?.category_ru
+                    : lang === "en"
+                    ? item?.category_en
+                    : item?.category_uz}
+                </span>
+              </li>
+            ))}
           </ul>
 
           <div className="flex flex-col space-y-5 mt-4 font-medium text-base text-black-black_dark ">
-            <Link onClick={() => setClickMenu(false)} href={"/"}>
-              Популярное
+            <Link onClick={() => setClickMenu(false)} href={"#populyar"}>
+              {lang === "ru"
+                ? "Популярные товары"
+                : lang === "en"
+                ? "Popular goods"
+                : "Ommabop tovarlar"}
             </Link>
-            <Link onClick={() => setClickMenu(false)} href={"/"}>
-              Новинки
+            <Link onClick={() => setClickMenu(false)} href={"#noviy"}>
+              {lang === "ru"
+                ? "Новые товары"
+                : lang === "en"
+                ? "New goods"
+                : "Yangi tovarlar"}
             </Link>
-            <Link onClick={() => setClickMenu(false)} href={"/"}>
-              На скидке
+            <Link onClick={() => setClickMenu(false)} href={"#skidka"}>
+              {lang === "ru"
+                ? "Товары со скидкой"
+                : lang === "en"
+                ? "Items on sale"
+                : "Chegirma tovarlar"}
             </Link>
-            <Link onClick={() => setClickMenu(false)} href={"/"}>
-              О Продукт
+            <Link onClick={() => setClickMenu(false)} href={"#optom"}>
+              {languages[lang].header.navbar.item1}
             </Link>
-            <Link onClick={() => setClickMenu(false)} href={"/"}>
-              Почему мы?
+            <Link onClick={() => setClickMenu(false)} href={"#pochemu"}>
+              {languages[lang].header.navbar.item2}
             </Link>
-            <Link onClick={() => setClickMenu(false)} href={"/"}>
-              Контакты
+            <Link onClick={() => setClickMenu(false)} href={"#consultation"}>
+              {languages[lang].header.navbar.item3}
             </Link>
           </div>
         </div>

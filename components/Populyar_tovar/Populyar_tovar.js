@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
 import Button from "../ComponetntModuls/button/Button";
@@ -7,6 +8,7 @@ import { useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-hot-toast";
+import { BtnLoader, Spinner } from "../Spinner/Spinner";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,9 +18,6 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// import required modules
-import Image from "next/image";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
@@ -34,6 +33,7 @@ const Populyar_nov = ({ mobile }) => {
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
 
+  // --- Get Product
   useEffect(() => {
     axios
       .get(`${env}products/getByCategory?category_id=1&page=0&limit=20`)
@@ -187,42 +187,6 @@ const Populyar_nov = ({ mobile }) => {
     setFind(fintProduct);
   };
 
-  const spinner = (
-    <svg
-      className="inline mr-2 w-h-16 h-16 text-gray-200 animate-spin dark:text-gray-300 fill-blue-600"
-      viewBox="0 0 100 101"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-        fill="currentColor"
-      />
-      <path
-        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-        fill="currentFill"
-      />
-    </svg>
-  );
-
-  const loaderButton = (
-    <svg
-      className="inline mr-2 w-5 h-5 text-text-white animate-spin dark:text-white fill-gray-400 dark:fill-gray-400"
-      viewBox="0 0 100 101"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-        fill="currentColor"
-      />
-      <path
-        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-        fill="currentFill"
-      />
-    </svg>
-  );
-
   return (
     <section
       id="populyar"
@@ -230,17 +194,17 @@ const Populyar_nov = ({ mobile }) => {
     >
       <h2 className="font-bold text-xl md:text-32 leading-36 pl-0 md:pl-3">
         {lang === "ru"
-          ? "Новые товары"
+          ? "Популярные товары"
           : lang === "en"
-          ? "New goods"
-          : "Yangi tovarlar"}
+          ? "Popular goods"
+          : "Ommabop tovarlar"}
       </h2>
       <div className="mt-10">
         <Swiper
           slidesPerView={mobile ? 2 : 4}
-          spaceBetween={mobile ? 150 : 30}
+          spaceBetween={mobile ? 170 : 30}
           slidesPerGroup={mobile ? 1 : 1}
-          loop={true}
+          loop={false}
           loopFillGroupWithBlank={true}
           pagination={false}
           navigation={false}
@@ -254,7 +218,7 @@ const Populyar_nov = ({ mobile }) => {
         >
           {loader ? (
             <div className="w-full h-[80px] md:h-[200px] flex items-center justify-center">
-              {spinner}
+              <Spinner />
             </div>
           ) : (
             tovar.map((item) => {
@@ -296,12 +260,17 @@ const Populyar_nov = ({ mobile }) => {
                           ? item.name_en
                           : item.name_uz}
                       </h3>
-                      <span className="text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin">
+                      <span
+                        className={`${
+                          item.sub_attributes.length > 0 ? "" : "h-6"
+                        } text-xs md:text-base m-0 mb-2 block leading-22 text-black-black_thin`}
+                      >
+                        {item.sub_attributes[0]?.attribute_ru}{" "}
                         {lang === "ru"
-                          ? "220х150х60см, 1662л"
+                          ? item.sub_attributes[4]?.attribute_ru
                           : lang === "en"
-                          ? "220х150х60 sm, 1662l"
-                          : "220х150х60sm, 1662l"}
+                          ? item.sub_attributes[4]?.attribute_en
+                          : item.sub_attributes[4]?.attribute_uz}
                       </span>
                       <span
                         className={`text-xs md:text-sm block line-through text-gray-text_color ${
@@ -608,13 +577,15 @@ const Populyar_nov = ({ mobile }) => {
                   className="w-full bg-blue-base rounded-xl text-white py-3"
                   type="submit"
                 >
-                  {loading
-                    ? loaderButton
-                    : lang === "ru"
-                    ? "Заказать"
-                    : lang === "en"
-                    ? "Order"
-                    : "Buyurtma berish"}
+                  {loading ? (
+                    <BtnLoader />
+                  ) : lang === "ru" ? (
+                    "Заказать"
+                  ) : lang === "en" ? (
+                    "Order"
+                  ) : (
+                    "Buyurtma berish"
+                  )}
                 </button>
               </div>
             </form>

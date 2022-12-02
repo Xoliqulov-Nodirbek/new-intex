@@ -2,7 +2,6 @@ import AboutUs from "../AboutUs/AboutUs";
 import Hero from "../Hero/Hero";
 import BuyAll from "../BuyAll/BuyAll";
 import TashkentPools from "../TashkentPools/TashkentPools";
-import { useSelector } from "react-redux";
 import Consultation from "../Consultation/Consultation";
 import { useEffect, useState } from "react";
 import Tovar_nov from "../Tovar_noviy/Tovar_noviy";
@@ -10,9 +9,6 @@ import Sale_nov from "../Sale_tovar/Sale_tovar";
 import Populyar_nov from "../Populyar_tovar/Populyar_tovar";
 
 function Main() {
-  const lang = useSelector((state) => state.data.lang);
-  const languages = useSelector((state) => state.data.localization);
-
   const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
