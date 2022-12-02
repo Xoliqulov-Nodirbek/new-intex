@@ -21,11 +21,11 @@ function Card({
   name_ru,
   name_en,
   name_uz,
+  image,
   price,
   sale,
   data,
   id,
-  image,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [numberProduct, setNumberProduct] = useState(1);

@@ -166,7 +166,7 @@ const BuyForm = () => {
           >
             <Image
               src={"/Assets/Images/BuyAll/Flag.svg"}
-              className="w-6 h-4"
+              className="w-auto h-auto"
               width={22}
               height={15}
               alt="site_logo"
