@@ -162,7 +162,7 @@ function Header() {
                       <li key={item?.id}>
                         <span
                           className="font-normal text-sm inline-block duration-150 text-black-black_thin mb-2 cursor-pointer"
-                          onClick={(e) => {
+                          onClick={() => {
                             dispatch(setCategoryId(item.id));
                           }}
                         >

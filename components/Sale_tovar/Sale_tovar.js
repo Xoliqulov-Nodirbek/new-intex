@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
 import Button from "../ComponetntModuls/button/Button";
-import Baseen from "../../public/Assets/Images/img.png";
 import { useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -387,7 +386,7 @@ const Sale_nov = ({ mobile }) => {
             <div className="flex items-start justify-between">
               <div className="border-1 rounded-lg w-[25%]">
                 <Image
-                  src={`${img}`}
+                  src={`${img}${find?.image?.at(0)}`}
                   width={100}
                   height={90}
                   alt="Product_image"
