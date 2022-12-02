@@ -352,7 +352,8 @@ function Header() {
             }}
           >
             <Image
-              className="w-menuBarWidth h-menuBarHeight"
+              priority="true"
+              className=" w-menuBarWidth h-menuBarHeight"
               src={"/Assets/Images/HeaderAndHeroImg/siteLogo.svg"}
               width={150}
               height={14}
