@@ -25,7 +25,7 @@ export default function Products({ data }) {
     axios
       .get(`${env}categories/categories`)
       .then((res) => setHeading(res?.data.find((el) => el.id == categoryId)))
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
       .finally(() => setLoader(false));
   }, [categoryId]);
 
@@ -73,7 +73,7 @@ export default function Products({ data }) {
           </h2>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
             {loader ? (
-              <div className="w-[1185px] h-[200px] flex items-center justify-center">
+              <div className="w-16 h-20 md:w-[1185px] md:h-[200px] flex items-center justify-center">
                 <Spinner />
               </div>
             ) : search.length > 0 ? (
@@ -119,11 +119,6 @@ export default function Products({ data }) {
                 );
               })
             )}
-          </div>
-          <div className="w-fit mx-auto mt-8 md:mt-5 mb-20 md:mb-3 bg-blue-btn_bg px-34 md:px-10 py-11 md:py-4 rounded-xl">
-            <button className="font-medium text-lg text-blue-base">
-              {languages[lang].show}
-            </button>
           </div>
         </div>
       </div>
