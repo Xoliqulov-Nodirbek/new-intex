@@ -1,13 +1,13 @@
-import Image from "next/image";
-
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function TashkentPools() {
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
+
   useEffect(() => {
     AOS.init();
   });

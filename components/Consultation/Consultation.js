@@ -1,9 +1,9 @@
-import Image from "next/image";
-import React, { useEffect } from "react";
-import BuyForm from "../ComponetntModuls/Forms/BuyForm";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import BuyForm from "../ComponetntModuls/Forms/BuyForm";
 
 const Consultation = () => {
   useEffect(() => {
