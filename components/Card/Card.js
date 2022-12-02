@@ -2,7 +2,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Button from "../ComponetntModuls/button/Button";
 import { Modal } from "../ComponetntModuls/Modal/Modal";
-import Baseen from "../../public/Assets/Images/img.png";
 import { BtnLoader } from "../Spinner/Spinner";
 import { useSelector } from "react-redux";
 import { useFormik } from "formik";
