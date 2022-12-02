@@ -34,7 +34,7 @@ function Card({
   const [find, setFind] = useState({});
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
-
+console.log(image);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -204,8 +204,10 @@ function Card({
         <div className="md:w-[280px] md:h-[220px] mt-6 md:mt-0">
           <Image
             className="mt-2 mb-0 md:mb-3 w-[98%] h-full object-cover"
-            src={Baseen}
+            src='https://web-production-5638.up.railway.app/fbeda95af8431581d2ecd44618c63015.png'
             alt="baseen_product_image"
+            layout = "fill"
+            
             width={280}
             height={220}
           />
