@@ -335,7 +335,7 @@ function Card({
             <div className="flex items-start justify-between">
               <div className="border-1 rounded-lg w-[25%]">
                 <Image
-                  src={`${img}`}
+                  src={`${img}${image[0]}`}
                   width={100}
                   height={90}
                   alt="Product_image"
