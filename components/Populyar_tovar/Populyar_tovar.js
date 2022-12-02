@@ -20,6 +20,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
+const img = process.env.NEXT_PUBLIC_IMG;
 
 const Populyar_nov = ({ mobile }) => {
   const [loader, setLoader] = useState(true);
@@ -247,7 +248,7 @@ const Populyar_nov = ({ mobile }) => {
                     <Image
                       onDragStart={(e) => e.preventDefault()}
                       className="mt-2 mb-1 md:mb-4"
-                      src={Baseen}
+                      src={`${img}${item.image[0]}`}
                       alt="baseen_product_image"
                       width={280}
                       height={220}
@@ -402,7 +403,7 @@ const Populyar_nov = ({ mobile }) => {
             <div className="flex items-start justify-between">
               <div className="border-1 rounded-lg w-[25%]">
                 <Image
-                  src={Baseen}
+                  src={`${img}`}
                   width={100}
                   height={90}
                   alt="Product_image"

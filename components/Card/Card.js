@@ -12,6 +12,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
+const img = process.env.NEXT_PUBLIC_IMG;
 
 function Card({
   sub_attributes,
@@ -34,7 +35,7 @@ function Card({
   const [find, setFind] = useState({});
   const lang = useSelector((state) => state.data.lang);
   const languages = useSelector((state) => state.data.localization);
-console.log(image);
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -204,10 +205,9 @@ console.log(image);
         <div className="md:w-[280px] md:h-[220px] mt-6 md:mt-0">
           <Image
             className="mt-2 mb-0 md:mb-3 w-[98%] h-full object-cover"
-            src='https://web-production-5638.up.railway.app/fbeda95af8431581d2ecd44618c63015.png'
+            src={`${img}${image[0]}`}
             alt="baseen_product_image"
-            layout = "fill"
-            
+            layout="fill"
             width={280}
             height={220}
           />
@@ -335,7 +335,7 @@ console.log(image);
             <div className="flex items-start justify-between">
               <div className="border-1 rounded-lg w-[25%]">
                 <Image
-                  src={Baseen}
+                  src={`${img}`}
                   width={100}
                   height={90}
                   alt="Product_image"
