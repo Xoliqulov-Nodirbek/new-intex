@@ -241,7 +241,7 @@ const Sale_nov = ({ mobile }) => {
                     <Image
                       onDragStart={(e) => e.preventDefault()}
                       className="mt-2 mb-1 md:mb-4"
-                      src={`${img}${item.image[0]}`}
+                      src={`${img}${item.image}`}
                       alt="baseen_product_image"
                       width={280}
                       height={220}
